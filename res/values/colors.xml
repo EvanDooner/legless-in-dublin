@@ -4,6 +4,9 @@
         name="deepblue"
         >#2980b9</color>
     <color
+        name="lightblue"
+        >#3498db</color>
+    <color
         name="white"
         >#FFFFFF</color>
 </resources>
