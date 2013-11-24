@@ -3,10 +3,17 @@
 
     <string name="app_name">Legless in Dublin</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_search_results_list">Search Results</string>
     <string name="title_activity_rate_venue">Rate Venue</string>
     <string name="title_activity_add_new_venue">Add New Venue</string>
-
+    <string name="selectVenue">Select Venue Type</string>
+    <string name="selectLocation">Select Location</string>
+    <string name="venue">Venue Types Here</string>
+    <string name="location">Dublin Locations Here</string>
+    <string name="terms">Terms and conditions viewable here</string>
+    <string name="logoDescription">Legless In Dublin Logo</string>
+    <string name="hello_world">Hello, World!</string>
+    <string name="title_activity_splash_screen">Legless in Dublin</string>
+    
+<!-- comment here -->
 </resources>
