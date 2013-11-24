@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/lightblue"
+        android:prompt="@string/venuePrompt"
         android:text="@string/venue"
         android:textSize="20sp" />
 
@@ -55,8 +56,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/lightblue"
+        android:prompt="@string/locationPrompt"
         android:text="@string/location"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bSubmit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:minHeight="0dp"
+        android:text="@string/submit"
+        android:textColor="@color/deepblue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/bTerms1"
