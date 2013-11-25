@@ -1,5 +1,5 @@
 
-package dev.maynooth.mobile.leglessindublin;
+package dev.maynooth.mobile.leglessindublin.datastore;
 
 import android.content.ContentValues;
 import android.content.Context;
