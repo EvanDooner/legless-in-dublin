@@ -40,6 +40,9 @@ public class LeglessDbAdapter {
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
     
+    public SQLiteDatabase getDbConnect() {
+    	return mDb;
+    }
 
      
     //Venue table creation sql statement  
@@ -73,8 +76,8 @@ public class LeglessDbAdapter {
     		"CONSTRAINT rating_fk FOREIGN KEY(venue_id) REFERENCES venue(_id));";
     
     private static final String DATABASE_NAME = "data";
-    private static final String DATABASE_VENUE_TABLE = "venue";
-    private static final String DATABASE_RATING_TABLE = "rating";
+    public static final String DATABASE_VENUE_TABLE = "venue";
+    public static final String DATABASE_RATING_TABLE = "rating";
     private static final int DATABASE_VERSION = 2;
 
     private final Context mCtx;

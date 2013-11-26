@@ -2,6 +2,8 @@ package dev.maynooth.mobile.leglessindublin.datastore;
 
 import java.util.List;
 
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Represents a database model of a venue rating.
  * 
@@ -41,6 +43,7 @@ public class Rating implements Model {
 	 * @return all ratings
 	 */
 	public static List<Rating> listAll() {
+		
 		return null;
 	}
 	
@@ -83,19 +86,19 @@ public class Rating implements Model {
 	}
 
 	@Override // See Model.java for comments
-	public void delete(/* Might need to pass in a DatabaseHelper here */) {
+	public void delete(SQLiteDatabase dbConnect) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override // See Model.java for comments
-	public void save(/* Might need to pass in a DatabaseHelper here */) {
+	public void save(SQLiteDatabase dbConnect) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override // See Model.java for comments
-	public void update(/* Might need to pass in a DatabaseHelper here */) {
+	public void update(SQLiteDatabase dbConnect) {
 		// TODO Auto-generated method stub
 
 	}

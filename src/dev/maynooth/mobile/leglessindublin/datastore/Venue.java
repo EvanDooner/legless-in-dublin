@@ -2,6 +2,8 @@ package dev.maynooth.mobile.leglessindublin.datastore;
 
 import java.util.List;
 
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Represents a database model of a venue.
  * 
@@ -29,6 +31,14 @@ public class Venue implements Model {
 			this.fieldName = fieldName;
 		}
 	}
+	
+	private int rowid;
+	private String name;
+	private String addressLine1;
+	private String addressLine2;
+	private String addressLine3;
+	private String category;
+	private int totalRating;
 	
 	/**
 	 * Lists all venues in the database
@@ -66,26 +76,82 @@ public class Venue implements Model {
 	
 	// Either specify all fields in constructor, or allow them to be set after construction
 	// using setters. Could also look into using a Builder pattern, but prob. overkill
-	public Venue() {
-		
+	public Venue(String name, String addressLine1, String category) {
+		this.name = name;
+		this.addressLine1 = addressLine1;
+		this.category = category;
+	}
+	
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	@Override // See Model.java for comments
-	public void delete(/* Might need to pass in a DatabaseHelper here */) {
+	public void delete(SQLiteDatabase dbConnect) {
+
+		//Delete any associated ratings before deleting a venue?
+        dbConnect.delete(LeglessDbAdapter.DATABASE_VENUE_TABLE, VenueField.ROWID.fieldName + "=" + this.rowid, null);
+
+	}
+
+	@Override // See Model.java for comments
+	public void save(SQLiteDatabase dbConnect) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override // See Model.java for comments
-	public void save(/* Might need to pass in a DatabaseHelper here */) {
+	public void update(SQLiteDatabase dbConnect) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override // See Model.java for comments
-	public void update(/* Might need to pass in a DatabaseHelper here */) {
-		// TODO Auto-generated method stub
+	public int getRowid() {
+		return rowid;
+	}
 
+	public String getName() {
+		return name;
+	}
+
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public String getAddressLine3() {
+		return addressLine3;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public int getTotalRating() {
+		return totalRating;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public void setAddressLine3(String addressLine3) {
+		this.addressLine3 = addressLine3;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public void setTotalRating(int totalRating) {
+		this.totalRating = totalRating;
 	}
 
 }
