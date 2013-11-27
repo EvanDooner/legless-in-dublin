@@ -19,7 +19,32 @@
     <string name="submit">Submit</string>
     <string name="locationPrompt">Choose location&#8230;</string>
     <string name="venuePrompt">Choose venue&#8230;</string>
-    
+    <string name="addNewVenue">Add New Venue</string>
+    <string name="venueName">Venue Name:</string>
+    <string name="venueType">Venue Type:</string>
+    <string name="address1">Address:</string>
+    <string name="address2">Town:</string>
+    <string name="address3">Postal Code:</string>
+    <string name="postalCodePrompt">Choose postal code&#8230;</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="entrance">Entrance:</string>
+    <string name="doors">Doors:</string>
+    <string name="flooring">Flooring:</string>
+    <string name="steps">Steps:</string>
+    <string name="lifts">Lifts:</string>
+    <string name="bathrooms">Bathrooms:</string>
+    <string name="layout">Internal Layout:</string>
+    <string name="staff">Friendliness of Staff:</string>
+    <string name="parking">Car Parking:</string>
+    <string name="thankyou1">Thank you for contributing to</string>
+    <string name="thankyou2">Legless In Dublin.</string>
+    <string name="thankyou3">Your rating helps others and</string>
+    <string name="thankyou4">makes our app stronger.</string>
     
 <!-- comment here -->
 </resources>
