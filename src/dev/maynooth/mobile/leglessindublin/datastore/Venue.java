@@ -2,6 +2,7 @@ package dev.maynooth.mobile.leglessindublin.datastore;
 
 import java.util.List;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -82,29 +83,40 @@ public class Venue implements Model {
 		this.category = category;
 	}
 	
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-
-	@Override // See Model.java for comments
+	@Override // Removes this venue model from the database
 	public void delete(SQLiteDatabase dbConnect) {
-
 		//Delete any associated ratings before deleting a venue?
         dbConnect.delete(LeglessDbAdapter.DATABASE_VENUE_TABLE, VenueField.ROWID.fieldName + "=" + this.rowid, null);
-
 	}
 
-	@Override // See Model.java for comments
+	@Override // Persists this venue model to the database
 	public void save(SQLiteDatabase dbConnect) {
-		// TODO Auto-generated method stub
-
+		
+		ContentValues initialValues = new ContentValues();
+		initialValues.put(VenueField.NAME.fieldName, this.name);
+		initialValues.put(VenueField.ADDRESS_1.fieldName, this.addressLine1);
+		initialValues.put(VenueField.ADDRESS_2.fieldName, this.addressLine2);	
+		initialValues.put(VenueField.ADDRESS_3.fieldName, this.addressLine3);
+		initialValues.put(VenueField.CATEGORY.fieldName, this.category);
+		initialValues.put(VenueField.TOT_RATING.fieldName, this.totalRating);
+		
+		dbConnect.insert(LeglessDbAdapter.DATABASE_VENUE_TABLE, null, initialValues);
 	}
+	
 
-	@Override // See Model.java for comments
+	@Override // Updates this venue model's record in the database
 	public void update(SQLiteDatabase dbConnect) {
-		// TODO Auto-generated method stub
-
-	}
+		
+		ContentValues args = new ContentValues();
+		args.put(VenueField.NAME.fieldName, this.name);
+		args.put(VenueField.ADDRESS_1.fieldName, this.addressLine1);
+		args.put(VenueField.ADDRESS_2.fieldName, this.addressLine2);
+		args.put(VenueField.ADDRESS_3.fieldName, this.addressLine3);
+		args.put(VenueField.CATEGORY.fieldName, this.category);
+		args.put(VenueField.TOT_RATING.fieldName, this.totalRating);
+		
+		dbConnect.update(LeglessDbAdapter.DATABASE_VENUE_TABLE, args, VenueField.ROWID.fieldName + "=" + this.rowid, null);
+	}	
 
 	public int getRowid() {
 		return rowid;
@@ -140,6 +152,10 @@ public class Venue implements Model {
 
 	public void setAddressLine1(String addressLine1) {
 		this.addressLine1 = addressLine1;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	public void setAddressLine3(String addressLine3) {

@@ -1,7 +1,7 @@
 
 package dev.maynooth.mobile.leglessindublin.datastore;
 
-import android.content.ContentValues;
+//import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -135,77 +135,81 @@ public class LeglessDbAdapter {
         mDbHelper.close();
     }
 
-
-    /**
-     * Create a new venue using the fields provided. If the venue is
-     * successfully created return the new rowId for that venue, otherwise return
-     * a -1 to indicate failure.
-     * 
-     * @param fields of the venue
-     * @return rowId or -1 if failed
-     */
-    public long createVenue(String name, String line1, String line2, String line3, 
-    		String category, int tot_rating) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(V_NAME, name);
-        initialValues.put(V_ADDRESS_LINE1, line1);
-        initialValues.put(V_ADDRESS_LINE2, line2);
-        initialValues.put(V_ADDRESS_LINE3, line3);
-        initialValues.put(V_CATEGORY, category);
-        initialValues.put(V_TOT_RATING, tot_rating);
-
-        return mDb.insert(DATABASE_VENUE_TABLE, null, initialValues);
-    }
+// // THIS METHOD IS REPLACED BY THE save() METHOD IN THE VENUE CLASS - DM - 27.11.13
+//    /**
+//     * Create a new venue using the fields provided. If the venue is
+//     * successfully created return the new rowId for that venue, otherwise return
+//     * a -1 to indicate failure.
+//     * 
+//     * @param fields of the venue
+//     * @return rowId or -1 if failed
+//     */
+//    public long createVenue(String name, String line1, String line2, String line3, 
+//    		String category, int tot_rating) {
+//        ContentValues initialValues = new ContentValues();
+//        initialValues.put(V_NAME, name);
+//        initialValues.put(V_ADDRESS_LINE1, line1);
+//        initialValues.put(V_ADDRESS_LINE2, line2);
+//        initialValues.put(V_ADDRESS_LINE3, line3);
+//        initialValues.put(V_CATEGORY, category);
+//        initialValues.put(V_TOT_RATING, tot_rating);
+//
+//        return mDb.insert(DATABASE_VENUE_TABLE, null, initialValues);
+//    }
     
-    /**
-     * Create a new rating using the fields provided. If the rating is
-     * successfully created return the new rowId for that rating, otherwise return
-     * a -1 to indicate failure.
-     * 
-     * @param fields of the rating
-     * @return rowId or -1 if failed
-     */
-    public long createRating(int venue_id, int approach, int doors, 
-    		int flooring, int steps, int lifts, int bathrooms, int layout, 
-    		int staff, int parking, int sub_rating) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(R_VENUE_ID, venue_id);
-        initialValues.put(R_APPROACH, approach);
-        initialValues.put(R_DOORS, doors);
-        initialValues.put(R_FLOORING, flooring);
-        initialValues.put(R_STEPS, steps);
-        initialValues.put(R_LIFTS, lifts);
-        initialValues.put(R_BATHROOMS, bathrooms);
-        initialValues.put(R_LAYOUT, layout);
-        initialValues.put(R_STAFF, staff);
-        initialValues.put(R_PARKING, parking);
-        initialValues.put(R_SUB_RATING, sub_rating);
-
-        return mDb.insert(DATABASE_RATING_TABLE, null, initialValues);
-    }
-
-    /**
-     * Delete the venue with the given rowId
-     * 
-     * @param rowId id of venue to delete
-     * @return true if deleted, false otherwise
-     */
-    public boolean deleteVenue(long rowId) {
-    	
-    	//Delete any associated ratings before deleting a venue?
-        return mDb.delete(DATABASE_VENUE_TABLE, V_ROWID + "=" + rowId, null) > 0;
-    }
+// THIS METHOD IS REPLACED BY THE SAVE() METHOD IN THE RATING CLASS - DM - 27.11.13
+//    /**
+//     * Create a new rating using the fields provided. If the rating is
+//     * successfully created return the new rowId for that rating, otherwise return
+//     * a -1 to indicate failure.
+//     * 
+//     * @param fields of the rating
+//     * @return rowId or -1 if failed
+//     */
+//    public long createRating(int venue_id, int approach, int doors, 
+//    		int flooring, int steps, int lifts, int bathrooms, int layout, 
+//    		int staff, int parking, int sub_rating) {
+//        ContentValues initialValues = new ContentValues();
+//        initialValues.put(R_VENUE_ID, venue_id);
+//        initialValues.put(R_APPROACH, approach);
+//        initialValues.put(R_DOORS, doors);
+//        initialValues.put(R_FLOORING, flooring);
+//        initialValues.put(R_STEPS, steps);
+//        initialValues.put(R_LIFTS, lifts);
+//        initialValues.put(R_BATHROOMS, bathrooms);
+//        initialValues.put(R_LAYOUT, layout);
+//        initialValues.put(R_STAFF, staff);
+//        initialValues.put(R_PARKING, parking);
+//        initialValues.put(R_SUB_RATING, sub_rating);
+//
+//        return mDb.insert(DATABASE_RATING_TABLE, null, initialValues);
+//    }
     
-    /**
-     * Delete the rating with the given rowId
-     * 
-     * @param rowId id of rating to delete
-     * @return true if deleted, false otherwise
-     */
-    public boolean deleteRating(long rowId) {
-
-        return mDb.delete(DATABASE_RATING_TABLE, R_ROWID + "=" + rowId, null) > 0;
-    }
+// THIS METHOD IS REPLACED BY THE delete() METHOD IN THE VENUE CLASS - DM - 27.11.13
+//    /**
+//     * Delete the venue with the given rowId
+//     * 
+//     * @param rowId id of venue to delete
+//     * @return true if deleted, false otherwise
+//     */
+//    public boolean deleteVenue(long rowId) {
+//    	
+//    	//Delete any associated ratings before deleting a venue?
+//        return mDb.delete(DATABASE_VENUE_TABLE, V_ROWID + "=" + rowId, null) > 0;
+//    }
+    
+    
+// THIS METHOD IS REPLACED BY THE delete() METHOD IN THE RATING CLASS - DM - 27.11.13    
+//    /**
+//     * Delete the rating with the given rowId
+//     * 
+//     * @param rowId id of rating to delete
+//     * @return true if deleted, false otherwise
+//     */
+//    public boolean deleteRating(long rowId) {
+//
+//        return mDb.delete(DATABASE_RATING_TABLE, R_ROWID + "=" + rowId, null) > 0;
+//    }
 
     /**
      * Return a Cursor over the list of all venues in the database
@@ -277,52 +281,55 @@ public class LeglessDbAdapter {
 
     }
 
-    /**
-     * Update the venue fields using the details provided. The venue to be updated is
-     * specified using the rowId, and it is altered to use the parameter
-     * values passed in
-     * 
-     * @param values to set venue fields to
-     * @return true if the venue was successfully updated, false otherwise
-     */
-    public boolean updateVenue(long rowId, String name, String line1, String line2, 
-    		String line3, String category, int tot_rating) {
-        ContentValues args = new ContentValues();
-        args.put(V_NAME, name);
-        args.put(V_ADDRESS_LINE1, line1);
-        args.put(V_ADDRESS_LINE2, line2);
-        args.put(V_ADDRESS_LINE3, line3);
-        args.put(V_CATEGORY, category);
-        args.put(V_TOT_RATING, tot_rating);
-
-        return mDb.update(DATABASE_VENUE_TABLE, args, V_ROWID + "=" + rowId, null) > 0;
-    }
+// // THIS METHOD IS REPLACED BY THE update() METHOD IN THE VENUE CLASS - DM - 27.11.13
+//    /**
+//     * Update the venue fields using the details provided. The venue to be updated is
+//     * specified using the rowId, and it is altered to use the parameter
+//     * values passed in
+//     * 
+//     * @param values to set venue fields to
+//     * @return true if the venue was successfully updated, false otherwise
+//     */
+//    public boolean updateVenue(long rowId, String name, String line1, String line2, 
+//    		String line3, String category, int tot_rating) {
+//        ContentValues args = new ContentValues();
+//        args.put(V_NAME, name);
+//        args.put(V_ADDRESS_LINE1, line1);
+//        args.put(V_ADDRESS_LINE2, line2);
+//        args.put(V_ADDRESS_LINE3, line3);
+//        args.put(V_CATEGORY, category);
+//        args.put(V_TOT_RATING, tot_rating);
+//
+//        return mDb.update(DATABASE_VENUE_TABLE, args, V_ROWID + "=" + rowId, null) > 0;
+//    }
     
-    /**
-     * Update the rating using the details provided. The rating to be updated is
-     * specified using the rowId, and it is altered to use the parameter
-     * values passed in
-     * 
-     * @param values to set rating fields to
-     * @return true if the rating was successfully updated, false otherwise
-     */
-    public boolean updateRating(long rowId, int venue_id, int approach, int doors, 
-    		int flooring, int steps, int lifts, int bathrooms, int layout, 
-    		int staff, int parking, int sub_rating) {
-        ContentValues args = new ContentValues();
-        args.put(R_VENUE_ID, venue_id);
-        args.put(R_APPROACH, approach);
-        args.put(R_DOORS, doors);
-        args.put(R_FLOORING, flooring);
-        args.put(R_STEPS, steps);
-        args.put(R_LIFTS, lifts);
-        args.put(R_BATHROOMS, bathrooms);
-        args.put(R_LAYOUT, layout);
-        args.put(R_STAFF, staff);
-        args.put(R_PARKING, parking);
-        args.put(R_SUB_RATING, sub_rating);
-
-        return mDb.update(DATABASE_RATING_TABLE, args, R_ROWID + "=" + rowId, null) > 0;
-    }
+    
+ // THIS METHOD IS REPLACED BY THE update() METHOD IN THE RATING CLASS - DM - 27.11.13    
+//    /**
+//     * Update the rating using the details provided. The rating to be updated is
+//     * specified using the rowId, and it is altered to use the parameter
+//     * values passed in
+//     * 
+//     * @param values to set rating fields to
+//     * @return true if the rating was successfully updated, false otherwise
+//     */
+//    public boolean updateRating(long rowId, int venue_id, int approach, int doors, 
+//    		int flooring, int steps, int lifts, int bathrooms, int layout, 
+//    		int staff, int parking, int sub_rating) {
+//        ContentValues args = new ContentValues();
+//        args.put(R_VENUE_ID, venue_id);
+//        args.put(R_APPROACH, approach);
+//        args.put(R_DOORS, doors);
+//        args.put(R_FLOORING, flooring);
+//        args.put(R_STEPS, steps);
+//        args.put(R_LIFTS, lifts);
+//        args.put(R_BATHROOMS, bathrooms);
+//        args.put(R_LAYOUT, layout);
+//        args.put(R_STAFF, staff);
+//        args.put(R_PARKING, parking);
+//        args.put(R_SUB_RATING, sub_rating);
+//
+//        return mDb.update(DATABASE_RATING_TABLE, args, R_ROWID + "=" + rowId, null) > 0;
+//    }
     
 }
