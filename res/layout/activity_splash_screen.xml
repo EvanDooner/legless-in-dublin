@@ -5,6 +5,8 @@
     tools:context=".SplashScreen"
     android:background="@color/deepblue" >
 
+    <!-- test comment here -->
+    
     <ImageView
         android:id="@+id/splashLogo"
         android:contentDescription="@string/logoDescription"

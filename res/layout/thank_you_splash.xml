@@ -5,6 +5,8 @@
     tools:context=".SplashScreen"
     android:background="@color/deepblue" >
 
+<!-- test comment here -->
+
     <TextView
         android:id="@+id/tvThankYou1"
         android:layout_width="wrap_content"

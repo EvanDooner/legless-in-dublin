@@ -10,6 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainMenu" >
 
+    <!-- test comment here -->
+    
     <ImageView
         android:id="@+id/ivLogo1"
         android:layout_width="wrap_content"

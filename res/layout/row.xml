@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
     
+    <!-- test comment here -->
+    
 	<TextView
 		android:id="@+id/resultName"
 		android:layout_width="wrap_content"

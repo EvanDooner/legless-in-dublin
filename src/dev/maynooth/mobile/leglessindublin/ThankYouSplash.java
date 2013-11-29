@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 public class ThankYouSplash extends Activity{
 
+	//test uodate
 	//variable for splash screen sound
 	MediaPlayer splashSound;
 	
