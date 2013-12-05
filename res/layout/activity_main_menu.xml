@@ -10,8 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainMenu" >
 
-    <!-- test comment here -->
+    <!-- Main activity to search for venue ratings based on venue type and location -->
+    <!-- Author: Ian Lamon -->
     
+    <!-- Logo at top of activity -->
     <ImageView
         android:id="@+id/ivLogo1"
         android:layout_width="wrap_content"
@@ -21,6 +23,7 @@
         android:padding="30dp"
         android:src="@drawable/legless_in_dublin_logo" />
 
+    <!-- Select Venue type text view and spinner -->
     <TextView
         android:id="@+id/tvVenue1"
         android:layout_width="wrap_content"
@@ -41,6 +44,7 @@
         android:text="@string/venue"
         android:textSize="20sp" />
 
+    <!-- Select Venue location text view and spinner -->
     <TextView
         android:id="@+id/tvLocation1"
         android:layout_width="wrap_content"
@@ -62,6 +66,7 @@
         android:text="@string/location"
         android:textSize="20sp" />
 
+    <!-- Submit button -->
     <Button
         android:id="@+id/bSubmit1"
         android:layout_width="wrap_content"
@@ -74,6 +79,7 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
+    <!-- View terms and conditions button -->
     <Button
         android:id="@+id/bTerms1"
         android:layout_width="wrap_content"

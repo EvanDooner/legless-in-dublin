@@ -5,8 +5,10 @@
     tools:context=".SplashScreen"
     android:background="@color/deepblue" >
 
-    <!-- test comment here -->
+    <!-- Splash Screen to thank user for rating a venue -->
+    <!-- Author: Ian Lamon -->
     
+    <!-- Legless In Dublin Logo displayed on splash screen -->
     <ImageView
         android:id="@+id/splashLogo"
         android:contentDescription="@string/logoDescription"

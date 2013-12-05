@@ -5,8 +5,10 @@
     tools:context=".SplashScreen"
     android:background="@color/deepblue" >
 
-<!-- test comment here -->
-
+    <!-- Splash Screen to thank user for rating a venue -->
+    <!-- Author: Ian Lamon -->
+    
+	<!-- Thank you message over 4 lines -->
     <TextView
         android:id="@+id/tvThankYou1"
         android:layout_width="wrap_content"
@@ -53,6 +55,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <!-- Logo at bottom of screen -->
     <ImageView
         android:id="@+id/splashLogo"
         android:layout_width="wrap_content"

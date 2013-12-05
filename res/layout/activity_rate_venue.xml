@@ -9,8 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddNewVenue" >
 
-    <!-- test comment here -->
-    
+    <!-- Rating activity to score a venue on specified criteria -->
+    <!-- Author: Ian Lamon -->
+
+
+    <!-- Rating subject 1: Entrance -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,57 +29,17 @@
             android:text="@string/entrance" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupEntrance"
+    <fragment
+        android:id="@+id/entranceRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioEntrance0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioEntrance1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioEntrance2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioEntrance3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioEntrance4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioEntrance5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine1"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 2: Doors -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,57 +54,17 @@
             android:text="@string/doors" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupDoors"
+    <fragment
+        android:id="@+id/doorsRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioDoors0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioDoors1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioDoors2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioDoors3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioDoors4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioDoors5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine2"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 3: Flooring -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,57 +79,17 @@
             android:text="@string/flooring" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupFlooring"
+    <fragment
+        android:id="@+id/flooringRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioFlooring0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioFlooring1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioFlooring2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioFlooring3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioFlooring4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioFlooring5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine3"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 4: Steps -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -219,57 +104,17 @@
             android:text="@string/steps" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupSteps"
+    <fragment
+        android:id="@+id/stepsRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioSteps0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioSteps1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioSteps2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioSteps3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioSteps4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioSteps5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine4"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 5: Lifts -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -284,57 +129,17 @@
             android:text="@string/lifts" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupLifts"
+    <fragment
+        android:id="@+id/liftsRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioLifts0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioLifts1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioLifts2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioLifts3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioLifts4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioLifts5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine5"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 6: Bathrooms -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -349,57 +154,17 @@
             android:text="@string/bathrooms" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupBathrooms"
+    <fragment
+        android:id="@+id/bathroomsRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioBathrooms0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioBathrooms1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioBathrooms2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioBathrooms3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioBathrooms4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioBathrooms5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine6"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 7: Internal Layout -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -414,57 +179,17 @@
             android:text="@string/layout" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupLayout"
+    <fragment
+        android:id="@+id/layoutRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioLayout0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioLayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioLayout5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine7"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 8: Staff -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -479,57 +204,17 @@
             android:text="@string/staff" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupStaff"
+    <fragment
+        android:id="@+id/staffRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioStaff0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioStaff1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioStaff2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioStaff3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioStaff4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioStaff5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine8"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Rating subject 9: Parking -->
+    <!-- Section consists of text (name of crieria being rated) -->
+    <!-- followed by rate_fragment to display buttons 0-5 for rating score -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -544,57 +229,15 @@
             android:text="@string/parking" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroupParking"
+    <fragment
+        android:id="@+id/parkingRating"
+        android:name="R.layout.rate_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:id="@+id/radioParking0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/zero" />
-
-        <RadioButton
-            android:id="@+id/radioParking1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/one" />
-
-        <RadioButton
-            android:id="@+id/radioParking2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two" />
-
-        <RadioButton
-            android:id="@+id/radioParking3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three" />
-
-        <RadioButton
-            android:id="@+id/radioParking4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four" />
-
-        <RadioButton
-            android:id="@+id/radioParking5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvLine9"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#2980b9" />
-
+    <!-- Submit Button -->
     <Button
         android:id="@+id/bSubmit2"
         android:layout_width="wrap_content"
@@ -607,6 +250,7 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
+    <!-- Logo at bottom of screen -->
     <ImageView
         android:id="@+id/ivLogo2"
         android:layout_width="wrap_content"

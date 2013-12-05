@@ -3,36 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
-    
-    <!-- test comment here -->
-    
-	<TextView
-		android:id="@+id/resultName"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_weight="55"
-		android:textSize="18sp"
-		android:text="Result Here"/>
 
-	<RatingBar
-	    android:id="@+id/venueRatingBar"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    style="?android:attr/ratingBarStyleSmall"
-	    android:layout_gravity="center"
-	    android:numStars="5"
-		android:stepSize="0.5"
-		android:rating="2.5" />
+    <!-- Fragment for Search Results. Contains Venue Name, their rating -->
+    <!-- and button to go to rate this venue activity -->
+    <!-- Author: Ian Lamon -->
 
-	<Button
-		android:id="@+id/rateMeButton"
-		style="?android:attr/buttonStyleSmall"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_weight="10"
-	    android:minHeight="0dp"
-		android:minWidth="0dp"
-	    android:textSize="12sp"
-	    android:text="@string/rateMe" />
-	
+
+    <!-- Text view to display Venue name -->
+    <TextView
+        android:id="@+id/resultName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="55"
+        android:text="Result Here"
+        android:textSize="18sp" />
+
+    <!-- Rating Bar to display venue rating out of 5 stars -->
+    <RatingBar
+        android:id="@+id/venueRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:numStars="5"
+        android:rating="2.5"
+        android:stepSize="0.5" />
+
+    <!-- Button to go to rate this venue activity -->
+    <Button
+        android:id="@+id/rateMeButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:text="@string/rateMe"
+        android:textSize="12sp" />
+
 </LinearLayout>
