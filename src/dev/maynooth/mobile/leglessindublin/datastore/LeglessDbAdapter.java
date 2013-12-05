@@ -211,75 +211,75 @@ public class LeglessDbAdapter {
 //        return mDb.delete(DATABASE_RATING_TABLE, R_ROWID + "=" + rowId, null) > 0;
 //    }
 
-    /**
-     * Return a Cursor over the list of all venues in the database
-     * 
-     * @return Cursor over all venues
-     */
-    public Cursor fetchAllVenues() {
-
-        return mDb.query(DATABASE_VENUE_TABLE, new String[] {V_ROWID, V_NAME, V_ADDRESS_LINE1, 
-        		V_ADDRESS_LINE2, V_ADDRESS_LINE3, V_CATEGORY, 
-        		V_TOT_RATING}, null, null, null, null, null);
-    }
+//    /**
+//     * Return a Cursor over the list of all venues in the database
+//     * 
+//     * @return Cursor over all venues
+//     */
+//    public Cursor fetchAllVenues() {
+//
+//        return mDb.query(DATABASE_VENUE_TABLE, new String[] {V_ROWID, V_NAME, V_ADDRESS_LINE1, 
+//        		V_ADDRESS_LINE2, V_ADDRESS_LINE3, V_CATEGORY, 
+//        		V_TOT_RATING}, null, null, null, null, null);
+//    }
     
-    /**
-     * Return a Cursor over the list of all ratings in the database
-     * 
-     * @return Cursor over all ratings
-     */
-    public Cursor fetchAllRatings() {
+//    /**
+//     * Return a Cursor over the list of all ratings in the database
+//     * 
+//     * @return Cursor over all ratings
+//     */
+//    public Cursor fetchAllRatings() {
+//
+//        return mDb.query(DATABASE_RATING_TABLE, new String[] {R_ROWID, R_VENUE_ID, 
+//        		R_APPROACH, R_DOORS, R_FLOORING, R_STEPS, R_LIFTS, R_BATHROOMS, 
+//        		R_LAYOUT, R_STAFF, R_PARKING, R_SUB_RATING}, null, null, null, 
+//        		null, null);
+//    }
 
-        return mDb.query(DATABASE_RATING_TABLE, new String[] {R_ROWID, R_VENUE_ID, 
-        		R_APPROACH, R_DOORS, R_FLOORING, R_STEPS, R_LIFTS, R_BATHROOMS, 
-        		R_LAYOUT, R_STAFF, R_PARKING, R_SUB_RATING}, null, null, null, 
-        		null, null);
-    }
-
-    /**
-     * Return a Cursor positioned at the venue that matches the given rowId
-     * 
-     * @param rowId id of venue to retrieve
-     * @return Cursor positioned to matching venue, if found
-     * @throws SQLException if venue could not be found/retrieved
-     */
-    public Cursor fetchVenue(long rowId) throws SQLException {
-
-        Cursor mCursor =
-
-            mDb.query(true, DATABASE_VENUE_TABLE, new String[] {V_ROWID, V_NAME,
-                    V_ADDRESS_LINE1, V_ADDRESS_LINE2, V_ADDRESS_LINE3, 
-                    V_CATEGORY, V_TOT_RATING}, V_ROWID + "=" + rowId, null,
-                    null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
-        return mCursor;
-
-    }
+//    /**
+//     * Return a Cursor positioned at the venue that matches the given rowId
+//     * 
+//     * @param rowId id of venue to retrieve
+//     * @return Cursor positioned to matching venue, if found
+//     * @throws SQLException if venue could not be found/retrieved
+//     */
+//    public Cursor fetchVenue(long rowId) throws SQLException {
+//
+//        Cursor mCursor =
+//
+//            mDb.query(true, DATABASE_VENUE_TABLE, new String[] {V_ROWID, V_NAME,
+//                    V_ADDRESS_LINE1, V_ADDRESS_LINE2, V_ADDRESS_LINE3, 
+//                    V_CATEGORY, V_TOT_RATING}, V_ROWID + "=" + rowId, null,
+//                    null, null, null, null);
+//        if (mCursor != null) {
+//            mCursor.moveToFirst();
+//        }
+//        return mCursor;
+//
+//    }
     
-    /**
-     * Return a Cursor positioned at the rating that matches the given rowId
-     * 
-     * @param rowId id of rating to retrieve
-     * @return Cursor positioned to matching rating, if found
-     * @throws SQLException if rating could not be found/retrieved
-     */
-    public Cursor fetchRating(long rowId) throws SQLException {
-
-        Cursor mCursor =
-
-            mDb.query(true, DATABASE_RATING_TABLE, new String[] {R_ROWID,
-                    R_VENUE_ID, R_APPROACH, R_DOORS, R_FLOORING, R_STEPS, 
-                    R_LIFTS, R_BATHROOMS, R_LAYOUT, R_STAFF, R_PARKING, R_SUB_RATING}, 
-                    R_ROWID + "=" + rowId, null,
-                    null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
-        return mCursor;
-
-    }
+//    /**
+//     * Return a Cursor positioned at the rating that matches the given rowId
+//     * 
+//     * @param rowId id of rating to retrieve
+//     * @return Cursor positioned to matching rating, if found
+//     * @throws SQLException if rating could not be found/retrieved
+//     */
+//    public Cursor fetchRating(long rowId) throws SQLException {
+//
+//        Cursor mCursor =
+//
+//            mDb.query(true, DATABASE_RATING_TABLE, new String[] {R_ROWID,
+//                    R_VENUE_ID, R_APPROACH, R_DOORS, R_FLOORING, R_STEPS, 
+//                    R_LIFTS, R_BATHROOMS, R_LAYOUT, R_STAFF, R_PARKING, R_SUB_RATING}, 
+//                    R_ROWID + "=" + rowId, null,
+//                    null, null, null, null);
+//        if (mCursor != null) {
+//            mCursor.moveToFirst();
+//        }
+//        return mCursor;
+//
+//    }
 
 // // THIS METHOD IS REPLACED BY THE update() METHOD IN THE VENUE CLASS - DM - 27.11.13
 //    /**

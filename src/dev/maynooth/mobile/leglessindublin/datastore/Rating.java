@@ -1,10 +1,12 @@
 package dev.maynooth.mobile.leglessindublin.datastore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dev.maynooth.mobile.leglessindublin.datastore.Venue.VenueField;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -58,9 +60,43 @@ public class Rating implements Model {
 	 * 
 	 * @return all ratings
 	 */
-	public static List<Rating> listAll() {
+	public static List<Rating> listAll(SQLiteDatabase dbConnect) {
+
+		Cursor mCursor =
+
+		dbConnect.query(LeglessDbAdapter.DATABASE_RATING_TABLE,
+				new String[] { RatingField.ROWID.fieldName,
+						RatingField.VENUE_ID.fieldName,
+						RatingField.APPROACH.fieldName,
+						RatingField.DOORS.fieldName,
+						RatingField.FLOORING.fieldName,
+						RatingField.STEPS.fieldName,
+						RatingField.LIFTS.fieldName, 
+						RatingField.BATHROOMS.fieldName, 
+						RatingField.LAYOUT.fieldName, 
+						RatingField.STAFF.fieldName, 
+						RatingField.PARKING.fieldName, 
+						RatingField.SUB_RATING.fieldName }, 
+						null, null, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
 		
-		return null;
+		//Create an ArrayList to hold the results of the query
+		List<Rating> ratingList = new ArrayList<Rating>();
+		//Count the number of rows in the result set
+		int rowCount = mCursor.getCount();
+		//Loop mCursor through the rows of the result set
+		while(mCursor.getPosition() < rowCount){
+			//Build a Rating object for each row
+			Rating result = buildRating(mCursor);
+			//Store each Rating object in the List
+			ratingList.add(result);
+			//Move mCursor to the next row
+			mCursor.moveToNext();
+		}
+		
+		return ratingList;
 	}
 	
 	/**
@@ -71,8 +107,37 @@ public class Rating implements Model {
 	 * @param value an int - the value of the field
 	 * @return all the ratings that match the specified requirements
 	 */
-	public static List<Rating> findEquals(RatingField field, int value) {
-		return null;
+	public static List<Rating> findEquals(RatingField field, int value, SQLiteDatabase dbConnect) {
+
+		Cursor mCursor =
+
+		dbConnect.query(LeglessDbAdapter.DATABASE_RATING_TABLE,
+				new String[] { RatingField.ROWID.fieldName,
+						RatingField.VENUE_ID.fieldName,
+						RatingField.APPROACH.fieldName,
+						RatingField.DOORS.fieldName,
+						RatingField.FLOORING.fieldName,
+						RatingField.STEPS.fieldName,
+						RatingField.LIFTS.fieldName, 
+						RatingField.BATHROOMS.fieldName, 
+						RatingField.LAYOUT.fieldName, 
+						RatingField.STAFF.fieldName, 
+						RatingField.PARKING.fieldName, 
+						RatingField.SUB_RATING.fieldName }, 
+						field.fieldName + "=" + value, null, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+		
+		List<Rating> ratingList = new ArrayList<Rating>();
+		int rowCount = mCursor.getCount();
+		while(mCursor.getPosition() < rowCount){
+			Rating result = buildRating(mCursor);
+			ratingList.add(result);		
+			mCursor.moveToNext();
+		}
+		
+		return ratingList;	
 	}
 	
 	/**
@@ -81,9 +146,39 @@ public class Rating implements Model {
 	 * @param venueId an int - the id of the associated venue
 	 * @return all the ratings associated with the specified venue
 	 */
-	public static List<Rating> findByVenueId(int venueId) {
-		return null;
+	public static List<Rating> findByVenueId(int venueId, SQLiteDatabase dbConnect) {
+
+		Cursor mCursor =
+
+		dbConnect.query(LeglessDbAdapter.DATABASE_RATING_TABLE,
+				new String[] { RatingField.ROWID.fieldName,
+				RatingField.VENUE_ID.fieldName,
+				RatingField.APPROACH.fieldName,
+				RatingField.DOORS.fieldName,
+				RatingField.FLOORING.fieldName,
+				RatingField.STEPS.fieldName,
+				RatingField.LIFTS.fieldName, 
+				RatingField.BATHROOMS.fieldName, 
+				RatingField.LAYOUT.fieldName, 
+				RatingField.STAFF.fieldName, 
+				RatingField.PARKING.fieldName, 
+				RatingField.SUB_RATING.fieldName }, 
+				RatingField.VENUE_ID.fieldName + "=" + venueId, null, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+		
+		List<Rating> ratingList = new ArrayList<Rating>();
+		int rowCount = mCursor.getCount();
+		while(mCursor.getPosition() < rowCount){
+			Rating result = buildRating(mCursor);
+			ratingList.add(result);
+			mCursor.moveToNext();
+		}
+		
+		return ratingList;		
 	}
+	
 	
 	/**
 	 * Returns a rating by id.
@@ -91,8 +186,91 @@ public class Rating implements Model {
 	 * @param ratingId an int - the id of the rating to be retrieved
 	 * @return a rating - the rating with the specified id
 	 */
-	public static Rating findById(int ratingId) {
-		return null;
+	public static Rating findById(int ratingId, SQLiteDatabase dbConnect) {
+
+		Cursor mCursor =
+
+		dbConnect.query(true, LeglessDbAdapter.DATABASE_VENUE_TABLE,
+				new String[] { RatingField.ROWID.fieldName,
+				RatingField.VENUE_ID.fieldName,
+				RatingField.APPROACH.fieldName,
+				RatingField.DOORS.fieldName,
+				RatingField.FLOORING.fieldName,
+				RatingField.STEPS.fieldName,
+				RatingField.LIFTS.fieldName, 
+				RatingField.BATHROOMS.fieldName, 
+				RatingField.LAYOUT.fieldName, 
+				RatingField.STAFF.fieldName, 
+				RatingField.PARKING.fieldName, 
+				RatingField.SUB_RATING.fieldName },
+				RatingField.ROWID.fieldName + "=" + ratingId, null, null, null,
+				null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+		
+		Rating result = buildRating(mCursor);
+		
+		return result;		
+	}
+	
+	/**
+	 * Builds a Rating object from the values of a row of data that is returned by a
+	 * query on the database
+	 * @param mCursor
+	 * @return - Rating object
+	 */
+	private static Rating buildRating(Cursor mCursor) {
+		int rowIdIndex = mCursor.getColumnIndex(RatingField.ROWID.fieldName);
+		int id = mCursor.getInt(rowIdIndex);
+		
+		int venueIdIndex = mCursor.getColumnIndex(RatingField.VENUE_ID.fieldName);
+		int venueId = mCursor.getInt(venueIdIndex);
+		
+		int approachIndex = mCursor.getColumnIndex(RatingField.APPROACH.fieldName);
+		int approach = mCursor.getInt(approachIndex);
+		
+		int doorsIndex = mCursor.getColumnIndex(RatingField.DOORS.fieldName);
+		int doors = mCursor.getInt(doorsIndex);
+		
+		int flooringIndex = mCursor.getColumnIndex(RatingField.FLOORING.fieldName);
+		int flooring = mCursor.getInt(flooringIndex);
+		
+		int stepsIndex = mCursor.getColumnIndex(RatingField.STEPS.fieldName);
+		int steps = mCursor.getInt(stepsIndex);
+		
+		int liftsIndex = mCursor.getColumnIndex(RatingField.LIFTS.fieldName);
+		int lifts = mCursor.getInt(liftsIndex);
+		
+		int bathroomsIndex = mCursor.getColumnIndex(RatingField.BATHROOMS.fieldName);
+		int bathrooms = mCursor.getInt(bathroomsIndex);
+		
+		int layoutIndex = mCursor.getColumnIndex(RatingField.LAYOUT.fieldName);
+		int layout = mCursor.getInt(layoutIndex);
+		
+		int staffIndex = mCursor.getColumnIndex(RatingField.STAFF.fieldName);
+		int staff = mCursor.getInt(staffIndex);
+		
+		int parkingIndex = mCursor.getColumnIndex(RatingField.PARKING.fieldName);
+		int parking = mCursor.getInt(parkingIndex);
+		
+		int subRatingIndex = mCursor.getColumnIndex(RatingField.SUB_RATING.fieldName);
+		int subRating = mCursor.getInt(subRatingIndex);
+		
+		Rating result = new Rating(venueId);
+		result.rowid = id;
+		result.approach = approach;
+		result.doors = doors;
+		result.flooring = flooring;
+		result.steps = steps;
+		result.lifts = lifts;
+		result.bathrooms = bathrooms;
+		result.layout = layout;
+		result.staff = staff;
+		result.parking = parking;
+		result.subrating = subRating;
+		
+		return result;
 	}
 	
 	// Either specify all fields in constructor, or allow them to be set after construction
