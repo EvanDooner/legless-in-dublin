@@ -7,14 +7,13 @@ import android.os.Bundle;
 
 public class ThankYouSplash extends Activity{
 
-	//test uodate
+	//test update
 	//variable for splash screen sound
 	MediaPlayer splashSound;
 	
 	//onCreate method
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.thank_you_splash);
 		
