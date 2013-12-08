@@ -2,11 +2,13 @@ package dev.maynooth.mobile.leglessindublin;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class SearchResultsList extends Activity {
 
@@ -16,6 +18,13 @@ public class SearchResultsList extends Activity {
 		setContentView(R.layout.activity_search_results_list);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		Intent intent = getIntent();
+		String venueType = intent.getStringExtra(MainMenu.SEARCH_VENUE_TYPE);
+		String location = intent.getStringExtra(MainMenu.SEARCH_LOCATION);
+		
+		// Test Purposes Only
+		Toast.makeText(getApplicationContext(), venueType + location, Toast.LENGTH_SHORT).show();
 	}
 
 	/**
