@@ -35,7 +35,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 2: Doors -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -60,7 +61,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 3: Flooring -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -85,7 +87,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 4: Steps -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -110,7 +113,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 5: Lifts -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -135,7 +139,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 6: Bathrooms -->
     <!-- Section consists of text (name of crieria being rated) -->
