@@ -16,9 +16,11 @@
     <!-- Logo at top of activity -->
     <ImageView
         android:id="@+id/ivLogo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
+		android:layout_marginTop="40dp"
+		android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:contentDescription="@string/logoDescription"
         android:padding="30dp"
         android:src="@drawable/legless_in_dublin_logo" />
@@ -40,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/lightblue"
+        android:padding="5dp"
         android:prompt="@string/venuePrompt"
         android:text="@string/venue"
         android:textSize="20sp" />
@@ -47,8 +50,8 @@
     <!-- Select Venue location text view and spinner -->
     <TextView
         android:id="@+id/tvLocation1"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:paddingLeft="40dp"
         android:paddingTop="20dp"
         android:text="@string/selectLocation"
@@ -58,10 +61,11 @@
 
     <Spinner
         android:id="@+id/spinnerLocation"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:background="@color/lightblue"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:padding="5dp"
         android:prompt="@string/locationPrompt"
         android:text="@string/location"
         android:textSize="20sp" />
@@ -69,15 +73,18 @@
     <!-- Submit button -->
     <Button
         android:id="@+id/bSubmit1"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:layout_marginTop="25dp"
         android:minHeight="0dp"
+        android:padding="5dp"
         android:text="@string/submit"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="searchRatings" />
 
     <!-- View terms and conditions button -->
     <Button
