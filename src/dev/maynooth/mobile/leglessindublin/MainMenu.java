@@ -1,12 +1,19 @@
 package dev.maynooth.mobile.leglessindublin;
 
+import static dev.maynooth.mobile.leglessindublin.utils.StringUtilities.toTitleCase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
+import dev.maynooth.mobile.leglessindublin.datastore.Location;
+import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class MainMenu extends Activity {
 
@@ -22,42 +29,70 @@ public class MainMenu extends Activity {
 	}
 
 	/**
-	 * 
+	 * Adds choices to Venue Type and Location spinners
 	 */
 	private void populateSpinners() {
-		/* Get venue types from DB */
-		/* Get number of venue types */
-		final int numTypes = 2; // For test purposes
-		String[] venueTypes = new String[numTypes];
-		/* Put venue types in array */
-		venueTypes[0] = "Bar";
-		venueTypes[1] = "Club";
-		ArrayAdapter<String> adapterVT = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, venueTypes);
-		Spinner venueType = (Spinner) findViewById(R.id.spinnerVenue);
-		venueType.setAdapter(adapterVT);
 
-		// Add content to location spinner
-		/* Get locations from DB */
-		/* Get number of locations */
-		final int numLocs = 2; // For test purposes
-		String[] locs = new String[numLocs];
-		/* Put venue types in array */
-		locs[0] = "Dublin 1";
-		locs[1] = "Dublin 2";
-		ArrayAdapter<String> adapterLoc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, locs);
-		Spinner location = (Spinner) findViewById(R.id.spinnerLocation);
-		location.setAdapter(adapterLoc);
+		// Database actions are performed on a new thread and spinners are
+		// filled with retrieved values on UI thread
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
+						getApplicationContext());
+				dbAdapter.open();
+
+				List<String> venueTypesUnformatted = VenueType
+						.fetchAllTypeNames(dbAdapter.getDbConnect());
+				List<String> venueTypeFormattingList = new ArrayList<String>();
+				for (String option : venueTypesUnformatted) {
+					venueTypeFormattingList.add(toTitleCase(option));
+				}
+				final List<String> venueTypes = new ArrayList<String>(
+						venueTypeFormattingList);
+
+				List<String> locationsUnformatted = Location
+						.fetchAllLocationNames(dbAdapter.getDbConnect());
+				List<String> locationsFormattingList = new ArrayList<String>();
+				for (String option : locationsUnformatted) {
+					locationsFormattingList.add(toTitleCase(option));
+				}
+				final List<String> locations = new ArrayList<String>(
+						locationsUnformatted);
+
+				dbAdapter.close();
+				
+				// Back to UI thread
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						Spinner venueType = (Spinner) findViewById(R.id.spinnerVenue);
+						ArrayAdapter<String> adapterVT = new ArrayAdapter<String>(
+								getApplicationContext(),
+								android.R.layout.simple_spinner_item,
+								venueTypes);
+						venueType.setAdapter(adapterVT);
+
+						Spinner location = (Spinner) findViewById(R.id.spinnerLocation);
+						ArrayAdapter<String> adapterLoc = new ArrayAdapter<String>(
+								getApplicationContext(),
+								android.R.layout.simple_spinner_item, locations);
+						location.setAdapter(adapterLoc);
+					}
+				});
+			}
+		}).start();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_menu, menu);
-		return true;
-	}
-
+	/**
+	 * Extracts the user's choices for venue type and location and forwards them
+	 * to the search page.
+	 * 
+	 * @param view
+	 *            a view - the view that called this method
+	 */
 	public void searchRatings(View view) {
 		// Intent redirects to search results page
 		Intent intent = new Intent(this, SearchResultsList.class);
