@@ -1,5 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Spacing"
+    tools:context=".AddNewVenue" >
+    <!-- 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,6 +11,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddNewVenue" >
+    -->
 
     <!-- Rating activity to score a venue on specified criteria -->
     <!-- Author: Ian Lamon -->
@@ -245,11 +249,7 @@
     <!-- Submit Button -->
     <Button
         android:id="@+id/bSubmit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/deepblue"
-        android:minHeight="0dp"
+        style="@style/buttonStyle"
         android:text="@string/submit"
         android:textColor="@color/white"
         android:textSize="16sp"

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <!-- 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
+    -->
 
     <!-- Fragment for Search Results. Contains Venue Name, their rating -->
     <!-- and button to go to rate this venue activity -->
@@ -36,9 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="10"
+        android:background="@color/deepblue"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:text="@string/rateMe"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
 </LinearLayout>

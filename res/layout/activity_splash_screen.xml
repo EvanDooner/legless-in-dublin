@@ -1,11 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.ReverseStyle" >
+    <!--
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
     android:background="@color/deepblue" >
+    -->
 
-    <!-- Splash Screen to thank user for rating a venue -->
+    <!-- Start-up Application Splash Screen -->
     <!-- Author: Ian Lamon -->
     
     <!-- Legless In Dublin Logo displayed on splash screen -->

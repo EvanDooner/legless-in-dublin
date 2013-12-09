@@ -1,5 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Spacing"
+    <!-- 
+    style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,6 +11,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddNewVenue" >
+    -->
 
     <!-- Activity to add a new venue to the database -->
     <!-- Author: Ian Lamon -->
@@ -20,9 +24,8 @@
 
         <TextView
             android:id="@+id/tvVenueName"
-            android:layout_width="85sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
             android:text="@string/venueName" />
 
         <EditText
@@ -41,9 +44,8 @@
 
         <TextView
             android:id="@+id/tvVenueType"
-            android:layout_width="85sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
             android:paddingTop="30dp"
             android:text="@string/venueType" />
 
@@ -65,10 +67,9 @@
 
         <TextView
             android:id="@+id/tvAddress1"
-            android:layout_width="85sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginLeft="18dp"
             android:text="@string/address1" />
 
         <EditText
@@ -87,10 +88,9 @@
 
         <TextView
             android:id="@+id/tvAddress2"
-            android:layout_width="85sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginLeft="18dp"
             android:text="@string/address2" />
 
         <EditText
@@ -109,10 +109,9 @@
 
         <TextView
             android:id="@+id/tvAddress3"
-            android:layout_width="85sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginLeft="18dp"
             android:text="@string/address3" />
 
         <Spinner
@@ -128,6 +127,13 @@
     <!-- Submit Button -->
     <Button
         android:id="@+id/bSubmit2"
+        style="@style/buttonStyle"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+        
+        <!-- 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -137,7 +143,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
-
+		-->
     <!-- Logo at bottom of activity -->
     <ImageView
         android:id="@+id/ivLogo2"
