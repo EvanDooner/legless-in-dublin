@@ -1,8 +1,9 @@
 INSERT INTO venue_type (venue_type) VALUES
-("bar"),
-("club"),
-("restaurant"),
-("theatre")
+("Bar"),
+("Cinema"),
+("Club"),
+("Restaurant"),
+("Theatre")
 ;
 
 INSERT INTO location (loc) VALUES
@@ -27,7 +28,8 @@ INSERT INTO location (loc) VALUES
 ("Dublin 18"),
 ("Dublin 20"),
 ("Dublin 22"),
-("Dublin 24")
+("Dublin 24"),
+("Co. Dublin")
 ;
 
 INSERT INTO venue (name, street_name, location, venue_type) VALUES
