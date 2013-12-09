@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme"
-    tools:context=".SearchResultsList" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-	<!-- 
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SearchResultsList" >
-    -->
-
-    <!-- Search results activity to display venues in selected category and location -->
-    <!-- results displayed in order of rating, highest first -->
+    <!-- This activity displays the breakdown of scores received by a venue -->
     <!-- Author: Ian Lamon -->
-    
+
     <!-- text for results heading -->
     <TextView
-        android:id="@+id/resultText"
+        android:id="@+id/detailedResultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resultsText"
+        android:text="@string/detailedResultsText"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <!-- list of results, row layout from row.xml as fragment -->
     <ListView
-        android:id="@+id/resultsView"
+        android:id="@+id/detailedResultsView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginBottom="10dp"
@@ -41,23 +31,24 @@
         android:dividerHeight="1dp"
         android:paddingLeft="2dp"
         android:paddingRight="2dp" >
-        <!-- 
+
+        <!--
         <fragment
-        android:id="@+id/resultsRow"
-        android:name="R.layout.row"
+        android:id="@+id/detailedResultsRow"
+        android:name="R.layout.detailed_results_row_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal" />
-         -->
+        -->
     </ListView>
-    
-    <!-- button to go to Add New Venue Activity -->
+
+    <!-- button to go back to previous Activity -->
     <Button
-        android:id="@+id/bAddNewVenue1"
+        android:id="@+id/bback1"
         style="@style/buttonStyle"
         android:background="@color/white"
-        android:text="@string/addNewVenue"
+        android:text="@string/back"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
         android:textStyle="bold" />

@@ -45,6 +45,8 @@
     <string name="thankyou2">Legless In Dublin.</string>
     <string name="thankyou3">Your rating helps others and</string>
     <string name="thankyou4">makes our app stronger.</string>
+    <string name="detailedResultsText">Breakdown of Results:</string>
+    <string name="back">Back</string>
     
 <!-- test comment here -->
 </resources>
