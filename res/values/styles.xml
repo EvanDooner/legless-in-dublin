@@ -48,6 +48,7 @@
         <item name="android:layout_width">200sp</item>
         <item name="android:layout_height">35sp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">25sp</item>
         <item name="android:background">@color/deepblue</item>
         <item name="android:minHeight">0dp</item>
     </style>
