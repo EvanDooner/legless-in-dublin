@@ -8,41 +8,407 @@
     <!-- This activity displays the breakdown of scores received by a venue -->
     <!-- Author: Ian Lamon -->
 
+
     <!-- text for results heading -->
     <TextView
         android:id="@+id/detailedResultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="@string/detailedResultsText"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <!-- list of results, row layout from row.xml as fragment -->
-    <ListView
-        android:id="@+id/detailedResultsView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="18dp"
-        android:background="@android:color/transparent"
-        android:cacheColorHint="@android:color/transparent"
-        android:divider="#2980b9"
-        android:dividerHeight="1dp"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp" >
-
-        <!--
-        <fragment
-        android:id="@+id/detailedResultsRow"
-        android:name="R.layout.detailed_results_row_fragment"
-        android:layout_width="fill_parent"
+    <!-- list of individual results, displayed as a ratings bar -->
+    <!-- Entrance score -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" />
-        -->
-    </ListView>
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
 
+        <TextView
+            android:id="@+id/tvEntrance1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/entrance"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/entranceRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineE"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+
+    <!-- Doors score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvDoors1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/doors"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/doorsRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineD"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    <!-- Flooring score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvFlooring1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/flooring"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/flooringRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineF"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    <!-- Steps score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvSteps1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/steps"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/stepsRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineSteps"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    <!-- Lifts score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvLifts1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/lifts"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/liftsRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineL"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    <!-- Bathrooms score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvBathrooms1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/bathrooms"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/bathroomsRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineB"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    <!-- Layout score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvLayout1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/layout"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/layoutRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+     <!-- Staff score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvStaff1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/staff"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/staffRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineS"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+     <!-- Parking score -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvParking1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="15dp"
+            android:divider="#2980b9"
+            android:dividerHeight="1dp"
+            android:text="@string/parking"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/parkingRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="14dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5" />
+    </LinearLayout>
+
+    <!-- Horizontal line divider -->
+    <TextView
+        android:id="@+id/tvLineP"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2980b9" />
+    
+    
     <!-- button to go back to previous Activity -->
     <Button
         android:id="@+id/bback1"
