@@ -75,8 +75,10 @@ public class Venue implements Model {
 	/**
 	 * Returns all venues that have the specified location and venue type.
 	 * <p>
-	 * <code>selectionArgs[0]</code> should contain required location id
-	 * <code>selectionArgs[1]</code> should contain required veueType id
+	 * <ul>
+	 * <li><code>selectionArgs[0]</code> should contain required location id</li>
+	 * <li><code>selectionArgs[1]</code> should contain required veueType id</li>
+	 * </ul>
 	 * 
 	 * @param dbConnect
 	 *            an SQLiteDatabase - the database in which to search
