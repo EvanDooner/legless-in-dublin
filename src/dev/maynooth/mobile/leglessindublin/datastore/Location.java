@@ -34,8 +34,29 @@ public class Location {
 			this.fieldName = fieldName;
 		}
 	}
+	
+	/**
+	 * Finds the ID of a location in the database
+	 * 
+	 * @param dbConnect
+	 *            an SQLiteDatabase - the database to query
+	 * @param locations
+	 *            a string - the location
+	 * @return an int - the id of the specified location
+	 */
+	public static int findIdByLocation(SQLiteDatabase dbConnect, String location) {
+		Cursor mCursor = dbConnect.query(LOCATION_TABLE, LOCATION_ID,
+				WHERE_LOCATION_EQUALS, new String[] { location }, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+
+		return mCursor.getInt(0);
+	}
 
 	private static final String LOCATION_TABLE = "location";
+	private static final String[] LOCATION_ID = {LocationField.ROWID.fieldName};
+	private static final String WHERE_LOCATION_EQUALS = LocationField.LOCATION.fieldName + "=?";
 
 	/**
 	 * Fetches all locations from the database.

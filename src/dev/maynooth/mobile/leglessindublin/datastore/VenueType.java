@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class VenueType {
 
@@ -25,7 +26,32 @@ public class VenueType {
 		}
 	}
 
+	/**
+	 * Finds the ID of a venue type in the database
+	 * 
+	 * @param dbConnect
+	 *            an SQLiteDatabase - the database to query
+	 * @param type
+	 *            a string - the venue type
+	 * @return an int - the id of the specified venue type
+	 */
+	public static int findIdByType(SQLiteDatabase dbConnect, String type) {
+		Cursor mCursor = dbConnect.query(VENUE_TYPE_TABLE, VENUE_TYPE_ID,
+				WHERE_TYPE_EQUALS, new String[] { type }, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		} else {
+			Log.e("Lglss", "mCursor is null");
+			return -1;
+		}
+
+		return mCursor.getInt(0);
+	}
+
 	private static final String VENUE_TYPE_TABLE = "venue_type";
+	private static final String[] VENUE_TYPE_ID = { VenueTypeField.ROWID.fieldName };
+	private static final String WHERE_TYPE_EQUALS = VenueTypeField.TYPE.fieldName
+			+ "=?";
 
 	/**
 	 * Builds a venueType object from a venue type record in the database
