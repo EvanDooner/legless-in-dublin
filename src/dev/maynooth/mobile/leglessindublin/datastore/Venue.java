@@ -24,7 +24,7 @@ public class Venue implements Model {
 		ROWID("_id"),
 		NAME("name"),
 		STREET_NAME("street_name"),
-		LOCATION("locationId"),
+		LOCATION("location"),
 		VENUE_TYPE("venue_type"),
 		TOTAL_RATING("total_rating");
 		//@formatter:on
@@ -35,6 +35,14 @@ public class Venue implements Model {
 			this.fieldName = fieldName;
 		}
 	}
+
+	private static final String[] ALL_COLUMNS = { VenueField.ROWID.fieldName,
+			VenueField.NAME.fieldName, VenueField.STREET_NAME.fieldName,
+			VenueField.LOCATION.fieldName, VenueField.VENUE_TYPE.fieldName,
+			VenueField.TOTAL_RATING.fieldName };
+
+	private static final String WHERE_LOCATION_AND_TYPE_EQUALS = VenueField.LOCATION.fieldName
+			+ "=? AND " + VenueField.VENUE_TYPE.fieldName + "=?";
 
 	private static final String VENUE_TABLE = "venue";
 
@@ -62,6 +70,37 @@ public class Venue implements Model {
 		Venue result = buildVenue(mCursor);
 
 		return result;
+	}
+
+	/**
+	 * Returns all venues that have the specified location and venue type.
+	 * <p>
+	 * <code>selectionArgs[0]</code> should contain required location id
+	 * <code>selectionArgs[1]</code> should contain required veueType id
+	 * 
+	 * @param dbConnect
+	 *            an SQLiteDatabase - the database in which to search
+	 * @param selectionArgs
+	 *            strings - the location and venue type to match against
+	 * @return all venues that have the specified location and venue type
+	 */
+	public static List<Venue> findByLocationAndVenueType(
+			SQLiteDatabase dbConnect, String[] selectionArgs) {
+		Cursor mCursor = dbConnect.query(true, VENUE_TABLE, ALL_COLUMNS,
+				WHERE_LOCATION_AND_TYPE_EQUALS, selectionArgs, null, null,
+				VenueField.NAME.fieldName, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+
+		List<Venue> results = new ArrayList<Venue>();
+		while (!mCursor.isAfterLast()) {
+			Venue result = buildVenue(mCursor);
+			results.add(result);
+			mCursor.moveToNext();
+		}
+
+		return results;
 	}
 
 	public static String getTableName() {
@@ -252,12 +291,12 @@ public class Venue implements Model {
 		dbConnect.insert(VENUE_TABLE, null, initialValues);
 	}
 
-	public void setLocationId(int location) {
-		this.locationId = location;
-	}
-
 	public void setLocation(Location location) {
 		this.locationId = location.getRowId();
+	}
+
+	public void setLocationId(int location) {
+		this.locationId = location;
 	}
 
 	public void setName(String name) {
@@ -272,12 +311,12 @@ public class Venue implements Model {
 		this.totalRating = totalRating;
 	}
 
-	public void setVenueTypeId(int venueType) {
-		this.venueTypeId = venueType;
-	}
-
 	public void setVenueType(VenueType venueType) {
 		this.venueTypeId = venueType.getRowId();
+	}
+
+	public void setVenueTypeId(int venueType) {
+		this.venueTypeId = venueType;
 	}
 
 	@Override
