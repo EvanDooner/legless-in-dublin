@@ -47,9 +47,9 @@
     <Button
         android:id="@+id/bback1"
         style="@style/buttonStyle"
-        android:background="@color/white"
+        android:background="@color/deepblue"
         android:text="@string/back"
-        android:textColor="@color/deepblue"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 

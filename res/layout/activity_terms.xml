@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.ReverseStyle" >
+    
+    <!-- Terms and Conditions Page -->
+    <!-- Author: Ian Lamon -->
+    
+    <!-- Text for Terms Heading -->
+    <TextView
+        android:id="@+id/tvTerms1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#2980b9"
+        android:layout_marginTop="25dp"
+        android:text="@string/terms1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    
+    <!-- Text for Terms part 1 -->
+    <TextView
+        android:id="@+id/tvTerms2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="25dp"
+        android:background="#2980b9"
+        android:layout_below="@+id/tvTerms1"
+        android:text="@string/terms2"
+        android:textColor="@color/white"
+        android:textSize="14sp" 
+        android:textStyle="normal" />
+    
+    <!-- Text for Terms part 2 -->
+    <TextView
+        android:id="@+id/tvTerms3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="25dp"
+        android:background="#2980b9"
+        android:layout_below="@+id/tvTerms2"
+        android:text="@string/terms3"
+        android:textColor="@color/white"
+        android:textSize="14sp" 
+        android:textStyle="normal" />
+    
+    <!-- button to go back to main Activity -->
+    <Button
+        android:id="@+id/bback2"
+        style="@style/buttonStyle"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvTerms3"
+        android:background="@color/white"
+        android:text="@string/back"
+        android:textColor="@color/deepblue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    
+    <!-- Logo at bottom of screen -->
+    <ImageView
+        android:id="@+id/termsLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bback2"
+        android:background="#2980b9"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/logoDescription"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/legless_in_dublin_logo" />
+    
+</RelativeLayout>

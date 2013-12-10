@@ -47,6 +47,9 @@
     <string name="thankyou4">makes our app stronger.</string>
     <string name="detailedResultsText">Breakdown of Results:</string>
     <string name="back">Back</string>
+    <string name="terms1">Terms and Conditions of Use:</string>
+    <string name="terms2">1. The ratings expressed in this app are an accumulation of views of individual app users and do not necessarily reflect the views of Legless in Dublin.</string>
+    <string name="terms3">2. Legless in Dublin accepts no liability for any loss or damage as a result of using this app.</string>
     
 <!-- test comment here -->
 </resources>
