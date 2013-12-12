@@ -8,7 +8,9 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -51,7 +53,7 @@ public class MainMenu extends Activity {
 			ArrayAdapter<String> adapterLoc = new ArrayAdapter<String>(
 					getApplicationContext(),
 					android.R.layout.simple_spinner_item, result);
-			adapterLoc.setDropDownViewResource(R.layout.my_spinner_dropdown);
+			adapterLoc.setDropDownViewResource(R.layout.legless_spinner_dropdown);
 			location.setAdapter(adapterLoc);
 		}
 
@@ -91,7 +93,7 @@ public class MainMenu extends Activity {
 			ArrayAdapter<String> adapterVT = new ArrayAdapter<String>(
 					getApplicationContext(),
 					android.R.layout.simple_spinner_item, result);
-			adapterVT.setDropDownViewResource(R.layout.my_spinner_dropdown);
+			adapterVT.setDropDownViewResource(R.layout.legless_spinner_dropdown);
 			venueType.setAdapter(adapterVT);
 		}
 
@@ -127,8 +129,10 @@ public class MainMenu extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			setTheme(android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
+		}
 		setContentView(R.layout.activity_main_menu);
-
 		populateSpinners();
 	}
 
