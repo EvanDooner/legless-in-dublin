@@ -1,35 +1,35 @@
 INSERT INTO venue_type (venue_type) VALUES
-("Bar"),
-("Cinema"),
-("Club"),
-("Restaurant"),
-("Theatre")
+("bar"),
+("cinema"),
+("club"),
+("restaurant"),
+("theatre")
 ;
 
 INSERT INTO location (loc) VALUES
-("Dublin 1"),
-("Dublin 2"),
-("Dublin 3"),
-("Dublin 4"),
-("Dublin 5"),
-("Dublin 6"),
-("Dublin 6W"),
-("Dublin 7"),
-("Dublin 8"),
-("Dublin 9"),
-("Dublin 10"),
-("Dublin 11"),
-("Dublin 12"),
-("Dublin 13"),
-("Dublin 14"),
-("Dublin 15"),
-("Dublin 16"),
-("Dublin 17"),
-("Dublin 18"),
-("Dublin 20"),
-("Dublin 22"),
-("Dublin 24"),
-("Co. Dublin")
+("dublin 1"),
+("dublin 2"),
+("dublin 3"),
+("dublin 4"),
+("dublin 5"),
+("dublin 6"),
+("dublin 6w"),
+("dublin 7"),
+("dublin 8"),
+("dublin 9"),
+("dublin 10"),
+("dublin 11"),
+("dublin 12"),
+("dublin 13"),
+("dublin 14"),
+("dublin 15"),
+("dublin 16"),
+("dublin 17"),
+("dublin 18"),
+("dublin 20"),
+("dublin 22"),
+("dublin 24"),
+("co. dublin")
 ;
 
 INSERT INTO venue (name, street_name, location, venue_type) VALUES
@@ -39,7 +39,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -53,7 +53,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -67,7 +67,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 			FROM location
-			WHERE loc="Dublin 2"
+			WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -81,7 +81,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -95,7 +95,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -109,7 +109,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 5"
+		WHERE loc="dublin 5"
 	),
 	(
 		SELECT _id
@@ -123,7 +123,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 5"
+		WHERE loc="dublin 5"
 	),
 	(
 		SELECT _id
@@ -137,7 +137,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -151,7 +151,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 1"
+		WHERE loc="dublin 1"
 	),
 	(
 		SELECT _id
@@ -165,7 +165,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -179,7 +179,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -193,7 +193,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 1"
+		WHERE loc="dublin 1"
 	),
 	(
 		SELECT _id
@@ -207,7 +207,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 1"
+		WHERE loc="dublin 1"
 	),
 	(
 		SELECT _id
@@ -221,7 +221,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 2"
+		WHERE loc="dublin 2"
 	),
 	(
 		SELECT _id
@@ -235,7 +235,7 @@ INSERT INTO venue (name, street_name, location, venue_type) VALUES
 	(
 		SELECT _id
 		FROM location
-		WHERE loc="Dublin 1"
+		WHERE loc="dublin 1"
 	),
 	(
 		SELECT _id
