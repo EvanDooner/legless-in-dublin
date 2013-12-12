@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,74 +18,87 @@ import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class MainMenu extends Activity {
 
+	private class PopulateLocationSpinner extends
+			AsyncTask<Void, Void, List<String>> {
+
+		@Override
+		protected List<String> doInBackground(Void... params) {
+			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
+					getApplicationContext());
+			dbAdapter.open();
+
+			List<String> locationsUnformatted;
+			try {
+				locationsUnformatted = Location.fetchAllLocationNames(dbAdapter
+						.getDbConnect());
+			} finally {
+				dbAdapter.close();
+			}
+
+			List<String> locationsFormatted = new ArrayList<String>();
+			for (String option : locationsUnformatted) {
+				locationsFormatted.add(toTitleCase(option));
+			}
+
+			return locationsFormatted;
+		}
+
+		@Override
+		protected void onPostExecute(List<String> result) {
+			super.onPostExecute(result);
+
+			Spinner location = (Spinner) findViewById(R.id.spinnerLocation);
+			ArrayAdapter<String> adapterLoc = new ArrayAdapter<String>(
+					getApplicationContext(),
+					android.R.layout.simple_spinner_item, result);
+			adapterLoc.setDropDownViewResource(R.layout.my_spinner_dropdown);
+			location.setAdapter(adapterLoc);
+		}
+
+	}
+
+	private class PopulateVenueTypeSpinner extends
+			AsyncTask<Void, Void, List<String>> {
+
+		@Override
+		protected List<String> doInBackground(Void... params) {
+			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
+					getApplicationContext());
+			dbAdapter.open();
+
+			List<String> venueTypesUnformatted;
+			try {
+				venueTypesUnformatted = VenueType.fetchAllTypeNames(dbAdapter
+						.getDbConnect());
+			} finally {
+				dbAdapter.close();
+			}
+
+			List<String> venueTypeFormatted = new ArrayList<String>();
+			for (String option : venueTypesUnformatted) {
+				venueTypeFormatted.add(toTitleCase(option));
+			}
+
+			return venueTypeFormatted;
+		}
+
+		@Override
+		protected void onPostExecute(List<String> result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+
+			Spinner venueType = (Spinner) findViewById(R.id.spinnerVenue);
+			ArrayAdapter<String> adapterVT = new ArrayAdapter<String>(
+					getApplicationContext(),
+					android.R.layout.simple_spinner_item, result);
+			adapterVT.setDropDownViewResource(R.layout.my_spinner_dropdown);
+			venueType.setAdapter(adapterVT);
+		}
+
+	}
+
 	public static final String SEARCH_VENUE_TYPE = "dev.maynooth.mobile.leglessindublin.SEARCH_VENUE_TYPE";
 	public static final String SEARCH_LOCATION = "dev.maynooth.mobile.leglessindublin.SEARCH_LOCATION";
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_menu);
-
-		populateSpinners();
-	}
-
-	/**
-	 * Adds choices to Venue Type and Location spinners
-	 */
-	private void populateSpinners() {
-
-		// Database actions are performed on a new thread and spinners are
-		// filled with retrieved values on UI thread
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
-						getApplicationContext());
-				dbAdapter.open();
-
-				List<String> venueTypesUnformatted = VenueType
-						.fetchAllTypeNames(dbAdapter.getDbConnect());
-				List<String> venueTypeFormattingList = new ArrayList<String>();
-				for (String option : venueTypesUnformatted) {
-					venueTypeFormattingList.add(toTitleCase(option));
-				}
-				final List<String> venueTypes = new ArrayList<String>(
-						venueTypeFormattingList);
-
-				List<String> locationsUnformatted = Location
-						.fetchAllLocationNames(dbAdapter.getDbConnect());
-				List<String> locationsFormattingList = new ArrayList<String>();
-				for (String option : locationsUnformatted) {
-					locationsFormattingList.add(toTitleCase(option));
-				}
-				final List<String> locations = new ArrayList<String>(
-						locationsUnformatted);
-
-				dbAdapter.close();
-				
-				// Back to UI thread
-				runOnUiThread(new Runnable() {
-
-					@Override
-					public void run() {
-						Spinner venueType = (Spinner) findViewById(R.id.spinnerVenue);
-						ArrayAdapter<String> adapterVT = new ArrayAdapter<String>(
-								getApplicationContext(),
-								android.R.layout.simple_spinner_item,
-								venueTypes);
-						venueType.setAdapter(adapterVT);
-
-						Spinner location = (Spinner) findViewById(R.id.spinnerLocation);
-						ArrayAdapter<String> adapterLoc = new ArrayAdapter<String>(
-								getApplicationContext(),
-								android.R.layout.simple_spinner_item, locations);
-						location.setAdapter(adapterLoc);
-					}
-				});
-			}
-		}).start();
-	}
 
 	/**
 	 * Extracts the user's choices for venue type and location and forwards them
@@ -108,6 +122,22 @@ public class MainMenu extends Activity {
 		intent.putExtra(SEARCH_LOCATION, locStr);
 
 		startActivity(intent);
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main_menu);
+
+		populateSpinners();
+	}
+
+	/**
+	 * Adds choices to Venue Type and Location spinners
+	 */
+	private void populateSpinners() {
+		new PopulateLocationSpinner().execute();
+		new PopulateVenueTypeSpinner().execute();
 	}
 
 }
