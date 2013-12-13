@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Used to set all Spinner dialog backgrounds to blue -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" 
+ android:id="@+id/cust_view"  
+    android:background="@color/lightblue" /> 
