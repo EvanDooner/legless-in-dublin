@@ -41,8 +41,10 @@ public class Venue implements Model {
 			VenueField.LOCATION.fieldName, VenueField.VENUE_TYPE.fieldName,
 			VenueField.TOTAL_RATING.fieldName };
 
-	private static final String WHERE_LOCATION_AND_TYPE_EQUALS = VenueField.LOCATION.fieldName
-			+ "=? AND " + VenueField.VENUE_TYPE.fieldName + "=?";
+	private static final String WHERE_LOCATION_AND_TYPE_EQUALS = 
+			VenueField.LOCATION.fieldName + "=? " +
+			"AND " + 
+			VenueField.VENUE_TYPE.fieldName + "=?";
 
 	private static final String VENUE_TABLE = "venue";
 
@@ -88,7 +90,8 @@ public class Venue implements Model {
 	 */
 	public static List<Venue> findByLocationAndVenueType(
 			SQLiteDatabase dbConnect, String[] selectionArgs) {
-		Cursor mCursor = dbConnect.query(true, VENUE_TABLE, ALL_COLUMNS,
+		
+		Cursor mCursor = dbConnect.query(false, VENUE_TABLE, ALL_COLUMNS,
 				WHERE_LOCATION_AND_TYPE_EQUALS, selectionArgs, null, null,
 				VenueField.NAME.fieldName, null);
 		if (mCursor != null) {
@@ -101,7 +104,7 @@ public class Venue implements Model {
 			results.add(result);
 			mCursor.moveToNext();
 		}
-
+		
 		return results;
 	}
 
@@ -229,12 +232,12 @@ public class Venue implements Model {
 	}
 
 	private int rowId;
+
 	private String name;
 	private String streetName;
 	private int locationId;
 	private int venueTypeId;
 	private int totalRating;
-
 	public Venue(String name, int location, int venueType) {
 		this.name = name;
 		this.locationId = location;
@@ -287,6 +290,7 @@ public class Venue implements Model {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(VenueField.NAME.fieldName, this.name);
 		initialValues.put(VenueField.STREET_NAME.fieldName, this.streetName);
+		initialValues.put(VenueField.LOCATION.fieldName, this.locationId);
 		initialValues.put(VenueField.VENUE_TYPE.fieldName, this.venueTypeId);
 		initialValues.put(VenueField.TOTAL_RATING.fieldName, this.totalRating);
 
@@ -319,6 +323,13 @@ public class Venue implements Model {
 
 	public void setVenueTypeId(int venueType) {
 		this.venueTypeId = venueType;
+	}
+
+	@Override
+	public String toString() {
+		return "Venue [rowId=" + rowId + ", name=" + name + ", streetName="
+				+ streetName + ", locationId=" + locationId + ", venueTypeId="
+				+ venueTypeId + ", totalRating=" + totalRating + "]";
 	}
 
 	@Override
