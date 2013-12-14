@@ -11,8 +11,12 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.TextureView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
@@ -20,8 +24,6 @@ import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class SearchResultsList extends Activity {
-
-	private final Context ctx = this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class SearchResultsList extends Activity {
 		final String location = intent.getStringExtra(MainMenu.SEARCH_LOCATION);
 		final String[] responses = { location, venueType };
 
-		// new GetLocationId().execute(responses);
+		new SearchVenues(this).execute(responses);
 
 		// new Thread(new Runnable() {
 		//
@@ -69,14 +71,35 @@ public class SearchResultsList extends Activity {
 		// }).start();
 	}
 
-	private class GetLocationId extends AsyncTask<String, Void, List<Venue>> {
+	private class SearchVenues extends AsyncTask<String, Void, List<Venue>> {
+		
+		private Context ctx;
 
+		private SearchVenues(Context ctx) {
+			super();
+			this.ctx = ctx;
+		}
+		
 		@Override
 		protected void onPostExecute(List<Venue> results) {
-			// TODO Auto-generated method stub
+			// TODO
 			super.onPostExecute(results);
-			Toast.makeText(ctx, results.get(0).getName(), Toast.LENGTH_SHORT)
-					.show();
+			
+			LinearLayout toastLayout = new LinearLayout(ctx);
+			toastLayout.setBackgroundResource(R.color.deepblue);
+			
+			TextView toastText = new TextView(ctx);
+			toastText.setTextColor(getResources().getColor(R.color.white));
+			toastText.setTextSize(20);
+			toastText.setGravity(Gravity.CENTER);
+			toastText.setText("Toasts, yo!");
+			
+			toastLayout.addView(toastText);
+			
+			Toast toast = new Toast(ctx);
+			toast.setView(toastLayout);
+			toast.show();
+			
 		}
 
 		@Override
