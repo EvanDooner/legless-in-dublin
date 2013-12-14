@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:contentDescription="@string/detailedResultsText"
         android:text="@string/detailedResultsText"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
@@ -38,6 +39,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/entrance"
             android:text="@string/entrance"
             android:textSize="14sp" />
 
@@ -46,9 +48,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/entrance"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -81,6 +84,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/doors"
             android:text="@string/doors"
             android:textSize="14sp" />
 
@@ -89,9 +93,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/doors"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -106,7 +111,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
+
     <!-- Flooring score -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -124,6 +129,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/flooring"
             android:text="@string/flooring"
             android:textSize="14sp" />
 
@@ -132,9 +138,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/flooring"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -149,7 +156,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
+
     <!-- Steps score -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -167,6 +174,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/steps"
             android:text="@string/steps"
             android:textSize="14sp" />
 
@@ -175,9 +183,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/steps"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -192,7 +201,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
+
     <!-- Lifts score -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -210,6 +219,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/lifts"
             android:text="@string/lifts"
             android:textSize="14sp" />
 
@@ -218,9 +228,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/lifts"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -235,7 +246,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
+
     <!-- Bathrooms score -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -253,6 +264,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/bathrooms"
             android:text="@string/bathrooms"
             android:textSize="14sp" />
 
@@ -261,9 +273,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/bathrooms"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -278,7 +291,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
+
     <!-- Layout score -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -296,6 +309,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/layout"
             android:text="@string/layout"
             android:textSize="14sp" />
 
@@ -304,9 +318,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/layout"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -321,8 +336,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
-     <!-- Staff score -->
+
+    <!-- Staff score -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -339,6 +354,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/staff"
             android:text="@string/staff"
             android:textSize="14sp" />
 
@@ -347,9 +363,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/staff"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -364,8 +381,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
-     <!-- Parking score -->
+
+    <!-- Parking score -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -382,6 +399,7 @@
             android:layout_marginTop="15dp"
             android:divider="#2980b9"
             android:dividerHeight="1dp"
+            android:contentDescription="@string/parking"
             android:text="@string/parking"
             android:textSize="14sp" />
 
@@ -390,9 +408,10 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:contentDescription="@string/parking"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="14dp"
+            android:gravity="right"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="2.5"
@@ -407,13 +426,13 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#2980b9" />
-    
-    
+
     <!-- button to go back to previous Activity -->
     <Button
         android:id="@+id/bback1"
         style="@style/buttonStyle"
         android:background="@color/deepblue"
+        android:contentDescription="@string/back"
         android:text="@string/back"
         android:textColor="@color/white"
         android:textSize="16sp"

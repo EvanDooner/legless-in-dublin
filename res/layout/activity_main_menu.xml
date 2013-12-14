@@ -1,29 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppTheme.ReverseStyle">
-        
-    <!--  
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/deepblue"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainMenu" >
-	-->
+    style="@style/AppTheme.ReverseStyle" >
+
     <!-- Main activity to search for venue ratings based on venue type and location -->
     <!-- Author: Ian Lamon -->
-    
+
+
     <!-- Logo at top of activity -->
     <ImageView
         android:id="@+id/ivLogo1"
-        android:layout_gravity="center"
-		android:layout_marginTop="40dp"
-		android:layout_marginBottom="40dp"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/logoDescription"
         android:padding="30dp"
         android:src="@drawable/legless_in_dublin_logo" />
@@ -34,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="40dp"
+        android:contentDescription="@string/selectVenue"
         android:text="@string/selectVenue"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -46,6 +37,7 @@
         android:layout_gravity="center"
         android:background="@color/lightblue"
         android:padding="5dp"
+        android:contentDescription="@string/venuePrompt"
         android:prompt="@string/venuePrompt"
         android:text="@string/venue"
         android:textSize="20sp" />
@@ -53,10 +45,11 @@
     <!-- Select Venue location text view and spinner -->
     <TextView
         android:id="@+id/tvLocation1"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:paddingLeft="40dp"
         android:paddingTop="20dp"
+        android:contentDescription="@string/selectLocation"
         android:text="@string/selectLocation"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -64,11 +57,12 @@
 
     <Spinner
         android:id="@+id/spinnerLocation"
-        android:background="@color/lightblue"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
         android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/lightblue"
         android:padding="5dp"
+        android:contentDescription="@string/locationPrompt"
         android:prompt="@string/locationPrompt"
         android:text="@string/location"
         android:textSize="20sp" />
@@ -78,19 +72,22 @@
         android:id="@+id/bSubmit1"
         style="@style/buttonStyle"
         android:background="@color/white"
+        android:onClick="searchRatings"
+        android:contentDescription="@string/submit"
         android:text="@string/submit"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:onClick="searchRatings" />
+        android:textStyle="bold" />
 
-    <!-- View terms and conditions button -->    <Button
+    <!-- View terms and conditions button -->
+    <Button
         android:id="@+id/bTerms1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/deepblue"
         android:paddingTop="20dp"
+        android:contentDescription="@string/terms"
         android:text="@string/terms"
         android:textColor="@color/white"
         android:textSize="12sp"

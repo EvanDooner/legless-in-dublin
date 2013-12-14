@@ -1,16 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme.ReverseStyle" >
-    <!-- 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SplashScreen"
-    android:background="@color/deepblue" >
-	-->
+
     <!-- Splash Screen to thank user for rating a venue -->
     <!-- Author: Ian Lamon -->
-    
-	<!-- Thank you message over 4 lines -->
+
+
+    <!-- Thank you message over 4 lines -->
     <TextView
         android:id="@+id/tvThankYou1"
         android:layout_width="wrap_content"
@@ -18,40 +14,44 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
+        android:contentDescription="@string/thankyou1"
         android:text="@string/thankyou1"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
-    
+
     <TextView
         android:id="@+id/tvThankYou2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/tvThankYou1"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/thankyou2"
         android:text="@string/thankyou2"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
-    
+
     <TextView
         android:id="@+id/tvThankYou3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvThankYou2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/thankyou3"
         android:text="@string/thankyou3"
-        android:layout_below="@+id/tvThankYou2"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
-    
+
     <TextView
         android:id="@+id/tvThankYou4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvThankYou3"
         android:layout_centerHorizontal="true"
+        android:contentDescription="@string/thankyou4"
         android:text="@string/thankyou4"
         android:textColor="@color/white"
         android:textSize="20sp"

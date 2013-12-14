@@ -2,16 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme.Spacing"
     tools:context=".AddNewVenue" >
-    <!-- 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AddNewVenue" >
-    -->
 
     <!-- Rating activity to score a venue on specified criteria -->
     <!-- Author: Ian Lamon -->
@@ -30,6 +20,7 @@
             android:id="@+id/tvEntrance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/entrance"
             android:text="@string/entrance" />
     </LinearLayout>
 
@@ -40,6 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:contentDescription="@string/entrance"
         tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 2: Doors -->
@@ -56,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/doors"
             android:text="@string/doors" />
     </LinearLayout>
 
@@ -66,6 +59,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:contentDescription="@string/doors"
         tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 3: Flooring -->
@@ -82,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/flooring"
             android:text="@string/flooring" />
     </LinearLayout>
 
@@ -92,6 +87,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:contentDescription="@string/flooring"
         tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 4: Steps -->
@@ -108,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/steps"
             android:text="@string/steps" />
     </LinearLayout>
 
@@ -118,6 +115,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:contentDescription="@string/steps"
         tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 5: Lifts -->
@@ -134,6 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/lifts"
             android:text="@string/lifts" />
     </LinearLayout>
 
@@ -144,6 +143,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:contentDescription="@string/lifts"
         tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 6: Bathrooms -->
@@ -160,6 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/bathrooms"
             android:text="@string/bathrooms" />
     </LinearLayout>
 
@@ -169,7 +170,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        android:contentDescription="@string/bathrooms"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 7: Internal Layout -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -185,6 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/layout"
             android:text="@string/layout" />
     </LinearLayout>
 
@@ -194,7 +198,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        android:contentDescription="@string/layout"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 8: Staff -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -210,6 +216,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/staff"
             android:text="@string/staff" />
     </LinearLayout>
 
@@ -219,7 +226,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        android:contentDescription="@string/staff"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Rating subject 9: Parking -->
     <!-- Section consists of text (name of crieria being rated) -->
@@ -235,6 +244,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10sp"
+            android:contentDescription="@string/parking"
             android:text="@string/parking" />
     </LinearLayout>
 
@@ -244,7 +254,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        android:contentDescription="@string/parking"
+        tools:layout="@layout/rate_fragment" />
 
     <!-- Submit Button -->
     <Button
@@ -252,6 +264,7 @@
         style="@style/buttonStyle"
         android:text="@string/submit"
         android:textColor="@color/white"
+        android:contentDescription="@string/submit"
         android:textSize="16sp"
         android:textStyle="bold" />
 
