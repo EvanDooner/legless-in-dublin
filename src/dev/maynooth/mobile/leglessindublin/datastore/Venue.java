@@ -67,6 +67,8 @@ public class Venue implements Model {
 	private static final String WHERE_ID_EQUALS = VenueField.ROWID.fieldName
 			+ "=?";
 
+	private static final String[] COUNT = { "COUNT(*)" };
+
 	/**
 	 * Finds the venue with the specified id
 	 * 
@@ -131,6 +133,34 @@ public class Venue implements Model {
 		return results;
 	}
 
+	/**
+	 * Location first, venue type second
+	 * @param dbConnect
+	 * @param selectionArgs
+	 * @return
+	 */
+	public static int findCountByLocationAndVenueType(SQLiteDatabase dbConnect,
+			String[] selectionArgs) {
+
+		if (selectionArgs.length != 2) {
+			throw new IllegalArgumentException(
+					"Incorrect number of search arguments");
+		}
+
+		int count = 0;
+
+		Cursor mCursor = dbConnect.query(false, VENUE_TABLE, COUNT,
+				WHERE_LOCATION_AND_TYPE_EQUALS, selectionArgs, null, null,
+				null, null);
+		if (mCursor != null && mCursor.getCount() == 1) {
+			mCursor.moveToFirst();
+			count = mCursor.getInt(0);
+		}
+
+		return count;
+
+	}
+
 	public static String getTableName() {
 		return VENUE_TABLE;
 	}
@@ -144,8 +174,7 @@ public class Venue implements Model {
 
 		Cursor mCursor =
 
-		dbConnect.query(VENUE_TABLE, ALL_COLUMNS, null, null, null, null,
-				null);
+		dbConnect.query(VENUE_TABLE, ALL_COLUMNS, null, null, null, null, null);
 		if (mCursor != null) {
 			mCursor.moveToFirst();
 		}
@@ -335,7 +364,8 @@ public class Venue implements Model {
 	// Removes this venue model from the database
 	public void delete(SQLiteDatabase dbConnect) {
 		// Delete any associated ratings before deleting a venue?
-		dbConnect.delete(VENUE_TABLE, WHERE_ID_EQUALS, new String[] {"" + rowId});
+		dbConnect.delete(VENUE_TABLE, WHERE_ID_EQUALS, new String[] { ""
+				+ rowId });
 	}
 
 	/**
@@ -451,7 +481,8 @@ public class Venue implements Model {
 		initialValues.put(VenueField.STAFF.fieldName, this.staff);
 		initialValues.put(VenueField.PARKING.fieldName, this.parking);
 		initialValues.put(VenueField.TOTAL_RATING.fieldName, this.totalRating);
-		initialValues.put(VenueField.NUMBER_OF_RATINGS.fieldName, this.numRatings);
+		initialValues.put(VenueField.NUMBER_OF_RATINGS.fieldName,
+				this.numRatings);
 
 		dbConnect.insert(VENUE_TABLE, null, initialValues);
 	}
@@ -590,9 +621,11 @@ public class Venue implements Model {
 		updatedValues.put(VenueField.STAFF.fieldName, this.staff);
 		updatedValues.put(VenueField.PARKING.fieldName, this.parking);
 		updatedValues.put(VenueField.TOTAL_RATING.fieldName, this.totalRating);
-		updatedValues.put(VenueField.NUMBER_OF_RATINGS.fieldName, this.numRatings);
+		updatedValues.put(VenueField.NUMBER_OF_RATINGS.fieldName,
+				this.numRatings);
 
-		dbConnect.update(VENUE_TABLE, updatedValues, WHERE_ID_EQUALS, new String[] {"" + this.rowId});
+		dbConnect.update(VENUE_TABLE, updatedValues, WHERE_ID_EQUALS,
+				new String[] { "" + this.rowId });
 	}
 
 	public void updateAverageRatings(SQLiteDatabase dbConnect) {
@@ -609,7 +642,7 @@ public class Venue implements Model {
 			staff = 0;
 			parking = 0;
 			totalRating = 0;
-			numRatings = 0; 
+			numRatings = 0;
 		} else {
 			int sumApproach = 0;
 			int sumDoors = 0;
@@ -633,9 +666,9 @@ public class Venue implements Model {
 				sumParking += rating.getParking();
 				sumTotalRatings += rating.getSubTotal();
 			}
-			
-			double numRatingsAsDouble = (double)numberOfRatings;
-			
+
+			double numRatingsAsDouble = (double) numberOfRatings;
+
 			approach = sumApproach / numRatingsAsDouble;
 			doors = sumDoors / numRatingsAsDouble;
 			flooring = sumFlooring / numRatingsAsDouble;

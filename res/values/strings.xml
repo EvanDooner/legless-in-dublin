@@ -10,6 +10,7 @@
     <string name="selectVenue">Select Venue Type</string>
     <string name="selectLocation">Select Location</string>
     <string name="venue">Venue Types Here</string>
+    <string name="no_results_found">No matches found</string>
     <string name="location">Dublin Locations Here</string>
     <string name="terms">Terms and conditions viewable here</string>
     <string name="logoDescription">Legless In Dublin Logo</string>
