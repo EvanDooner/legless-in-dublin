@@ -26,50 +26,12 @@ public class VenueType {
 		}
 	}
 
-	/**
-	 * Finds the ID of a venue type in the database
-	 * 
-	 * @param dbConnect
-	 *            an SQLiteDatabase - the database to query
-	 * @param type
-	 *            a string - the venue type
-	 * @return an int - the id of the specified venue type
-	 */
-	public static int findIdByType(SQLiteDatabase dbConnect, String type) {
-		Cursor mCursor = dbConnect.query(VENUE_TYPE_TABLE, VENUE_TYPE_ID,
-				WHERE_TYPE_EQUALS, new String[] { type }, null, null, null);
-		if (mCursor != null) {
-			mCursor.moveToFirst();
-		} else {
-			Log.e("Lglss", "mCursor is null");
-			return -1;
-		}
-
-		return mCursor.getInt(0);
-	}
-
 	private static final String VENUE_TYPE_TABLE = "venue_type";
+
 	private static final String[] VENUE_TYPE_ID = { VenueTypeField.ROWID.fieldName };
+
 	private static final String WHERE_TYPE_EQUALS = VenueTypeField.TYPE.fieldName
 			+ "=?";
-
-	/**
-	 * Builds a venueType object from a venue type record in the database
-	 * 
-	 * @param mCursor
-	 *            a cursor - the cursor pointing to the record to be used
-	 * @return a venueType - the object representing the database record
-	 */
-	private static VenueType buildVenueType(Cursor mCursor) {
-		int idIndex = mCursor.getColumnIndex(VenueTypeField.ROWID.fieldName);
-		int rowId = mCursor.getInt(idIndex);
-
-		int typeIndex = mCursor.getColumnIndex(VenueTypeField.TYPE.fieldName);
-		String venueType = mCursor.getString(typeIndex);
-
-		return new VenueType(rowId, venueType);
-	}
-
 	/**
 	 * Fetches all venue types from the database.
 	 * 
@@ -99,7 +61,6 @@ public class VenueType {
 
 		return results;
 	}
-
 	/**
 	 * Fetches all venue type names from the database.
 	 * 
@@ -128,8 +89,47 @@ public class VenueType {
 		return results;
 	}
 
+	/**
+	 * Finds the ID of a venue type in the database
+	 * 
+	 * @param dbConnect
+	 *            an SQLiteDatabase - the database to query
+	 * @param type
+	 *            a string - the venue type
+	 * @return an int - the id of the specified venue type
+	 */
+	public static int findIdByType(SQLiteDatabase dbConnect, String type) {
+		Cursor mCursor = dbConnect.query(VENUE_TYPE_TABLE, VENUE_TYPE_ID,
+				WHERE_TYPE_EQUALS, new String[] { type }, null, null, null);
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		} else {
+			Log.e("Lglss", "mCursor is null");
+			return -1;
+		}
+
+		return mCursor.getInt(0);
+	}
+
 	public static String getTableName() {
 		return VENUE_TYPE_TABLE;
+	}
+
+	/**
+	 * Builds a venueType object from a venue type record in the database
+	 * 
+	 * @param mCursor
+	 *            a cursor - the cursor pointing to the record to be used
+	 * @return a venueType - the object representing the database record
+	 */
+	private static VenueType buildVenueType(Cursor mCursor) {
+		int idIndex = mCursor.getColumnIndex(VenueTypeField.ROWID.fieldName);
+		int rowId = mCursor.getInt(idIndex);
+
+		int typeIndex = mCursor.getColumnIndex(VenueTypeField.TYPE.fieldName);
+		String venueType = mCursor.getString(typeIndex);
+
+		return new VenueType(rowId, venueType);
 	}
 
 	private int rowId;
@@ -151,5 +151,13 @@ public class VenueType {
 
 	public void setVenueType(String venueType) {
 		this.venueType = venueType;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "VenueType [rowId=" + rowId + ", venueType=" + venueType + "]";
 	};
 }

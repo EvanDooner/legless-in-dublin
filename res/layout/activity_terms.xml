@@ -64,7 +64,8 @@
         android:text="@string/back"
         android:textColor="@color/deepblue"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="returnToMain" />
     
     <!-- Logo at bottom of screen -->
     <ImageView

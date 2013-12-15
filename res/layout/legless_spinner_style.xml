@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Used to set all Spinner dialogs -->
-<TextView xmlns:android="http://schemas.android.com/apk/res/android" 
-android:id="@+android:id/text1"
-style="?android:attr/spinnerItemStyle"
-android:singleLine="true"
-android:textColor="#FFFFFF"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:ellipsize="marquee" />
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/legless_spinner_item"
+    style="?android:attr/spinnerItemStyle"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:contentDescription="@string/venuePrompt"
+    android:ellipsize="marquee"
+    android:padding="5dp"
+    android:prompt="@string/venuePrompt"
+    android:singleLine="true"
+    android:text="@string/venue"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp" />

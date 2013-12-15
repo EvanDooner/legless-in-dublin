@@ -295,6 +295,14 @@ VALUES
 		WHERE name="Porterhouse Templebar"
 	),
 	5, 3, 4, 2, 1, 2, 1, 4, 1, 2
+),
+(
+	(
+		SELECT _id
+		FROM venue
+		WHERE name="Tolteca"
+	),
+	5, 3, 4, 2, 1, 2, 1, 4, 1, 2
 );
 	
 	

@@ -7,6 +7,7 @@
 
 
     <!-- Logo at top of activity -->
+
     <ImageView
         android:id="@+id/ivLogo1"
         android:layout_width="wrap_content"
@@ -19,12 +20,14 @@
         android:src="@drawable/legless_in_dublin_logo" />
 
     <!-- Select Venue type text view and spinner -->
+
     <TextView
         android:id="@+id/tvVenue1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="40dp"
+        android:layout_marginBottom="10dp"
         android:contentDescription="@string/selectVenue"
+        android:paddingLeft="40dp"
         android:text="@string/selectVenue"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -36,20 +39,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/lightblue"
-        android:padding="5dp"
         android:contentDescription="@string/venuePrompt"
+        android:padding="5dp"
         android:prompt="@string/venuePrompt"
         android:text="@string/venue"
         android:textSize="20sp" />
 
     <!-- Select Venue location text view and spinner -->
+
     <TextView
         android:id="@+id/tvLocation1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/selectLocation"
         android:paddingLeft="40dp"
         android:paddingTop="20dp"
-        android:contentDescription="@string/selectLocation"
         android:text="@string/selectLocation"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -61,33 +66,36 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/lightblue"
-        android:padding="5dp"
         android:contentDescription="@string/locationPrompt"
+        android:padding="5dp"
         android:prompt="@string/locationPrompt"
         android:text="@string/location"
         android:textSize="20sp" />
 
     <!-- Submit button -->
+
     <Button
         android:id="@+id/bSubmit1"
         style="@style/buttonStyle"
         android:background="@color/white"
-        android:onClick="searchRatings"
         android:contentDescription="@string/submit"
+        android:onClick="searchRatings"
         android:text="@string/submit"
         android:textColor="@color/deepblue"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <!-- View terms and conditions button -->
+
     <Button
         android:id="@+id/bTerms1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:onClick="termsAndConditions"
         android:background="@color/deepblue"
-        android:paddingTop="20dp"
         android:contentDescription="@string/terms"
+        android:paddingTop="20dp"
         android:text="@string/terms"
         android:textColor="@color/white"
         android:textSize="12sp"

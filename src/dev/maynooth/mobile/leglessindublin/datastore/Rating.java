@@ -122,7 +122,33 @@ public class Rating implements Model {
 
 		return ratingList;
 	}
+	
+	/**
+	 * Returns all the number of ratings associated with a particular venue
+	 * 
+	 * @param venueId
+	 *            an int - the id of the associated venue
+	 * @return an int - the number of ratings
+	 */
+	public static int findCountByVenueId(int venueId,
+			SQLiteDatabase dbConnect) {
+		
+		int result = 0;
 
+		Cursor mCursor =
+
+		dbConnect.query(RATING_TABLE,
+				new String[] { "COUNT(*)" },
+				WHERE_VENUE_ID_EQUALS, new String[] {"" + venueId}, null,
+				null, null);
+		if (mCursor != null && mCursor.moveToFirst()) {
+			result = mCursor.getInt(0);
+		}
+
+		return result;
+	}
+	
+	private static final String WHERE_VENUE_ID_EQUALS = RatingField.VENUE_ID.fieldName + "=?";
 	/**
 	 * Returns all rating objects that match the search query, i.e. their value
 	 * for the specified field is the same as the specified value.
@@ -232,38 +258,38 @@ public class Rating implements Model {
 
 		int approachIndex = mCursor
 				.getColumnIndex(RatingField.APPROACH.fieldName);
-		int approach = mCursor.getInt(approachIndex);
+		double approach = mCursor.getDouble(approachIndex);
 
 		int doorsIndex = mCursor.getColumnIndex(RatingField.DOORS.fieldName);
-		int doors = mCursor.getInt(doorsIndex);
+		double doors = mCursor.getDouble(doorsIndex);
 
 		int flooringIndex = mCursor
 				.getColumnIndex(RatingField.FLOORING.fieldName);
-		int flooring = mCursor.getInt(flooringIndex);
+		double flooring = mCursor.getDouble(flooringIndex);
 
 		int stepsIndex = mCursor.getColumnIndex(RatingField.STEPS.fieldName);
-		int steps = mCursor.getInt(stepsIndex);
+		double steps = mCursor.getDouble(stepsIndex);
 
 		int liftsIndex = mCursor.getColumnIndex(RatingField.LIFTS.fieldName);
-		int lifts = mCursor.getInt(liftsIndex);
+		double lifts = mCursor.getDouble(liftsIndex);
 
 		int bathroomsIndex = mCursor
 				.getColumnIndex(RatingField.BATHROOMS.fieldName);
-		int bathrooms = mCursor.getInt(bathroomsIndex);
+		double bathrooms = mCursor.getDouble(bathroomsIndex);
 
 		int layoutIndex = mCursor.getColumnIndex(RatingField.LAYOUT.fieldName);
-		int layout = mCursor.getInt(layoutIndex);
+		double layout = mCursor.getDouble(layoutIndex);
 
 		int staffIndex = mCursor.getColumnIndex(RatingField.STAFF.fieldName);
-		int staff = mCursor.getInt(staffIndex);
+		double staff = mCursor.getDouble(staffIndex);
 
 		int parkingIndex = mCursor
 				.getColumnIndex(RatingField.PARKING.fieldName);
-		int parking = mCursor.getInt(parkingIndex);
+		double parking = mCursor.getDouble(parkingIndex);
 
 		int subRatingIndex = mCursor
 				.getColumnIndex(RatingField.SUB_TOTAL.fieldName);
-		int subRating = mCursor.getInt(subRatingIndex);
+		double subRating = mCursor.getDouble(subRatingIndex);
 
 		Rating result = new Rating(venueId);
 		result.rowid = id;
@@ -283,16 +309,16 @@ public class Rating implements Model {
 
 	private int rowid;
 	private int venueId;
-	private int approach;
-	private int doors;
-	private int flooring;
-	private int steps;
-	private int lifts;
-	private int bathrooms;
-	private int layout;
-	private int staff;
-	private int parking;
-	private int subTotal;
+	private double approach;
+	private double doors;
+	private double flooring;
+	private double steps;
+	private double lifts;
+	private double bathrooms;
+	private double layout;
+	private double staff;
+	private double parking;
+	private double subTotal;
 
 	// Either specify all fields in constructor, or allow them to be set after
 	// construction
@@ -309,31 +335,31 @@ public class Rating implements Model {
 				+ this.rowid, null);
 	}
 
-	public int getApproach() {
+	public double getApproach() {
 		return approach;
 	}
 
-	public int getBathrooms() {
+	public double getBathrooms() {
 		return bathrooms;
 	}
 
-	public int getDoors() {
+	public double getDoors() {
 		return doors;
 	}
 
-	public int getFlooring() {
+	public double getFlooring() {
 		return flooring;
 	}
 
-	public int getLayout() {
+	public double getLayout() {
 		return layout;
 	}
 
-	public int getLifts() {
+	public double getLifts() {
 		return lifts;
 	}
 
-	public int getParking() {
+	public double getParking() {
 		return parking;
 	}
 
@@ -341,15 +367,15 @@ public class Rating implements Model {
 		return rowid;
 	}
 
-	public int getStaff() {
+	public double getStaff() {
 		return staff;
 	}
 
-	public int getSteps() {
+	public double getSteps() {
 		return steps;
 	}
 
-	public int getSubTotal() {
+	public double getSubTotal() {
 		return subTotal;
 	}
 
@@ -377,43 +403,43 @@ public class Rating implements Model {
 		dbConnect.insert(RATING_TABLE, null, initialValues);
 	}
 
-	public void setApproach(int approach) {
+	public void setApproach(double approach) {
 		this.approach = approach;
 	}
 
-	public void setBathrooms(int bathrooms) {
+	public void setBathrooms(double bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
-	public void setDoors(int doors) {
+	public void setDoors(double doors) {
 		this.doors = doors;
 	}
 
-	public void setFlooring(int flooring) {
+	public void setFlooring(double flooring) {
 		this.flooring = flooring;
 	}
 
-	public void setLayout(int layout) {
+	public void setLayout(double layout) {
 		this.layout = layout;
 	}
 
-	public void setLifts(int lifts) {
+	public void setLifts(double lifts) {
 		this.lifts = lifts;
 	}
 
-	public void setParking(int parking) {
+	public void setParking(double parking) {
 		this.parking = parking;
 	}
 
-	public void setStaff(int staff) {
+	public void setStaff(double staff) {
 		this.staff = staff;
 	}
 
-	public void setSteps(int steps) {
+	public void setSteps(double steps) {
 		this.steps = steps;
 	}
 
-	public void setSubTotal(int subrating) {
+	public void setSubTotal(double subrating) {
 		this.subTotal = subrating;
 	}
 

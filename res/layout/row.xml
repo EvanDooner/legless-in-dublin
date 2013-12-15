@@ -2,22 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/AppTheme"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" >
 
     <!-- Fragment for Search Results. Contains Venue Name, their rating -->
     <!-- and button to go to rate this venue activity -->
     <!-- Author: Ian Lamon -->
 
-
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    
     <!-- Text view to display Venue name -->
     <TextView
         android:id="@+id/resultName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="55"
         android:contentDescription="@string/venueName"
-        android:text="Result Here"
-        android:textSize="18sp" />
+        android:text="@string/placeHolder"
+        android:textSize="20sp" />
 
     <!-- Rating Bar to display venue rating out of 5 stars -->
     <RatingBar
@@ -26,24 +32,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/resultsText"
+        android:isIndicator="true"
         android:layout_gravity="center"
         android:numStars="5"
         android:rating="2.5"
         android:stepSize="0.5" />
-
-    <!-- Button to go to rate this venue activity -->
-    <Button
-        android:id="@+id/rateMeButton"
-        style="?android:attr/buttonStyleSmall"
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    
+    <!-- Text view to display Venue name -->
+    <TextView
+        android:id="@+id/resultStreetName"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/streetName"
+        android:text="@string/placeHolder"
+        android:textSize="14sp" />
+    
+    <TextView
+        android:id="@+id/resultNumRatings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:background="@color/deepblue"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:contentDescription="@string/rateMe"
-        android:text="@string/rateMe"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:textAlignment="viewEnd"
+        android:contentDescription="@string/venueName"
+        android:text="@string/placeHolder"
+        android:textSize="14sp" />
+	</LinearLayout>
 
 </LinearLayout>

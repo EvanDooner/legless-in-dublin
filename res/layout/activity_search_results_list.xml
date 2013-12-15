@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppTheme"
+    android:id="@+id/searchResultsList"
+    style="@style/AppTheme.NormalStyle"
     tools:context=".SearchResultsList" >
-    
+
     <!-- Search results activity to display venues in selected category and location -->
     <!-- results displayed in order of rating, highest first -->
     <!-- Author: Ian Lamon -->
-    
+
+
     <!-- text for results heading -->
+
     <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/resultsText"
         android:text="@string/resultsText"
+        android:textAllCaps="true"
         android:textColor="@color/deepblue"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <!-- list of results, row layout from row.xml as fragment -->
+
     <ListView
         android:id="@+id/resultsView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="18dp"
         android:background="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
-        android:divider="#2980b9"
+        android:divider="@color/lightblue"
         android:dividerHeight="1dp"
         android:paddingLeft="2dp"
         android:paddingRight="2dp" >
-        <!-- 
-        <fragment
-        android:id="@+id/resultsRow"
-        android:name="R.layout.row"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:contentDescription="@string/title_activity_search_results_list"
-        tools:layout="@layout/row" />
-         -->
     </ListView>
-    
+
     <!-- button to go to Add New Venue Activity -->
+
     <Button
         android:id="@+id/bAddNewVenue1"
         style="@style/buttonStyle"
-        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_margin="0dp"
+        android:background="@color/lightblue"
         android:contentDescription="@string/addNewVenue"
         android:text="@string/addNewVenue"
-        android:textColor="@color/deepblue"
-        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
 </LinearLayout>
