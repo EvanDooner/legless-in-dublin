@@ -78,7 +78,7 @@ public class Venue implements Model {
 
 		Cursor mCursor =
 
-		dbConnect.query(true, VENUE_TABLE, null, WHERE_ID_EQUALS,
+		dbConnect.query(true, VENUE_TABLE, ALL_COLUMNS, WHERE_ID_EQUALS,
 				new String[] { "" + rowId }, null, null,
 				VenueField.NAME.fieldName, null);
 		if (mCursor != null) {
@@ -112,7 +112,7 @@ public class Venue implements Model {
 					"Incorrect number of search arguments");
 		}
 
-		Cursor mCursor = dbConnect.query(false, VENUE_TABLE, null,
+		Cursor mCursor = dbConnect.query(false, VENUE_TABLE, ALL_COLUMNS,
 				WHERE_LOCATION_AND_TYPE_EQUALS, selectionArgs, null, null,
 				VenueField.NAME.fieldName, null);
 		if (mCursor == null || mCursor.getCount() < 1) {
@@ -144,7 +144,7 @@ public class Venue implements Model {
 
 		Cursor mCursor =
 
-		dbConnect.query(VENUE_TABLE, null, null, null, null, null,
+		dbConnect.query(VENUE_TABLE, ALL_COLUMNS, null, null, null, null,
 				null);
 		if (mCursor != null) {
 			mCursor.moveToFirst();
@@ -184,7 +184,7 @@ public class Venue implements Model {
 
 		Cursor mCursor =
 
-		dbConnect.query(VENUE_TABLE, null, null, null, null, null,
+		dbConnect.query(VENUE_TABLE, ALL_COLUMNS, null, null, null, null,
 				orderBy.fieldName, pageNumber * entriesPerPage + ", "
 						+ ((pageNumber + 1) * entriesPerPage - 1));
 		if (mCursor != null) {
