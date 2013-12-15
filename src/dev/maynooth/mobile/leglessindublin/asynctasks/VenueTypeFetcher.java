@@ -11,7 +11,7 @@ import android.os.AsyncTask;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
-public class PopulateVenueTypeSpinner extends
+public class VenueTypeFetcher extends
 		AsyncTask<Void, Void, List<VenueType>> {
 
 	/**
@@ -22,7 +22,7 @@ public class PopulateVenueTypeSpinner extends
 	/**
 	 * @param mainMenu
 	 */
-	public PopulateVenueTypeSpinner(Context context) {
+	public VenueTypeFetcher(Context context) {
 		this.ctx = context;
 	}
 

@@ -15,8 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import dev.maynooth.mobile.leglessindublin.arrayadapters.LocationAdapter;
 import dev.maynooth.mobile.leglessindublin.arrayadapters.VenueTypeAdapter;
-import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateLocationSpinner;
-import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateVenueTypeSpinner;
+import dev.maynooth.mobile.leglessindublin.asynctasks.LocationFetcher;
+import dev.maynooth.mobile.leglessindublin.asynctasks.VenueTypeFetcher;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
@@ -135,7 +135,7 @@ public class MainMenu extends Activity {
 		if (locations != null) {
 			setLocationSpinner(locations);
 		} else {
-			PopulateLocationSpinner fillLocSpinner = new PopulateLocationSpinner(this) {
+			LocationFetcher fillLocSpinner = new LocationFetcher(this) {
 
 				/* (non-Javadoc)
 				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
@@ -153,7 +153,7 @@ public class MainMenu extends Activity {
 		if (venueTypes != null) {
 			setVenueTypeSpinner(venueTypes);
 		} else {
-			PopulateVenueTypeSpinner fillVTSpinner = new PopulateVenueTypeSpinner(this) {
+			VenueTypeFetcher fillVTSpinner = new VenueTypeFetcher(this) {
 
 				/* (non-Javadoc)
 				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)

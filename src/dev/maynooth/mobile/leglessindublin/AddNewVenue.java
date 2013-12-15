@@ -4,10 +4,7 @@ import java.util.List;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -18,41 +15,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import dev.maynooth.mobile.leglessindublin.arrayadapters.LocationAdapter;
 import dev.maynooth.mobile.leglessindublin.arrayadapters.VenueTypeAdapter;
-import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateLocationSpinner;
-import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateVenueTypeSpinner;
-import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
+import dev.maynooth.mobile.leglessindublin.asynctasks.NewVenueInserter;
+import dev.maynooth.mobile.leglessindublin.asynctasks.LocationFetcher;
+import dev.maynooth.mobile.leglessindublin.asynctasks.VenueTypeFetcher;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class AddNewVenue extends Activity {
-
-	private class NewVenueInserter extends AsyncTask<Venue, Void, Void> {
-
-		protected Context ctx;
-
-		private NewVenueInserter(Context context) {
-			this.ctx = context;
-		}
-
-		@Override
-		protected Void doInBackground(Venue... params) {
-			Venue newVenue = params[0];
-			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(ctx);
-			dbAdapter.open();
-			SQLiteDatabase dbConnect = dbAdapter.getDbConnect();
-			try {
-				newVenue.save(dbConnect);
-			} finally {
-				dbAdapter.close();
-			}
-
-			return null;
-		}
-		
-		
-
-	}
 
 	private List<Location> locations;
 
@@ -143,7 +113,7 @@ public class AddNewVenue extends Activity {
 		if (locations != null) {
 			setLocationSpinner(locations);
 		} else {
-			PopulateLocationSpinner fillLocSpinner = new PopulateLocationSpinner(
+			LocationFetcher fillLocSpinner = new LocationFetcher(
 					this) {
 
 				/*
@@ -164,7 +134,7 @@ public class AddNewVenue extends Activity {
 		if (venueTypes != null) {
 			setVenueTypeSpinner(venueTypes);
 		} else {
-			PopulateVenueTypeSpinner fillVTSpinner = new PopulateVenueTypeSpinner(
+			VenueTypeFetcher fillVTSpinner = new VenueTypeFetcher(
 					this) {
 
 				/*

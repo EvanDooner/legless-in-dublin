@@ -11,7 +11,7 @@ import android.os.AsyncTask;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
 
-public class PopulateLocationSpinner extends AsyncTask<Void, Void, List<Location>> {
+public class LocationFetcher extends AsyncTask<Void, Void, List<Location>> {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class PopulateLocationSpinner extends AsyncTask<Void, Void, List<Location
 	/**
 	 * @param mainMenu
 	 */
-	public PopulateLocationSpinner(Context context) {
+	public LocationFetcher(Context context) {
 		this.ctx = context;
 	}
 
