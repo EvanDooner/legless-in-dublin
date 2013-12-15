@@ -55,5 +55,10 @@
         <item name="android:background">@color/deepblue</item>
         <item name="android:minHeight">0dp</item>
     </style>
+    
+    <style name="paddingTopBottom">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
 
 </resources>

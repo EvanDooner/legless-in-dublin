@@ -12,5 +12,6 @@
     android:prompt="@string/venuePrompt"
     android:singleLine="true"
     android:text="@string/venue"
-    android:textColor="@color/white"
+    android:background="@color/transparent"
+    android:textColor="@color/deepblue"
     android:textSize="20sp" />

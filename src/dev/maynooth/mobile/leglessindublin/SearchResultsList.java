@@ -75,7 +75,7 @@ public class SearchResultsList extends Activity {
 
 			List<Venue> results = Venue.findByLocationAndVenueType(dbConnect,
 					searchArgs);
-			
+
 			cachedVenues = results;
 
 			return results;
@@ -85,10 +85,8 @@ public class SearchResultsList extends Activity {
 		protected void onPostExecute(List<Venue> results) {
 			super.onPostExecute(results);
 
-			VenueArrayAdapter adapter = new VenueArrayAdapter(ctx,
-					R.layout.row, results);
-
 			fillListView(results);
+
 		}
 
 	}
@@ -156,6 +154,11 @@ public class SearchResultsList extends Activity {
 	private String cachedVenueType;
 	private List<Venue> cachedVenues;
 
+	public void addNewVenue(View view) {
+		Intent addNewVenueMenu = new Intent(this, AddNewVenue.class);
+		startActivity(addNewVenueMenu);
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -183,6 +186,9 @@ public class SearchResultsList extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			setTheme(android.R.style.Theme_Holo_Light);
+		}
 		setContentView(R.layout.activity_search_results_list);
 		// Show the Up button in the action bar.
 		setupActionBar();
@@ -193,11 +199,15 @@ public class SearchResultsList extends Activity {
 		final String location = intent.getStringExtra(MainMenu.SEARCH_LOCATION);
 		final String[] responses = { location, venueType };
 
-		if (cachedVenues != null && cachedLocation != null
-				&& cachedVenueType != null && location != null
-				&& venueType != null && location.equals(cachedLocation)
-				&& venueType.equals(cachedVenueType)) {
-
+		// Uses the cached venues if search args are the same as previously, or
+		// if either search arg is null
+		if (cachedVenues != null
+				&& (cachedLocation != null && cachedVenueType != null
+						&& location != null && venueType != null
+						&& location.equals(cachedLocation) && venueType
+							.equals(cachedVenueType))
+				|| (location == null || venueType == null)) {
+			fillListView(cachedVenues);
 		} else {
 			cachedLocation = location;
 			cachedVenueType = venueType;

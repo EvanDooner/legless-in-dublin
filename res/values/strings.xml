@@ -21,10 +21,11 @@
     <string name="submit">Submit</string>
     <string name="locationPrompt">Choose location&#8230;</string>
     <string name="venuePrompt">Choose venue&#8230;</string>
-    <string name="addNewVenue">Add New Venue</string>
+    <string name="addNewVenue">Add A New Venue</string>
     <string name="venueName">Venue Name:</string>
     <string name="venueType">Venue Type:</string>
     <string name="streetName">Street Name:</string>
+    <string name="postalCode">Post Code</string>
     <string name="postalCodePrompt">Choose postal code&#8230;</string>
     <string name="zero">0</string>
     <string name="one">1</string>

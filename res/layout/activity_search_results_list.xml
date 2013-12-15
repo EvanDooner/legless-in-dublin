@@ -47,6 +47,7 @@
         style="@style/buttonStyle"
         android:layout_width="match_parent"
         android:layout_margin="0dp"
+        android:onClick="addNewVenue"
         android:background="@color/lightblue"
         android:contentDescription="@string/addNewVenue"
         android:text="@string/addNewVenue"

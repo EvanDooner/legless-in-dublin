@@ -1,8 +1,6 @@
 package dev.maynooth.mobile.leglessindublin;
 
-import static dev.maynooth.mobile.leglessindublin.utils.StringUtilities.toTitleCase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,14 +10,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.CheckedTextView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+import dev.maynooth.mobile.leglessindublin.arrayadapters.LocationAdapter;
+import dev.maynooth.mobile.leglessindublin.arrayadapters.VenueTypeAdapter;
+import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateLocationSpinner;
+import dev.maynooth.mobile.leglessindublin.asynctasks.PopulateVenueTypeSpinner;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
@@ -27,239 +24,56 @@ import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class MainMenu extends Activity {
 
-	private class LocationAdapter extends ArrayAdapter<Location> {
-
-		private Context mContext;
-		private int layoutResourceId;
-		private List<Location> locations = new ArrayList<Location>();
-
-		public LocationAdapter(Context context, int resource,
-				List<Location> locations) {
-			super(context, resource, locations);
-			this.mContext = context;
-			this.layoutResourceId = resource;
-			this.locations = locations;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.ArrayAdapter#getDropDownView(int,
-		 * android.view.View, android.view.ViewGroup)
-		 */
-		@Override
-		public View getDropDownView(int position, View convertView,
-				ViewGroup parent) {
-			if (convertView == null) {
-				// inflate the layout
-				LayoutInflater inflater = ((Activity) mContext)
-						.getLayoutInflater();
-				convertView = inflater.inflate(
-						R.layout.legless_spinner_dropdown, parent, false);
-			}
-
-			// location item based on the position
-			Location currentLocation = locations.get(position);
-
-			// get the TextView and then set the text (location name) and tag
-			// (location
-			// ID) values
-			CheckedTextView textViewItem = (CheckedTextView) convertView
-					.findViewById(R.id.spinnerDropdown);
-			textViewItem.setText(currentLocation.getLocation());
-			textViewItem.setTag(currentLocation.getRowId());
-
-			return convertView;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.ArrayAdapter#getView(int, android.view.View,
-		 * android.view.ViewGroup)
-		 */
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			if (convertView == null) {
-				// inflate the layout
-				LayoutInflater inflater = ((Activity) mContext)
-						.getLayoutInflater();
-				convertView = inflater.inflate(layoutResourceId, parent, false);
-			}
-
-			// object item based on the position
-			Location currentLocation = locations.get(position);
-
-			// get the TextView and then set the text (item name) and tag (item
-			// ID) values
-			TextView textViewItem = (TextView) convertView
-					.findViewById(R.id.legless_spinner_item);
-			textViewItem.setText(currentLocation.getLocation());
-			textViewItem.setTag(currentLocation.getRowId());
-
-			return convertView;
-		}
-
-	}
-
-	private class PopulateLocationSpinner extends
-			AsyncTask<Void, Void, List<Location>> {
+	private class SearchCounter extends AsyncTask<String, Void, Boolean> {
 
 		private Context ctx;
 
-		private PopulateLocationSpinner(Context context) {
-			super();
+		public SearchCounter(Context context) {
 			this.ctx = context;
 		}
 
 		@Override
-		protected List<Location> doInBackground(Void... params) {
-			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
-					getApplicationContext());
-			dbAdapter.open();
-
-			List<Location> locationsUnformatted;
-			try {
-				locationsUnformatted = Location.fetchAll(dbAdapter
-						.getDbConnect());
-			} finally {
-				dbAdapter.close();
-			}
-
-			List<Location> locationsFormatted = new ArrayList<Location>();
-			for (Location option : locationsUnformatted) {
-				option.setLocation(toTitleCase(option.getLocation()));
-				locationsFormatted.add(option);
-			}
-
-			locations = locationsUnformatted;
-
-			return locations;
-		}
-
-		@Override
-		protected void onPostExecute(List<Location> result) {
-			super.onPostExecute(result);
-
-			setLocationSpinner(result);
-		}
-
-	}
-
-	private class PopulateVenueTypeSpinner extends
-			AsyncTask<Void, Void, List<VenueType>> {
-
-		private Context ctx;
-
-		private PopulateVenueTypeSpinner(Context context) {
-			super();
-			this.ctx = context;
-		}
-
-		@Override
-		protected List<VenueType> doInBackground(Void... params) {
+		protected Boolean doInBackground(String... searchArgs) {
 			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
 					getApplicationContext());
 			dbAdapter.open();
 			SQLiteDatabase dbConnect = dbAdapter.getDbConnect();
 
-			List<VenueType> venueTypesUnformatted;
-			try {
-				venueTypesUnformatted = VenueType.fetchAll(dbConnect);
-			} finally {
-				dbAdapter.close();
-			}
+			int count = Venue.findCountByLocationAndVenueType(dbConnect,
+					searchArgs);
 
-			List<VenueType> venueTypeFormatted = new ArrayList<VenueType>();
-			for (VenueType option : venueTypesUnformatted) {
-				option.setVenueType(toTitleCase(option.getVenueType()));
-				venueTypeFormatted.add(option);
-			}
-
-			venueTypes = venueTypeFormatted;
-
-			return venueTypes;
-		}
-
-		@Override
-		protected void onPostExecute(List<VenueType> result) {
-			super.onPostExecute(result);
-
-			setVenueTypeSpinner(result);
-		}
-
-	}
-
-	private class VenueTypeArrayAdapter extends ArrayAdapter<VenueType> {
-
-		private Context mContext;
-		private int layoutResourceId;
-		private List<VenueType> venueTypes = new ArrayList<VenueType>();
-
-		public VenueTypeArrayAdapter(Context context, int resource,
-				List<VenueType> venueTypes) {
-			super(context, resource, venueTypes);
-			this.mContext = context;
-			this.layoutResourceId = resource;
-			this.venueTypes = venueTypes;
+			return (count > 0) ? Boolean.TRUE : Boolean.FALSE;
 		}
 
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see android.widget.ArrayAdapter#getDropDownView(int,
-		 * android.view.View, android.view.ViewGroup)
+		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 		 */
 		@Override
-		public View getDropDownView(int position, View convertView,
-				ViewGroup parent) {
-			if (convertView == null) {
-				// inflate the layout
-				LayoutInflater inflater = ((Activity) mContext)
-						.getLayoutInflater();
-				convertView = inflater.inflate(
-						R.layout.legless_spinner_dropdown, parent, false);
+		protected void onPostExecute(Boolean result) {
+			if (result) {
+
+				// Intent redirects to search results page
+				Intent intent = new Intent(ctx, SearchResultsList.class);
+
+				// Get currently selected venue type and location
+				Spinner venueTypeSpnr = (Spinner) findViewById(R.id.spinnerVenue);
+				VenueType venueType = (VenueType) venueTypeSpnr
+						.getSelectedItem();
+
+				Spinner locationSpnr = (Spinner) findViewById(R.id.spinnerLocation);
+				Location location = (Location) locationSpnr.getSelectedItem();
+
+				// Store selected values in passed intent
+				intent.putExtra(SEARCH_VENUE_TYPE, "" + venueType.getRowId());
+				intent.putExtra(SEARCH_LOCATION, "" + location.getRowId());
+
+				startActivity(intent);
+			} else {
+				Toast.makeText(ctx, R.string.no_results_found,
+						Toast.LENGTH_SHORT).show();
 			}
-
-			// object item based on the position
-			VenueType currentVenueType = venueTypes.get(position);
-
-			// get the TextView and then set the text (item name) and tag (item
-			// ID) values
-			CheckedTextView textViewItem = (CheckedTextView) convertView
-					.findViewById(R.id.spinnerDropdown);
-			textViewItem.setText(currentVenueType.getVenueType());
-			textViewItem.setTag(currentVenueType.getRowId());
-
-			return convertView;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.ArrayAdapter#getView(int, android.view.View,
-		 * android.view.ViewGroup)
-		 */
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			if (convertView == null) {
-				// inflate the layout
-				LayoutInflater inflater = ((Activity) mContext)
-						.getLayoutInflater();
-				convertView = inflater.inflate(layoutResourceId, parent, false);
-			}
-
-			// object item based on the position
-			VenueType currentVenueType = venueTypes.get(position);
-
-			// get the TextView and then set the text (item name) and tag (item
-			// ID) values
-			TextView textViewItem = (TextView) convertView
-					.findViewById(R.id.legless_spinner_item);
-			textViewItem.setText(currentVenueType.getVenueType());
-			textViewItem.setTag(currentVenueType.getRowId());
-
-			return convertView;
 		}
 
 	}
@@ -294,59 +108,6 @@ public class MainMenu extends Activity {
 		new SearchCounter(this).execute(searchParams);
 	}
 
-	private class SearchCounter extends AsyncTask<String, Void, Boolean> {
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
-		 */
-		@Override
-		protected void onPostExecute(Boolean result) {
-			if (result) {
-
-				// Intent redirects to search results page
-				Intent intent = new Intent(ctx, SearchResultsList.class);
-
-				// Get currently selected venue type and location
-				Spinner venueTypeSpnr = (Spinner) findViewById(R.id.spinnerVenue);
-				VenueType venueType = (VenueType) venueTypeSpnr
-						.getSelectedItem();
-
-				Spinner locationSpnr = (Spinner) findViewById(R.id.spinnerLocation);
-				Location location = (Location) locationSpnr.getSelectedItem();
-
-				// Store selected values in passed intent
-				intent.putExtra(SEARCH_VENUE_TYPE, "" + venueType.getRowId());
-				intent.putExtra(SEARCH_LOCATION, "" + location.getRowId());
-
-				startActivity(intent);
-			} else {
-				Toast.makeText(ctx, R.string.no_results_found, Toast.LENGTH_SHORT).show();
-			}
-		}
-
-		private Context ctx;
-
-		public SearchCounter(Context context) {
-			this.ctx = context;
-		}
-
-		@Override
-		protected Boolean doInBackground(String... searchArgs) {
-			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
-					getApplicationContext());
-			dbAdapter.open();
-			SQLiteDatabase dbConnect = dbAdapter.getDbConnect();
-
-			int count = Venue.findCountByLocationAndVenueType(dbConnect,
-					searchArgs);
-
-			return (count > 0) ? Boolean.TRUE : Boolean.FALSE;
-		}
-
-	}
-
 	public void termsAndConditions(View view) {
 
 		// Intent redirects to terms and conditions page
@@ -368,13 +129,44 @@ public class MainMenu extends Activity {
 
 	/*
 	 * Adds choices to Venue Type and Location spinners
+	 * Prefers cached values over fetching from DB
 	 */
 	private void populateSpinners() {
-		new PopulateLocationSpinner(this).execute();
+		if (locations != null) {
+			setLocationSpinner(locations);
+		} else {
+			PopulateLocationSpinner fillLocSpinner = new PopulateLocationSpinner(this) {
+
+				/* (non-Javadoc)
+				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+				 */
+				@Override
+				protected void onPostExecute(List<Location> result) {
+					locations = result;
+					setLocationSpinner(result);
+				}
+				
+			};
+			fillLocSpinner.execute();
+		}
+		
 		if (venueTypes != null) {
 			setVenueTypeSpinner(venueTypes);
 		} else {
-			new PopulateVenueTypeSpinner(this).execute();
+			PopulateVenueTypeSpinner fillVTSpinner = new PopulateVenueTypeSpinner(this) {
+
+				/* (non-Javadoc)
+				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+				 */
+				@Override
+				protected void onPostExecute(List<VenueType> result) {
+					venueTypes = result;
+					
+					setVenueTypeSpinner(result);
+				}
+				
+			};
+			fillVTSpinner.execute();
 		}
 	}
 
@@ -394,7 +186,7 @@ public class MainMenu extends Activity {
 	 */
 	private void setVenueTypeSpinner(final List<VenueType> venueTypes) {
 		Spinner venueType = (Spinner) findViewById(R.id.spinnerVenue);
-		VenueTypeArrayAdapter adapterVT = new VenueTypeArrayAdapter(this,
+		VenueTypeAdapter adapterVT = new VenueTypeAdapter(this,
 				R.layout.legless_spinner_style, venueTypes);
 		adapterVT.setDropDownViewResource(R.layout.legless_spinner_dropdown);
 		venueType.setAdapter(adapterVT);
