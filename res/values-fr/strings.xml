@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Jatte à Dublin</string>
+    <string name="placeHolder">texte d\'espace réservé</string>
     <string name="action_settings">Paramètres</string>
     <string name="title_activity_search_results_list">Résultats de la recherche</string>
     <string name="title_activity_rate_venue">Taux Lieu</string>
@@ -9,6 +10,7 @@
     <string name="selectVenue">Sélectionnez Lieu de type</string>
     <string name="selectLocation">Sélectionner l\'emplacement</string>
     <string name="venue">Voici les types Lieu</string>
+    <string name="no_results_found">Trouvé aucun matchs</string>
     <string name="location">Dublin endroits ici</string>
     <string name="terms">Conditions visible ici</string>
     <string name="logoDescription">En jatte Logo Dublin</string>
@@ -22,9 +24,8 @@
     <string name="addNewVenue">Ajouter un nouveau lieu</string>
     <string name="venueName">Nom Lieu:</string>
     <string name="venueType">Type de lieu:</string>
-    <string name="address1">Adresse:</string>
-    <string name="address2">Ville:</string>
-    <string name="address3">Code Postal:</string>
+    <string name="streetName">Nom de la rue:</string>
+    <string name="postalCode">Code postal</string>
     <string name="postalCodePrompt">Choisissez un code postal:&#8230;</string>
     <string name="zero">0</string>
     <string name="one">1</string>
@@ -50,6 +51,10 @@
     <string name="terms1">Conditions d\'utilisation:</string>
     <string name="terms2">1. Les notes exprimées dans cette application sont une accumulation de points de vue des different utilisateurs de l\'application et ne reflètent pas nécessairement les vues des Jatte à Dublin.</string>
     <string name="terms3">2. Jatte à Dublin n\'accepte aucune responsabilité pour toute perte ou dommage resultant de l\'utilisation de cette application.</string>
+	<string name="title_activity_terms_and_conditions">Termes et Conditions</string>
+    <string name="title_activity_thank_you_splash">Merci de contribuer</string>
+    <string name="title_activity_venue_item_view">Lieu article Afficher</string>
     
 <!-- test comment here -->
+    
 </resources>

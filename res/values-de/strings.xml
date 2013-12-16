@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Ohne Beine in Dublin</string>
+    <string name="placeHolder">Platzhaltertext</string>
     <string name="action_settings">Einstellungen</string>
     <string name="title_activity_search_results_list">Suchergebnisse</string>
     <string name="title_activity_rate_venue">Bewerten Veranstaltungsort</string>
@@ -9,6 +10,7 @@
     <string name="selectVenue">Wählen Veranstaltungsort Art</string>
     <string name="selectLocation">Standort auswählen</string>
     <string name="venue">Veranstaltungsort Typen Hier</string>
+    <string name="no_results_found">keine Spiele gefunden</string>
     <string name="location">Dublin Standorte Hier</string>
     <string name="terms">AGB hier sichtbar</string>
     <string name="logoDescription">Ohne Beine in Dublin Logo</string>
@@ -22,9 +24,8 @@
     <string name="addNewVenue">Neuer Veranstaltungsort hinzufügen</string>
     <string name="venueName">Veranstaltungsort Name:</string>
     <string name="venueType">Veranstaltungsort Art:</string>
-    <string name="address1">Adresse:</string>
-    <string name="address2">Stadt:</string>
-    <string name="address3">Postleitzahl:</string>
+    <string name="streetName">Straßenname:</string>
+    <string name="postalCode">Postleitzahl</string>
     <string name="postalCodePrompt">Wählen Sie ein Postleitzahlen&#8230;</string>
     <string name="zero">0</string>
     <string name="one">1</string>
@@ -50,6 +51,10 @@
     <string name="terms1">Allgemeine Bedingungen für die Verwendung:</string>
     <string name="terms2">1. Die Bewertungen in diesem App geäußert werden, eine Ansammlung von Ansichten der einzelnen App –Benutzer und spiegeln nicht unbedingt die Ansichten der Ohne Beine in Dublin.</string>
     <string name="terms3">2. Ohne Beine in Dublin übernimmt keine Haftung für Verluste oder Schäden, die durch die Nutzung dieser App.</string>
+	<string name="title_activity_terms_and_conditions">Allgemeine Geschäftsbedingungen</string>
+    <string name="title_activity_thank_you_splash">Danke für Beitrag</string>
+    <string name="title_activity_venue_item_view">Veranstaltungsort Artikel anzeigen</string>
     
 <!-- test comment here -->
+    
 </resources>

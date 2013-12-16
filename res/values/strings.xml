@@ -51,10 +51,10 @@
     <string name="terms1">Terms and Conditions of Use:</string>
     <string name="terms2">1. The ratings expressed in this app are an accumulation of views of individual app users and do not necessarily reflect the views of Legless in Dublin.</string>
     <string name="terms3">2. Legless in Dublin accepts no liability for any loss or damage as a result of using this app.</string>
-
-    <!-- test comment here -->
     <string name="title_activity_terms_and_conditions">Terms and Conditions</string>
     <string name="title_activity_thank_you_splash">Thank You For Contributing</string>
     <string name="title_activity_venue_item_view">Venue Item View</string>
+
+    <!-- test comment here -->
 
 </resources>

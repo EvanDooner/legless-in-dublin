@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Sin piernas en Dublín</string>
+    <string name="placeHolder">texto del marcador</string>
     <string name="action_settings">Ajustes</string>
     <string name="title_activity_search_results_list">Resultados de la búsqueda</string>
     <string name="title_activity_rate_venue">Cambio Lugar</string>
@@ -9,6 +10,7 @@
     <string name="selectVenue">Seleccione el tipo de Lugar</string>
     <string name="selectLocation">Seleccionar ubicación</string>
     <string name="venue">Tipos Lugar Aquí</string>
+    <string name="no_results_found">no dio ningún resultado</string>
     <string name="location">Dublín ubicaciones aquí</string>
     <string name="terms">Condiciones visible aquí</string>
     <string name="logoDescription">Sin piernas en Logo Dublín</string>
@@ -22,9 +24,8 @@
     <string name="addNewVenue">Crear Nuevo Lugar</string>
     <string name="venueName">Nombre Lugar:</string>
     <string name="venueType">Tipo Lugar:</string>
-    <string name="address1">Dirección:</string>
-    <string name="address2">Ciudad:</string>
-    <string name="address3">Código Postal:</string>
+    <string name="streetName">Nombre de la calle:</string>
+    <string name="postalCode">Código postal</string>
     <string name="postalCodePrompt">Elige código postal&#8230;</string>
     <string name="zero">0</string>
     <string name="one">1</string>
@@ -50,6 +51,10 @@
     <string name="terms1">Términos y Condiciones de Uso:</string>
     <string name="terms2">1. Las calificaciones expresadas en esta aplicación son una acumulación de los usuarios de aplicaciones individuals y no reflejan necesariamente los puntos de vista Sin piernas en Dublín.</string>
     <string name="terms3">2. Sin piernas en Dublín no acepta ninguna responsabilidad por cualquier pérdida o daño como resultado del uso de esta aplicación.</string>    
+	<string name="title_activity_terms_and_conditions">Términos y Condiciones</string>
+    <string name="title_activity_thank_you_splash">Gracias por contribuir</string>
+    <string name="title_activity_venue_item_view">Venue Ver artículo</string>
     
 <!-- test comment here -->
+
 </resources>
