@@ -1,6 +1,5 @@
 package dev.maynooth.mobile.leglessindublin;
 
-
 import java.util.List;
 
 import android.app.Activity;
@@ -108,6 +107,36 @@ public class MainMenu extends Activity {
 		new SearchCounter(this).execute(searchParams);
 	}
 
+	private int backPressed = 0;
+	private Toast backTwiceReminder;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		if (backPressed >= 1) {
+			if (backTwiceReminder != null) {
+				backTwiceReminder.cancel();
+			}
+			Intent intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(intent);
+			backPressed = 0;
+		} else {
+			backTwiceReminder = Toast
+					.makeText(
+							this,
+							"Press the back button once again to close the application.",
+							Toast.LENGTH_SHORT);
+			backTwiceReminder.show();
+			backPressed++;
+		}
+	}
+
 	public void termsAndConditions(View view) {
 
 		// Intent redirects to terms and conditions page
@@ -128,8 +157,8 @@ public class MainMenu extends Activity {
 	}
 
 	/*
-	 * Adds choices to Venue Type and Location spinners
-	 * Prefers cached values over fetching from DB
+	 * Adds choices to Venue Type and Location spinners Prefers cached values
+	 * over fetching from DB
 	 */
 	private void populateSpinners() {
 		if (locations != null) {
@@ -137,7 +166,9 @@ public class MainMenu extends Activity {
 		} else {
 			LocationFetcher fillLocSpinner = new LocationFetcher(this) {
 
-				/* (non-Javadoc)
+				/*
+				 * (non-Javadoc)
+				 * 
 				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 				 */
 				@Override
@@ -145,26 +176,28 @@ public class MainMenu extends Activity {
 					locations = result;
 					setLocationSpinner(result);
 				}
-				
+
 			};
 			fillLocSpinner.execute();
 		}
-		
+
 		if (venueTypes != null) {
 			setVenueTypeSpinner(venueTypes);
 		} else {
 			VenueTypeFetcher fillVTSpinner = new VenueTypeFetcher(this) {
 
-				/* (non-Javadoc)
+				/*
+				 * (non-Javadoc)
+				 * 
 				 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 				 */
 				@Override
 				protected void onPostExecute(List<VenueType> result) {
 					venueTypes = result;
-					
+
 					setVenueTypeSpinner(result);
 				}
-				
+
 			};
 			fillVTSpinner.execute();
 		}
