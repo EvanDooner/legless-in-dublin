@@ -85,6 +85,37 @@ public class MainMenu extends Activity {
 
 	private List<VenueType> venueTypes;
 
+	private int backPressed = 0;
+
+	private Toast backTwiceReminder;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		if (backPressed >= 1) {
+			if (backTwiceReminder != null) {
+				backTwiceReminder.cancel();
+			}
+			Intent intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(intent);
+			backPressed = 0;
+			finish();
+		} else {
+			backTwiceReminder = Toast
+					.makeText(
+							this,
+							"Press the back button once again to close the application.",
+							Toast.LENGTH_SHORT);
+			backTwiceReminder.show();
+			backPressed++;
+		}
+	}
+
 	/**
 	 * Extracts the user's choices for venue type and location and forwards
 	 * their id to the search page.
@@ -105,36 +136,6 @@ public class MainMenu extends Activity {
 				"" + venueType.getRowId(), };
 
 		new SearchCounter(this).execute(searchParams);
-	}
-
-	private int backPressed = 0;
-	private Toast backTwiceReminder;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onBackPressed()
-	 */
-	@Override
-	public void onBackPressed() {
-		if (backPressed >= 1) {
-			if (backTwiceReminder != null) {
-				backTwiceReminder.cancel();
-			}
-			Intent intent = new Intent(Intent.ACTION_MAIN);
-			intent.addCategory(Intent.CATEGORY_HOME);
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(intent);
-			backPressed = 0;
-		} else {
-			backTwiceReminder = Toast
-					.makeText(
-							this,
-							"Press the back button once again to close the application.",
-							Toast.LENGTH_SHORT);
-			backTwiceReminder.show();
-			backPressed++;
-		}
 	}
 
 	public void termsAndConditions(View view) {
