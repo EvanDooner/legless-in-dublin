@@ -14,6 +14,9 @@ public class TermsAndConditions extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			setTheme(android.R.style.Theme_Holo_Light);
+		}
 		setContentView(R.layout.activity_terms);
 		// Show the Up button in the action bar.
 		setupActionBar();

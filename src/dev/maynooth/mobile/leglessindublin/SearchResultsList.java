@@ -22,11 +22,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
 public class SearchResultsList extends Activity {
+	
+	public static final String SELECTED_VENUE_ID = "dev.maynooth.mobile.leglessindublin.SELECTED_VENUE_ID";
 
 	/*
 	 * Here you can control what to do next when the user selects an item
@@ -42,17 +43,13 @@ public class SearchResultsList extends Activity {
 			TextView textViewItem = (TextView) view
 					.findViewById(R.id.resultName);
 
-			// get the clicked item name
-			String listItemText = textViewItem.getText().toString();
-
 			// get the clicked item ID
 			String listItemId = textViewItem.getTag().toString();
-
-			// just toast it
-			Toast.makeText(context,
-					"Item: " + listItemText + ", Item ID: " + listItemId,
-					Toast.LENGTH_SHORT).show();
-
+			
+			Intent rateVenue = new Intent(context, VenueItemView.class);
+			
+			rateVenue.putExtra(SELECTED_VENUE_ID, listItemId);
+			startActivity(rateVenue);
 		}
 
 	}

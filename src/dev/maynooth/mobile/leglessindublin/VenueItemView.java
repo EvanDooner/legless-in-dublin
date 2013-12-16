@@ -6,19 +6,25 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.maynooth.mobile.leglessindublin.asynctasks.NewRatingInserter;
 import dev.maynooth.mobile.leglessindublin.asynctasks.VenueFetcher;
-import dev.maynooth.mobile.leglessindublin.datastore.Rating;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
-public class RateVenue extends Activity {
+public class VenueItemView extends Activity {
 
 	private Venue selectedVenue;
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.venue_item_view, menu);
+		return true;
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -37,74 +43,18 @@ public class RateVenue extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void submitRating(View view) {
+	public void rateVenue(View view) {
 
-		double numOfCategories = 9.0;
+		if (selectedVenue == null) {
+			Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show();
+		} else {
+			String listItemId = "" + selectedVenue.getRowId();
 
-		RatingBar entranceRating = (RatingBar) findViewById(R.id.entranceRating);
-		double approach = entranceRating.getRating();
+			Intent rateVenue = new Intent(this, RateVenue.class);
 
-		RatingBar doorsRating = (RatingBar) findViewById(R.id.doorsRating);
-		double doors = doorsRating.getRating();
-
-		RatingBar flooringRating = (RatingBar) findViewById(R.id.flooringRating);
-		double flooring = flooringRating.getRating();
-
-		RatingBar stepsRating = (RatingBar) findViewById(R.id.stepsRating);
-		double steps = stepsRating.getRating();
-
-		RatingBar liftsRating = (RatingBar) findViewById(R.id.liftsRating);
-		double lifts = liftsRating.getRating();
-
-		RatingBar bathroomsRating = (RatingBar) findViewById(R.id.bathroomsRating);
-		double bathrooms = bathroomsRating.getRating();
-
-		RatingBar layoutRating = (RatingBar) findViewById(R.id.layoutRating);
-		double layout = layoutRating.getRating();
-
-		RatingBar staffRating = (RatingBar) findViewById(R.id.staffRating);
-		double staff = staffRating.getRating();
-
-		RatingBar parkingRating = (RatingBar) findViewById(R.id.parkingRating);
-		double parking = parkingRating.getRating();
-
-		double totalRating = (approach + doors + flooring + steps + lifts
-				+ bathrooms + layout + staff + parking)
-				/ numOfCategories;
-
-		Rating userRating = new Rating(selectedVenue.getRowId());
-		userRating.setApproach(approach);
-		userRating.setDoors(doors);
-		userRating.setFlooring(flooring);
-		userRating.setSteps(steps);
-		userRating.setLifts(lifts);
-		userRating.setBathrooms(bathrooms);
-		userRating.setLayout(layout);
-		userRating.setStaff(staff);
-		userRating.setParking(parking);
-		userRating.setSubTotal(totalRating);
-
-		new NewRatingInserter(this) {
-
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
-			 */
-			@Override
-			protected void onPostExecute(Void result) {
-
-				Toast.makeText(getApplicationContext(), "Rating saved",
-						Toast.LENGTH_SHORT).show();
-
-				Intent showThankYou = new Intent(ctx, ThankYouSplash.class);
-
-				startActivity(showThankYou);
-
-			}
-
-		}.execute(userRating);
-
+			rateVenue.putExtra(SearchResultsList.SELECTED_VENUE_ID, listItemId);
+			startActivity(rateVenue);
+		}
 	}
 
 	@Override
@@ -113,7 +63,7 @@ public class RateVenue extends Activity {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
 			setTheme(android.R.style.Theme_Holo_Light);
 		}
-		setContentView(R.layout.activity_rate_venue);
+		setContentView(R.layout.activity_venue_item_view);
 		// Show the Up button in the action bar.
 		setupActionBar();
 
@@ -136,13 +86,6 @@ public class RateVenue extends Activity {
 
 		}.execute(venueId);
 	}
-
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// // Inflate the menu; this adds items to the action bar if it is present.
-	// getMenuInflater().inflate(R.menu.rate_venue, menu);
-	// return true;
-	// }
 
 	private void fillInfo() {
 

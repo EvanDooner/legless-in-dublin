@@ -54,5 +54,7 @@
 
     <!-- test comment here -->
     <string name="title_activity_terms_and_conditions">Terms and Conditions</string>
+    <string name="title_activity_thank_you_splash">Thank You For Contributing</string>
+    <string name="title_activity_venue_item_view">Venue Item View</string>
 
 </resources>

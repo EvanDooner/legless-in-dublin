@@ -60,6 +60,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dev.maynooth.mobile.leglessindublin.MainMenu" />
         </activity>
+        <activity
+            android:name="dev.maynooth.mobile.leglessindublin.ThankYouSplash"
+            android:label="@string/title_activity_thank_you_splash"
+            android:parentActivityName="dev.maynooth.mobile.leglessindublin.MainMenu" >
+        </activity>
+        <activity
+            android:name="dev.maynooth.mobile.leglessindublin.VenueItemView"
+            android:label="@string/title_activity_venue_item_view"
+            android:parentActivityName="dev.maynooth.mobile.leglessindublin.SearchResultsList" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dev.maynooth.mobile.leglessindublin.SearchResultsList" />
+        </activity>
     </application>
 
 </manifest>

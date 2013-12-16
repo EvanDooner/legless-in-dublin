@@ -6,12 +6,12 @@
     android:layout_width="250dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:background="@color/transparent"
     android:contentDescription="@string/venuePrompt"
     android:ellipsize="marquee"
     android:padding="5dp"
     android:prompt="@string/venuePrompt"
     android:singleLine="true"
     android:text="@string/venue"
-    android:background="@color/transparent"
     android:textColor="@color/deepblue"
     android:textSize="20sp" />

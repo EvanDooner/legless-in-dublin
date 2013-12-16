@@ -18,16 +18,17 @@
         <include layout="@layout/row" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:isScrollContainer="true"
-        android:scrollbars="vertical"
-        tools:context=".AddNewVenue" >
+        android:baselineAligned="false"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="50"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical" >
 
@@ -50,10 +51,12 @@
 
                 <RatingBar
                     android:id="@+id/entranceRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/entrance"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -79,10 +82,12 @@
 
                 <RatingBar
                     android:id="@+id/doorsRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/doors"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -108,10 +113,12 @@
 
                 <RatingBar
                     android:id="@+id/flooringRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/flooring"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -137,10 +144,12 @@
 
                 <RatingBar
                     android:id="@+id/stepsRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/steps"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -166,14 +175,24 @@
 
                 <RatingBar
                     android:id="@+id/liftsRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/lifts"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
 
             <!-- Rating subject 6: Bathrooms -->
             <!-- Section consists of text (name of crieria being rated) -->
@@ -195,10 +214,12 @@
 
                 <RatingBar
                     android:id="@+id/bathroomsRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/bathrooms"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -224,10 +245,12 @@
 
                 <RatingBar
                     android:id="@+id/layoutRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/layout"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -253,10 +276,12 @@
 
                 <RatingBar
                     android:id="@+id/staffRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/staff"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
@@ -282,38 +307,46 @@
 
                 <RatingBar
                     android:id="@+id/parkingRating"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/parking"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="2.5"
                     android:stepSize="0.5" />
             </LinearLayout>
-
-            <!-- Submit Button -->
-
-            <Button
-                android:id="@+id/bSubmit2"
-                style="@style/buttonStyle"
-                android:contentDescription="@string/submit"
-                android:text="@string/submit"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:onClick="submitRating" />
-
-            <!-- Logo at bottom of screen -->
-
-            <ImageView
-                android:id="@+id/ivLogo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@string/logoDescription"
-                android:padding="20dp"
-                android:src="@drawable/leglessindublinbluelogo" />
         </LinearLayout>
-    </ScrollView>
+        <!-- Submit Button -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bRate"
+            style="@style/buttonStyle"
+            android:contentDescription="@string/rateMe"
+            android:onClick="rateVenue"
+            android:text="@string/rateMe"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Logo at bottom of screen -->
+
+        <ImageView
+            android:id="@+id/ivLogo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/logoDescription"
+            android:padding="20dp"
+            android:src="@drawable/leglessindublinbluelogo" />
+    </LinearLayout>
 
 </LinearLayout>

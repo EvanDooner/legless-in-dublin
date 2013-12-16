@@ -53,7 +53,7 @@ public class AddNewVenue extends Activity {
 			@Override
 			protected void onPostExecute(Void result) {
 				
-				Toast.makeText(getApplicationContext(), "New venue created", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Venue saved", Toast.LENGTH_SHORT).show();
 				
 				Intent backToSearch = new Intent(ctx, SearchResultsList.class);
 				
