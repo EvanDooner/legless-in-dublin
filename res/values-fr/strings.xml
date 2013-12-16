@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Jatte à Dublin</string>
-    <string name="action_settings">Paramètres</string>
     <string name="title_activity_search_results_list">Résultats de la recherche</string>
     <string name="title_activity_rate_venue">Taux Lieu</string>
     <string name="title_activity_add_new_venue">Ajouter un nouveau lieu</string>
@@ -12,7 +11,6 @@
     <string name="location">Dublin endroits ici</string>
     <string name="terms">Conditions visible ici</string>
     <string name="logoDescription">En jatte Logo Dublin</string>
-    <string name="hello_world">Bonjour tout le monde!</string>
     <string name="title_activity_splash_screen">Jatte à Dublin</string>
     <string name="resultsText">Résultats:</string>
     <string name="rateMe">Évaluez-moi</string>
@@ -22,16 +20,7 @@
     <string name="addNewVenue">Ajouter un nouveau lieu</string>
     <string name="venueName">Nom Lieu:</string>
     <string name="venueType">Type de lieu:</string>
-    <string name="address1">Adresse:</string>
-    <string name="address2">Ville:</string>
-    <string name="address3">Code Postal:</string>
     <string name="postalCodePrompt">Choisissez un code postal:&#8230;</string>
-    <string name="zero">0</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
     <string name="entrance">Entrée:</string>
     <string name="doors">Portes:</string>
     <string name="flooring">Revêtement de sol:</string>
@@ -45,7 +34,6 @@
     <string name="thankyou2">Jatte à Dublin.</string>
     <string name="thankyou3">Votre évaluation aide les autres et</string>
     <string name="thankyou4">fait notre application fort.</string>
-    <string name="detailedResultsText">Répartition des résultats:</string>
     <string name="back">Arrière</string>
     <string name="terms1">Conditions d\'utilisation:</string>
     <string name="terms2">1. Les notes exprimées dans cette application sont une accumulation de points de vue des different utilisateurs de l\'application et ne reflètent pas nécessairement les vues des Jatte à Dublin.</string>
