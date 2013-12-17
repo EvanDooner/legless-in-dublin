@@ -23,6 +23,12 @@ import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
 public class MainMenu extends Activity {
 
+	/**
+	 * Determines if results exist in the database for the specified query
+	 * 
+	 * @param String - usually two strings, location id and venue type id
+	 * @return Boolean - true if results are found; false otherwise
+	 */
 	private class SearchCounter extends AsyncTask<String, Void, Boolean> {
 
 		private Context ctx;
@@ -31,6 +37,9 @@ public class MainMenu extends Activity {
 			this.ctx = context;
 		}
 
+		/**
+		 * Queries the database with the supplied search parameters, and determines if results exist
+		 */
 		@Override
 		protected Boolean doInBackground(String... searchArgs) {
 			LeglessDbAdapter dbAdapter = new LeglessDbAdapter(
@@ -48,6 +57,10 @@ public class MainMenu extends Activity {
 		 * (non-Javadoc)
 		 * 
 		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+		 */
+		/**
+		 * If results were found in #doInBackground(), forwards the search query to SearchResultsPage
+		 * otherwise displays a failure Toast
 		 */
 		@Override
 		protected void onPostExecute(Boolean result) {
@@ -81,13 +94,13 @@ public class MainMenu extends Activity {
 
 	public static final String SEARCH_LOCATION = "dev.maynooth.mobile.leglessindublin.SEARCH_LOCATION";
 
-	private List<Location> locations;
+	private List<Location> locations; // Cache locations
 
-	private List<VenueType> venueTypes;
+	private List<VenueType> venueTypes; // Cache venue types
 
 	private int backPressed = 0;
 
-	private Toast backTwiceReminder;
+	private Toast backTwiceReminder; // Member to allow toast to be cancelled
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -138,6 +151,9 @@ public class MainMenu extends Activity {
 		new SearchCounter(this).execute(searchParams);
 	}
 
+	/**
+	 * Forwards the user to the terms and conditions page
+	 */
 	public void termsAndConditions(View view) {
 
 		// Intent redirects to terms and conditions page
