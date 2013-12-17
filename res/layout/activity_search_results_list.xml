@@ -42,10 +42,10 @@
 
     <!-- button to go to Add New Venue Activity -->
 
+        <!-- exception made to width of button as this one appears as a full width footer -->
     <Button
         android:id="@+id/bAddNewVenue1"
         style="@style/buttonStyle"
-        <!-- exception made to width of button as this one appears as a full width footer -->
         android:layout_width="match_parent"
         android:layout_margin="0dp"
         android:onClick="addNewVenue"
