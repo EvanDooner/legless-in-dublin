@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -58,3 +59,48 @@
 <!-- test comment here -->
     
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ohne Beine in Dublin</string>
+    <string name="title_activity_search_results_list">Suchergebnisse</string>
+    <string name="title_activity_rate_venue">Bewerten Veranstaltungsort</string>
+    <string name="title_activity_add_new_venue">Neuer Veranstaltungsort hinzufügen</string>
+    <string name="selectVenue">Wählen Veranstaltungsort Art</string>
+    <string name="selectLocation">Standort auswählen</string>
+    <string name="venue">Veranstaltungsort Typen Hier</string>
+    <string name="location">Dublin Standorte Hier</string>
+    <string name="terms">AGB hier sichtbar</string>
+    <string name="logoDescription">Ohne Beine in Dublin Logo</string>
+    <string name="title_activity_splash_screen">Ohne Beine in Dublin</string>
+    <string name="resultsText">Ergebnisse:</string>
+    <string name="rateMe">Ich bewerte</string>
+    <string name="submit">Einreichen</string>
+    <string name="locationPrompt">Wählen Sie einen Standort&#8230;</string>
+    <string name="venuePrompt">Wählen Veranstaltungsort&#8230;</string>
+    <string name="addNewVenue">Neuer Veranstaltungsort hinzufügen</string>
+    <string name="venueName">Veranstaltungsort Name:</string>
+    <string name="venueType">Veranstaltungsort Art:</string>
+    <string name="postalCodePrompt">Wählen Sie ein Postleitzahlen&#8230;</string>
+    <string name="entrance">Eintritt:</string>
+    <string name="doors">Türen:</string>
+    <string name="flooring">Bodenbelag:</string>
+    <string name="steps">Schritte:</string>
+    <string name="lifts">Lifte:</string>
+    <string name="bathrooms">Badezimmer:</string>
+    <string name="layout">Interne Layout:</string>
+    <string name="staff">Freundlichkeit des Personals:</string>
+    <string name="parking">Parkplatz:</string>
+    <string name="thankyou1">Vielen Dank für den Beitrag zur</string>
+    <string name="thankyou2">Ohne Beine in Dublin.</string>
+    <string name="thankyou3">Ihre Bewertung hilft anderen und</string>
+    <string name="thankyou4">macht unsere App stärker.</string>
+    <string name="back">Zurück</string>
+    <string name="terms1">Allgemeine Bedingungen für die Verwendung:</string>
+    <string name="terms2">1. Die Bewertungen in diesem App geäußert werden, eine Ansammlung von Ansichten der einzelnen App –Benutzer und spiegeln nicht unbedingt die Ansichten der Ohne Beine in Dublin.</string>
+    <string name="terms3">2. Ohne Beine in Dublin übernimmt keine Haftung für Verluste oder Schäden, die durch die Nutzung dieser App.</string>
+    
+<!-- test comment here -->
+</resources>
+>>>>>>> ee756675840bc69581d4aad01887123d29b0a8e0

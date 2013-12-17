@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -58,3 +59,56 @@
     <!-- test comment here -->
 
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Legless in Dublin</string>
+    <string name="placeHolder">placeholder text</string>
+    <string name="title_activity_search_results_list">Search Results</string>
+    <string name="title_activity_rate_venue">Rate Venue</string>
+    <string name="title_activity_add_new_venue">Add New Venue</string>
+    <string name="selectVenue">Select Venue Type</string>
+    <string name="selectLocation">Select Location</string>
+    <string name="venue">Venue Types Here</string>
+    <string name="no_results_found">No matches found</string>
+    <string name="location">Dublin Locations Here</string>
+    <string name="terms">Terms and conditions viewable here</string>
+    <string name="logoDescription">Legless In Dublin Logo</string>
+    <string name="title_activity_splash_screen">Legless in Dublin</string>
+    <string name="resultsText">Results:</string>
+    <string name="rateMe">Rate Me</string>
+    <string name="submit">Submit</string>
+    <string name="locationPrompt">Choose location&#8230;</string>
+    <string name="venuePrompt">Choose venue&#8230;</string>
+    <string name="addNewVenue">Add A New Venue</string>
+    <string name="venueName">Venue Name:</string>
+    <string name="venueType">Venue Type:</string>
+    <string name="streetName">Street Name:</string>
+    <string name="postalCode">Post Code</string>
+    <string name="postalCodePrompt">Choose postal code&#8230;</string>
+    <string name="entrance">Entrance:</string>
+    <string name="doors">Doors:</string>
+    <string name="flooring">Flooring:</string>
+    <string name="steps">Steps:</string>
+    <string name="lifts">Lifts:</string>
+    <string name="bathrooms">Bathrooms:</string>
+    <string name="layout">Internal Layout:</string>
+    <string name="staff">Friendliness of Staff:</string>
+    <string name="parking">Car Parking:</string>
+    <string name="thankyou1">Thank you for contributing to</string>
+    <string name="thankyou2">Legless In Dublin.</string>
+    <string name="thankyou3">Your rating helps others and</string>
+    <string name="thankyou4">makes our app stronger.</string>
+    <string name="back">Back</string>
+    <string name="terms1">Terms and Conditions of Use:</string>
+    <string name="terms2">1. The ratings expressed in this app are an accumulation of views of individual app users and do not necessarily reflect the views of Legless in Dublin.</string>
+    <string name="terms3">2. Legless in Dublin accepts no liability for any loss or damage as a result of using this app.</string>
+
+    <!-- test comment here -->
+    <string name="title_activity_terms_and_conditions">Terms and Conditions</string>
+    <string name="title_activity_thank_you_splash">Thank You For Contributing</string>
+    <string name="title_activity_venue_item_view">Venue Item View</string>
+
+</resources>
+>>>>>>> ee756675840bc69581d4aad01887123d29b0a8e0

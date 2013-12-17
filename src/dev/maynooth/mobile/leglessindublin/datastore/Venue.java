@@ -116,7 +116,7 @@ public class Venue implements Model {
 
 		Cursor mCursor = dbConnect.query(false, VENUE_TABLE, ALL_COLUMNS,
 				WHERE_LOCATION_AND_TYPE_EQUALS, selectionArgs, null, null,
-				VenueField.NAME.fieldName, null);
+				VenueField.TOTAL_RATING.fieldName + " DESC", null);
 		if (mCursor == null || mCursor.getCount() < 1) {
 			return null;
 		}
