@@ -12,7 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Represents a database model of a venue rating.
  * 
- * @author Evan Dooner
+ * @author Evan Dooner, 12262480
+ * @author Dennis Muldoon, 12260550
+ * 
  * @version 2013-11-25-00
  */
 public class Rating implements Model {
@@ -124,7 +126,7 @@ public class Rating implements Model {
 	}
 	
 	/**
-	 * Returns all the number of ratings associated with a particular venue
+	 * Returns the number of ratings associated with a particular venue
 	 * 
 	 * @param venueId
 	 *            an int - the id of the associated venue
@@ -193,6 +195,11 @@ public class Rating implements Model {
 		return ratingList;
 	}
 
+	/**
+	 * Returns the name of the rating table in the database.
+	 * 
+	 * @return a String - the name of the rating table in the database.
+	 */
 	public static String getTableName() {
 		return RATING_TABLE;
 	}
@@ -320,65 +327,140 @@ public class Rating implements Model {
 	private double parking;
 	private double subTotal;
 
-	// Either specify all fields in constructor, or allow them to be set after
-	// construction
-	// using setters. Could also look into using a Builder pattern, but prob.
-	// overkill
+
+	/**
+	 * Constructs a rating object.
+	 * 
+	 * @param venueid
+	 * 				- an int - the id of the venue for this rating. 
+	 */
 	public Rating(int venueid) {
 		this.venueId = venueid;
 	}
 
 	@Override
-	// Removes this rating model from the database
+	//Removes this rating model from the database.
 	public void delete(SQLiteDatabase dbConnect) {
 		dbConnect.delete(RATING_TABLE, VenueField.ROWID.fieldName + "="
 				+ this.rowid, null);
 	}
 
+	/**
+	 * Returns the Approach rating of a rating object.
+	 * 
+	 * @return approach 
+	 * 				- a double - the Approach rating of a rating object.   
+	 */
 	public double getApproach() {
 		return approach;
 	}
 
+	/**
+	 * Returns the Bathrooms rating of a rating object.
+	 * 
+	 * @return bathrooms 
+	 * 				- a double - the Bathrooms rating of a rating object.   
+	 */
 	public double getBathrooms() {
 		return bathrooms;
 	}
 
+	/**
+	 * Returns the Doors rating of a rating object.
+	 * 
+	 * @return doors 
+	 * 				- a double - the Doors rating of a rating object.   
+	 */
 	public double getDoors() {
 		return doors;
 	}
 
+	/**
+	 * Returns the Flooring rating of a rating object.
+	 * 
+	 * @return flooring 
+	 * 				- a double - the Flooring rating of a rating object.   
+	 */
 	public double getFlooring() {
 		return flooring;
 	}
 
+	/**
+	 * Returns the Layout rating of a rating object.
+	 * 
+	 * @return layout 
+	 * 				- a double - the Layout rating of a rating object.   
+	 */
 	public double getLayout() {
 		return layout;
 	}
 
+	/**
+	 * Returns the Lifts rating of a rating object.
+	 * 
+	 * @return lifts 
+	 * 				- a double - the Lifts rating of a rating object.   
+	 */
 	public double getLifts() {
 		return lifts;
 	}
 
+	/**
+	 * Returns the Parking rating of a rating object.
+	 * 
+	 * @return parking 
+	 * 				- a double - the Parking rating of a rating object.   
+	 */
 	public double getParking() {
 		return parking;
 	}
 
+	/**
+	 * Returns the database row id of a rating object.
+	 * 
+	 * @return rowid 
+	 * 				- an int - the database row id of a rating object.   
+	 */
 	public int getRowid() {
 		return rowid;
 	}
 
+	/**
+	 * Returns the Staff rating of a rating object.
+	 * 
+	 * @return staff 
+	 * 				- a double - the Staff rating of a rating object.   
+	 */
 	public double getStaff() {
 		return staff;
 	}
 
+	/**
+	 * Returns the Steps rating of a rating object.
+	 * 
+	 * @return steps 
+	 * 				- a double - the Steps rating of a rating object.   
+	 */
 	public double getSteps() {
 		return steps;
 	}
 
+	/**
+	 * Returns the SubTotal rating of a rating object.
+	 * 
+	 * @return subTotal 
+	 * 				- a double - the SubTotal rating of a rating object.   
+	 */
 	public double getSubTotal() {
 		return subTotal;
 	}
 
+	/**
+	 * Returns the VenueId of a rating object.
+	 * 
+	 * @return venueId 
+	 * 				- an int - the VenueId of a rating object.   
+	 */
 	public int getVenueId() {
 		return venueId;
 	}
@@ -403,46 +485,112 @@ public class Rating implements Model {
 		dbConnect.insert(RATING_TABLE, null, initialValues);
 	}
 
+	/**
+	 * Sets the Approach rating of a rating object.
+	 * 
+	 * @param approach
+	 * 				- a double - the Approach rating of a rating object.
+	 */
 	public void setApproach(double approach) {
 		this.approach = approach;
 	}
 
+	/**
+	 * Sets the Bathrooms rating of a rating object.
+	 * 
+	 * @param bathrooms
+	 * 				- a double - the Bathrooms rating of a rating object.
+	 */
 	public void setBathrooms(double bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
+	/**
+	 * Sets the Doors rating of a rating object.
+	 * 
+	 * @param doors
+	 * 				- a double - the Doors rating of a rating object.
+	 */
 	public void setDoors(double doors) {
 		this.doors = doors;
 	}
 
+	/**
+	 * Sets the Flooring rating of a rating object.
+	 * 
+	 * @param flooring
+	 * 				- a double - the Flooring rating of a rating object.
+	 */
 	public void setFlooring(double flooring) {
 		this.flooring = flooring;
 	}
 
+	/**
+	 * Sets the Layout rating of a rating object.
+	 * 
+	 * @param layout
+	 * 				- a double - the Layout rating of a rating object.
+	 */
 	public void setLayout(double layout) {
 		this.layout = layout;
 	}
 
+	/**
+	 * Sets the Lifts rating of a rating object.
+	 * 
+	 * @param lifts
+	 * 				- a double - the Lifts rating of a rating object.
+	 */
 	public void setLifts(double lifts) {
 		this.lifts = lifts;
 	}
 
+	/**
+	 * Sets the Parking rating of a rating object.
+	 * 
+	 * @param parking
+	 * 				- a double - the Parking rating of a rating object.
+	 */
 	public void setParking(double parking) {
 		this.parking = parking;
 	}
 
+	/**
+	 * Sets the Staff rating of a rating object.
+	 * 
+	 * @param staff
+	 * 				- a double - the Staff rating of a rating object.
+	 */
 	public void setStaff(double staff) {
 		this.staff = staff;
 	}
 
+	/**
+	 * Sets the Steps rating of a rating object.
+	 * 
+	 * @param steps
+	 * 				- a double - the Steps rating of a rating object.
+	 */
 	public void setSteps(double steps) {
 		this.steps = steps;
 	}
 
+	/**
+	 * Sets the SubTotal rating of a rating object.
+	 * 
+	 * @param subrating
+	 * 				- a double - the SubTotal rating of a rating object.
+	 */
 	public void setSubTotal(double subrating) {
 		this.subTotal = subrating;
 	}
 
+	/**
+	 * Sets the VenueId of a rating object.
+	 * 
+	 * @param venueid
+	 * 				- an int - the VenueId of a rating object.
+	 */
 	public void setVenueId(int venueid) {
 		this.venueId = venueid;
 	}
