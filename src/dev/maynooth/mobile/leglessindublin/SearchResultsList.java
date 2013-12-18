@@ -26,7 +26,7 @@ import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
 public class SearchResultsList extends Activity {
-	
+
 	public static final String SELECTED_VENUE_ID = "dev.maynooth.mobile.leglessindublin.SELECTED_VENUE_ID";
 
 	/*
@@ -45,9 +45,9 @@ public class SearchResultsList extends Activity {
 
 			// get the clicked item ID
 			String listItemId = textViewItem.getTag().toString();
-			
+
 			Intent rateVenue = new Intent(context, VenueItemView.class);
-			
+
 			rateVenue.putExtra(SELECTED_VENUE_ID, listItemId);
 			startActivity(rateVenue);
 		}
@@ -55,13 +55,6 @@ public class SearchResultsList extends Activity {
 	}
 
 	private class SearchVenues extends AsyncTask<String, Void, List<Venue>> {
-
-		private Context ctx;
-
-		private SearchVenues(Context ctx) {
-			super();
-			this.ctx = ctx;
-		}
 
 		@Override
 		protected List<Venue> doInBackground(String... searchArgs) {
@@ -208,7 +201,7 @@ public class SearchResultsList extends Activity {
 		} else {
 			cachedLocation = location;
 			cachedVenueType = venueType;
-			new SearchVenues(this).execute(responses);
+			new SearchVenues().execute(responses);
 		}
 	}
 
