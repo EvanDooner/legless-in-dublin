@@ -1,6 +1,5 @@
 package dev.maynooth.mobile.leglessindublin.datastore;
 
-//import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,13 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 /**
- * Legless in Dublin database access helper class. Defines the basic CRUD
- * operations for the Legless in Dublin app, and gives the ability to list all
- * venues and ratings as well as retrieve or modify a specific entry.
+ * This class opens, returns and closes an SQLite database.
+ * 
+ * @author Evan Dooner, 12262480
+ * @author Dennis Muldoon, 12260550
+ * 
+ * @version 2013-12-08-00
+ * 
  */
 public class LeglessDbAdapter {
 
-	// Local implementation of the SQLiteOpenHelper class
+	// Local implementation of the SQLiteAssetHelper class
 	private static class DatabaseHelper extends SQLiteAssetHelper {
 		
 		private static final String DATABASE_NAME = "legless";
@@ -41,10 +44,19 @@ public class LeglessDbAdapter {
 		this.mCtx = ctx;
 	}
 
+	/**
+	 * Closes the SQLite database
+	 */
 	public void close() {
 		mDbHelper.close();
 	}
 
+	/**
+	 * Returns an SQLite database
+	 * 
+	 * @return mDb
+	 * 			- an SqliteDatabase
+	 */
 	public SQLiteDatabase getDbConnect() {
 		return mDb;
 	}
