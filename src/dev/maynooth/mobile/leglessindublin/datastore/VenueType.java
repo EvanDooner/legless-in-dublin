@@ -7,6 +7,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * Represents a database model of a venue type.
+ * <p>
+ * As valid venue types are read from the database, this class cannot be
+ * instantiated normally. Instead, use static fetch methods to get the valid
+ * venue types.
+ * 
+ * @author Evan Dooner, 12262480
+ * @author Dennis Muldoon, 12260550
+ * 
+ * @version 2013-12-08-00
+ */
 public class VenueType {
 
 	/**
@@ -111,6 +123,12 @@ public class VenueType {
 		return mCursor.getInt(0);
 	}
 
+	/**
+	 * Returns the name of the venue type table in the database.
+	 * 
+	 * @return VENUE_TYPE_TABLE
+	 * 						- a String - the name of the venue type table in the database.
+	 */
 	public static String getTableName() {
 		return VENUE_TYPE_TABLE;
 	}
@@ -141,14 +159,32 @@ public class VenueType {
 		this.venueType = venueType;
 	}
 
+	/**
+	 * Returns the database table row id of the venue type.
+	 * 
+	 * @return rowId
+	 * 				- an int - the database table row id of the venue type.
+	 */
 	public int getRowId() {
 		return rowId;
 	}
 
+	/**
+	 * Returns the name of a venue type.
+	 * 
+	 * @return venueType
+	 * 				- a String - the name of a venue type.
+	 */
 	public String getVenueType() {
 		return venueType;
 	}
 
+	/**
+	 * Sets the name of a venue type.
+	 * 
+	 * @param venueType
+	 * 				- a String - the name of a venue type.
+	 */
 	public void setVenueType(String venueType) {
 		this.venueType = venueType;
 	}
