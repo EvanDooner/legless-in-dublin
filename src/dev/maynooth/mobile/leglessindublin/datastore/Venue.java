@@ -10,7 +10,9 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Represents a database model of a venue.
  * 
- * @author Evan Dooner
+ * @author Evan Dooner, 12262480
+ * @author Dennis Muldoon, 12260550
+ * 
  * @version 2013-11-25-00
  */
 public class Venue implements Model {
@@ -134,10 +136,19 @@ public class Venue implements Model {
 	}
 
 	/**
-	 * Location first, venue type second
+	 * Returns the number of venues that have the specified location and venue type.
+	 * <p>
+	 * <ul>
+	 * <li><code>selectionArgs[0]</code> should contain required location id</li>
+	 * <li><code>selectionArgs[1]</code> should contain required veueType id</li>
+	 * </ul>
+	 * 
 	 * @param dbConnect
+	 *            an SQLiteDatabase - the database in which to search
 	 * @param selectionArgs
-	 * @return
+	 *            strings - the location and venue type to match against
+	 * @return count
+	 * 				- an int - the number of venues that have the specified location and venue type
 	 */
 	public static int findCountByLocationAndVenueType(SQLiteDatabase dbConnect,
 			String[] selectionArgs) {
@@ -161,6 +172,11 @@ public class Venue implements Model {
 
 	}
 
+	/**
+	 * Returns the name of the Venue table in the database.
+	 * @return VENUE_TABLE
+	 * 					- a String - the name of the Venue table in the database.
+	 */
 	public static String getTableName() {
 		return VENUE_TABLE;
 	}
@@ -198,7 +214,7 @@ public class Venue implements Model {
 	 * Returns a page of venues.
 	 * <p>
 	 * The page number and the number of venues per page can be specified, along
-	 * with the column on which the list if ordered.
+	 * with the column on which the list is ordered.
 	 * 
 	 * @param pageNumber
 	 *            an int - the number of the page to retrieve - 0 indexed
@@ -347,6 +363,16 @@ public class Venue implements Model {
 
 	private int numRatings;
 
+	/**
+	 * Constructs a venue object.
+	 * 
+	 * @param name
+	 * 			a String - the name of the venue.
+	 * @param location
+	 * 			an int - the location id of the venue.
+	 * @param venueType
+	 * 			an int - the venue type id of the venue.
+	 */
 	public Venue(String name, int location, int venueType) {
 		this.name = name;
 		this.locationId = location;
@@ -369,95 +395,161 @@ public class Venue implements Model {
 	}
 
 	/**
-	 * @return the approach
+	 * Returns the Approach rating of a venue.
+	 * 
+	 * @return approach
+	 * 				- a double - the Approach rating of a venue.
 	 */
 	public double getApproach() {
 		return approach;
 	}
 
 	/**
-	 * @return the bathrooms
+	 * Returns the Bathrooms rating of a venue.
+	 * 
+	 * @return bathrooms
+	 * 				- a double - the Bathrooms rating of a venue.
 	 */
 	public double getBathrooms() {
 		return bathrooms;
 	}
 
 	/**
-	 * @return the doors
+	 * Returns the Doors rating of a venue.
+	 * 
+	 * @return doors
+	 * 				- a double - the Doors rating of a venue.
 	 */
 	public double getDoors() {
 		return doors;
 	}
 
 	/**
-	 * @return the flooring
+	 * Returns the Flooring rating of a venue.
+	 * 
+	 * @return flooring
+	 * 				- a double - the Flooring rating of a venue.
 	 */
 	public double getFlooring() {
 		return flooring;
 	}
 
 	/**
-	 * @return the layout
+	 * Returns the Layout rating of a venue.
+	 * 
+	 * @return layout
+	 * 				- a double - the Layout rating of a venue.
 	 */
 	public double getLayout() {
 		return layout;
 	}
 
 	/**
-	 * @return the lifts
+	 * Returns the Lifts rating of a venue.
+	 * 
+	 * @return lifts
+	 * 				- a double - the Lifts rating of a venue.
 	 */
 	public double getLifts() {
 		return lifts;
 	}
 
+	/**
+	 * Returns the Location id of a venue.
+	 * 
+	 * @return locationId
+	 * 				- an int - the Location id of a venue.
+	 */
 	public int getLocationId() {
 		return locationId;
 	}
 
+	/**
+	 * Returns the name of a venue.
+	 * 
+	 * @return name
+	 * 				- a String - the name of a venue.
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @return the numRatings
+	 * Returns the number of ratings of a venue.
+	 * 
+	 * @return numRatings
+	 * 				- an int - the number of ratings of a venue.
 	 */
 	public int getNumRatings() {
 		return numRatings;
 	}
 
 	/**
-	 * @return the parking
+	 * Returns the Parking rating of a venue.
+	 * 
+	 * @return parking
+	 * 				- a double - the Parking rating of a venue.
 	 */
 	public double getParking() {
 		return parking;
 	}
 
+	/**
+	 * Returns the database row id of a venue.
+	 * 
+	 * @return rowId
+	 * 				- an int - the database row id of a venue.
+	 */
 	public int getRowId() {
 		return rowId;
 	}
 
 	/**
-	 * @return the staff
+	 * Returns the Staff rating of a venue.
+	 * 
+	 * @return staff
+	 * 				- a double - the Staff rating of a venue.
 	 */
 	public double getStaff() {
 		return staff;
 	}
 
 	/**
-	 * @return the steps
+	 * Returns the Steps rating of a venue.
+	 * 
+	 * @return steps
+	 * 				- a double - the Steps rating of a venue.
 	 */
 	public double getSteps() {
 		return steps;
 	}
 
+	/**
+	 * Returns the Street Name of a venue.
+	 * 
+	 * @return streetName
+	 * 				- a String - the Street Name of a venue.
+	 */
 	public String getStreetName() {
 		return streetName;
 	}
 
+	/**
+	 * Returns the total rating of a venue.
+	 * 
+	 * @return totalRating
+	 * 				- a double - the total rating of a venue.
+	 */
 	public double getTotalRating() {
 		return totalRating;
 	}
 
+	/**
+	 * Returns the venue type id of a venue.
+	 * 
+	 * @return venueTypeId
+	 * 				- an int - the venue type id of a venue.
+	 */
 	public int getVenueTypeId() {
 		return venueTypeId;
 	}
@@ -488,109 +580,171 @@ public class Venue implements Model {
 	}
 
 	/**
+	 * Sets the Approach rating for a venue.
+	 * 
 	 * @param approach
-	 *            the approach to set
+	 *            - a double - the Approach rating for a venue.
 	 */
 	public void setApproach(double approach) {
 		this.approach = approach;
 	}
 
 	/**
+	 * Sets the Bathrooms rating for a venue.
+	 * 
 	 * @param bathrooms
-	 *            the bathrooms to set
+	 *            - a double - the Bathrooms rating for a venue.
 	 */
 	public void setBathrooms(double bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
 	/**
+	 * Sets the Doors rating for a venue.
+	 * 
 	 * @param doors
-	 *            the doors to set
+	 *            - a double - the Doors rating for a venue.
 	 */
 	public void setDoors(double doors) {
 		this.doors = doors;
 	}
 
 	/**
+	 * Sets the Flooring rating for a venue.
+	 * 
 	 * @param flooring
-	 *            the flooring to set
+	 *            - a double - the Flooring rating for a venue.
 	 */
 	public void setFlooring(double flooring) {
 		this.flooring = flooring;
 	}
 
 	/**
+	 * Sets the Layout rating for a venue.
+	 * 
 	 * @param layout
-	 *            the layout to set
+	 *            - a double - the Layout rating for a venue.
 	 */
 	public void setLayout(double layout) {
 		this.layout = layout;
 	}
 
 	/**
+	 * Sets the Lifts rating for a venue.
+	 * 
 	 * @param lifts
-	 *            the lifts to set
+	 *            - a double - the Lifts rating for a venue.
 	 */
 	public void setLifts(double lifts) {
 		this.lifts = lifts;
 	}
 
+	/**
+	 * Sets the location for a venue.
+	 * 
+	 * @param location
+	 *            - a location - the Location for a venue.
+	 */
 	public void setLocation(Location location) {
 		this.locationId = location.getRowId();
 	}
 
+	/**
+	 * Sets the location id for a venue.
+	 * 
+	 * @param location
+	 *            - a Location - the location for a venue.
+	 */
 	public void setLocationId(int location) {
 		this.locationId = location;
 	}
 
+	/**
+	 * Sets the name for a venue.
+	 * 
+	 * @param name
+	 *            - a String - the name for a venue.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
+	 * Sets the number of ratings for a venue.
+	 * 
 	 * @param numRatings
-	 *            the numRatings to set
+	 *            - an int - the number of ratings for a venue.
 	 */
 	public void setNumRatings(int numRatings) {
 		this.numRatings = numRatings;
 	}
 
 	/**
+	 * Sets the Parking rating for a venue.
+	 * 
 	 * @param parking
-	 *            the parking to set
+	 *            - a double - the Parking rating for a venue.
 	 */
 	public void setParking(double parking) {
 		this.parking = parking;
 	}
 
 	/**
+	 * Sets the Staff rating for a venue.
+	 * 
 	 * @param staff
-	 *            the staff to set
+	 *            - a double - the Staff rating for a venue.
 	 */
 	public void setStaff(double staff) {
 		this.staff = staff;
 	}
 
 	/**
+	 * Sets the Steps rating for a venue.
+	 * 
 	 * @param steps
-	 *            the steps to set
+	 *            - a double - the Steps rating for a venue.
 	 */
 	public void setSteps(double steps) {
 		this.steps = steps;
 	}
 
+	/**
+	 * Sets the street name for a venue.
+	 * 
+	 * @param addressLine1
+	 *            - a String - the street name for a venue.
+	 */
 	public void setStreetName(String addressLine1) {
 		this.streetName = addressLine1;
 	}
 
+	/**
+	 * Sets the total rating for a venue.
+	 * 
+	 * @param totalRating
+	 *            - an int - the total rating for a venue.
+	 */
 	public void setTotalRating(int totalRating) {
 		this.totalRating = totalRating;
 	}
 
+	/**
+	 * Sets the venue type for a venue.
+	 * 
+	 * @param venueType
+	 *            - a VenueType - the venue type for a venue.
+	 */
 	public void setVenueType(VenueType venueType) {
 		this.venueTypeId = venueType.getRowId();
 	}
 
+	/**
+	 * Sets the venue type id for a venue.
+	 * 
+	 * @param venueType
+	 *            - an int - the venue type id for a venue.
+	 */
 	public void setVenueTypeId(int venueType) {
 		this.venueTypeId = venueType;
 	}
@@ -628,6 +782,12 @@ public class Venue implements Model {
 				new String[] { "" + this.rowId });
 	}
 
+	/**
+	 * Updates the average ratings for a venue.
+	 * 
+	 * @param dbConnect
+	 * 				- an SQLiteDatabase - the database that includes the rating table
+	 */
 	public void updateAverageRatings(SQLiteDatabase dbConnect) {
 		List<Rating> ratings = Rating.findByVenueId(this.rowId, dbConnect);
 		int numberOfRatings = ratings.size();
