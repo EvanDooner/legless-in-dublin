@@ -11,20 +11,34 @@ import android.os.AsyncTask;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Location;
 
+/**
+ * Fetches all locations from the database and returns them
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class LocationFetcher extends AsyncTask<Void, Void, List<Location>> {
 
-	/**
-	 * 
-	 */
 	private final Context ctx;
 
 	/**
-	 * @param mainMenu
+	 * Constructs a new LocationFetcher in the specified context
+	 * 
+	 * @param context
+	 *            - the context in which to set the locationFetcher
 	 */
 	public LocationFetcher(Context context) {
 		this.ctx = context;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Fetches all the location records from the database and formats their
+	 * location string to title case
+	 * 
+	 * @see android.os.AsyncTask#doInBackground(Params[])
+	 */
 	@Override
 	protected List<Location> doInBackground(Void... params) {
 		LeglessDbAdapter dbAdapter = new LeglessDbAdapter(ctx);

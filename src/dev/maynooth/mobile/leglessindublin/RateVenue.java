@@ -16,6 +16,13 @@ import dev.maynooth.mobile.leglessindublin.asynctasks.VenueFetcher;
 import dev.maynooth.mobile.leglessindublin.datastore.Rating;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
+/**
+ * Displays the rate venue page, which allows the user to rate the selected
+ * venue
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class RateVenue extends Activity {
 
 	private Venue selectedVenue;
@@ -37,6 +44,15 @@ public class RateVenue extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	/**
+	 * Extracts the current value of each rating bar, creates a new rating, and
+	 * saves it to the database.
+	 * <p>
+	 * The user is then forwarded to the Thank You splash screen
+	 * 
+	 * @param view
+	 *            - the Submit rating button
+	 */
 	public void submitRating(View view) {
 
 		double numOfCategories = 9.0;
@@ -84,6 +100,8 @@ public class RateVenue extends Activity {
 		userRating.setParking(parking);
 		userRating.setSubTotal(totalRating);
 
+		// Anonymous class extends NewRatingInserter to add custom toast and
+		// forward user to Thank You screen
 		new NewRatingInserter(this) {
 
 			/*
@@ -118,10 +136,13 @@ public class RateVenue extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 
+		// Get venue Id from forwarded intent
 		Intent receivedIntent = getIntent();
 		String venueId = receivedIntent
 				.getStringExtra(SearchResultsList.SELECTED_VENUE_ID);
 
+		// Anonymous class extending VenueFetcher that fetches the venue from
+		// the db and fills the UI with its details
 		new VenueFetcher(this) {
 
 			/*
@@ -138,13 +159,11 @@ public class RateVenue extends Activity {
 		}.execute(venueId);
 	}
 
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// // Inflate the menu; this adds items to the action bar if it is present.
-	// getMenuInflater().inflate(R.menu.rate_venue, menu);
-	// return true;
-	// }
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Fills in the UI elements with the details of the provided venue
+	 */
 	private void fillInfo() {
 
 		// Fill info header

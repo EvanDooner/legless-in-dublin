@@ -25,15 +25,24 @@ import android.widget.TextView;
 import dev.maynooth.mobile.leglessindublin.datastore.LeglessDbAdapter;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
+/**
+ * Displays the results of the user's search
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class SearchResultsList extends Activity {
 
 	public static final String SELECTED_VENUE_ID = "dev.maynooth.mobile.leglessindublin.SELECTED_VENUE_ID";
 
 	/*
-	 * Here you can control what to do next when the user selects an item
+	 * Listener to launch the details view for a selected venue
 	 */
 	private class ResultsListOnItemClickListener implements OnItemClickListener {
-		// TODO
+
+		/**
+		 * Forwards the user to the selected venue's view page
+		 */
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
@@ -46,14 +55,21 @@ public class SearchResultsList extends Activity {
 			// get the clicked item ID
 			String listItemId = textViewItem.getTag().toString();
 
-			Intent rateVenue = new Intent(context, VenueItemView.class);
+			Intent viewVenue = new Intent(context, VenueItemView.class);
 
-			rateVenue.putExtra(SELECTED_VENUE_ID, listItemId);
-			startActivity(rateVenue);
+			viewVenue.putExtra(SELECTED_VENUE_ID, listItemId);
+			startActivity(viewVenue);
 		}
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Searches for venues that have the user-specified location and venue type
+	 * 
+	 * Returns the venue to fill the ListView
+	 */
 	private class SearchVenues extends AsyncTask<String, Void, List<Venue>> {
 
 		@Override
@@ -81,6 +97,11 @@ public class SearchResultsList extends Activity {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Custom ArrayAdapter to insert venues into the ListView
+	 */
 	private class VenueArrayAdapter extends ArrayAdapter<Venue> {
 
 		private Context mContext;
@@ -113,37 +134,51 @@ public class SearchResultsList extends Activity {
 			// object item based on the position
 			Venue currentVenue = venues.get(position);
 
-			// get the TextView and then set the text (item name) and tag (item
+			// get the TextView and then set the text (venue name) and tag
+			// (venue
 			// ID) values
 			TextView textViewName = (TextView) convertView
 					.findViewById(R.id.resultName);
 			textViewName.setText(currentVenue.getName());
 			textViewName.setTag(currentVenue.getRowId());
 
+			// Set the venue's rating
 			RatingBar stars = (RatingBar) convertView
 					.findViewById(R.id.venueRatingBar);
 			Log.d("legless", "Current venue: " + currentVenue.getName()
 					+ " rated: " + currentVenue.getTotalRating());
 			stars.setRating((float) (currentVenue.getTotalRating()));
 
+			// Set the venue's street name
 			TextView textViewStreet = (TextView) convertView
 					.findViewById(R.id.resultStreetName);
 			textViewStreet.setText(currentVenue.getStreetName());
 
+			// Set the number of ratings
 			TextView textViewNumRatings = (TextView) convertView
 					.findViewById(R.id.resultNumRatings);
 			textViewNumRatings.setText("Ratings: "
 					+ currentVenue.getNumRatings());
 
-			return convertView;
+			return convertView; // return the view for reuse
 		}
 
 	}
 
+	/*
+	 * Cached values to minimize database transactions
+	 */
 	private String cachedLocation;
 	private String cachedVenueType;
 	private List<Venue> cachedVenues;
 
+	/**
+	 * Starts the AddNewVenue activity when the user clicks on the Add New Venue
+	 * button
+	 * 
+	 * @param view
+	 *            - the Add New Venue button
+	 */
 	public void addNewVenue(View view) {
 		Intent addNewVenueMenu = new Intent(this, AddNewVenue.class);
 		startActivity(addNewVenueMenu);
@@ -166,13 +201,6 @@ public class SearchResultsList extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// // Inflate the menu; this adds items to the action bar if it is present.
-	// getMenuInflater().inflate(R.menu.search_results_list, menu);
-	// return true;
-	// }
-
 	@Override
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 	protected void onCreate(Bundle savedInstanceState) {
@@ -184,6 +212,7 @@ public class SearchResultsList extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 
+		// Get the search parameters included in the forwarded intent
 		Intent intent = getIntent();
 		final String venueType = intent
 				.getStringExtra(MainMenu.SEARCH_VENUE_TYPE);
@@ -198,14 +227,21 @@ public class SearchResultsList extends Activity {
 						&& location.equals(cachedLocation) && venueType
 							.equals(cachedVenueType))
 				|| (location == null || venueType == null)) {
-			fillListView(cachedVenues);
+			fillListView(cachedVenues); // Cached values match new search, reuse
+										// them
 		} else {
-			cachedLocation = location;
-			cachedVenueType = venueType;
-			new SearchVenues().execute(responses);
+			cachedLocation = location; // New search parameters
+			cachedVenueType = venueType; // Cache for next time
+			new SearchVenues().execute(responses); // Perform new search
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Fills the ListView with venues using a custom adapter. Sets a custom
+	 * onClick listener for each item
+	 */
 	private void fillListView(List<Venue> venues) {
 		VenueArrayAdapter adapter = new VenueArrayAdapter(this, R.layout.row,
 				venues);

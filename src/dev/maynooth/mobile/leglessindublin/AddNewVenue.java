@@ -22,58 +22,80 @@ import dev.maynooth.mobile.leglessindublin.datastore.Location;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
+/**
+ * Displays the add new venue page, which allows the user to create a new venue
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class AddNewVenue extends Activity {
 
 	private List<Location> locations;
 
 	private List<VenueType> venueTypes;
 
+	/**
+	 * On button press, extracts the details from the edit boxes and spinners,
+	 * creates a new venue, and saves it to the database.
+	 * <p>
+	 * The user is notified that the venue has been saved and is then forwarded
+	 * to the search results page. The search results page displays the results
+	 * for the same location and venue type as the new venue, ensuring that it
+	 * is visible.
+	 * 
+	 * @param view
+	 *            - the Submit button
+	 */
 	public void addNewVenue(View view) {
-		
-		EditText nameET = (EditText)findViewById(R.id.etVenueName);
+
+		// Extract the venue details
+		EditText nameET = (EditText) findViewById(R.id.etVenueName);
 		String name = nameET.getEditableText().toString();
-		
-		Spinner venueTypeSpnr = (Spinner)findViewById(R.id.spinnerSetVenueType);
-		final int venueType = ((VenueType)venueTypeSpnr.getSelectedItem()).getRowId();
-		
-		EditText streetNameET = (EditText)findViewById(R.id.etStreetName);
+
+		Spinner venueTypeSpnr = (Spinner) findViewById(R.id.spinnerSetVenueType);
+		final int venueType = ((VenueType) venueTypeSpnr.getSelectedItem())
+				.getRowId();
+
+		EditText streetNameET = (EditText) findViewById(R.id.etStreetName);
 		String streetName = streetNameET.getEditableText().toString();
-		
-		Spinner locationSpnr = (Spinner)findViewById(R.id.spinnerSetLocation);
-		final int location = ((Location)locationSpnr.getSelectedItem()).getRowId();
-		
+
+		Spinner locationSpnr = (Spinner) findViewById(R.id.spinnerSetLocation);
+		final int location = ((Location) locationSpnr.getSelectedItem())
+				.getRowId();
+
+		// Create a new venue with the input details
 		Venue newVenue = new Venue(name, location, venueType);
 		newVenue.setStreetName(streetName);
-		
-		new NewVenueInserter(this){
 
-			/* (non-Javadoc)
+		// Anonymous class extending NewVenueInserter, which saves the new venue
+		// to the database, informs the user that it has been saved, and returns
+		// the user to the search results page
+		new NewVenueInserter(this) {
+
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 			 */
 			@Override
 			protected void onPostExecute(Void result) {
-				
-				Toast.makeText(getApplicationContext(), "Venue saved", Toast.LENGTH_SHORT).show();
-				
-				Intent backToSearch = new Intent(ctx, SearchResultsList.class);
-				
-				backToSearch.putExtra(MainMenu.SEARCH_VENUE_TYPE, "" + venueType);
-				backToSearch.putExtra(MainMenu.SEARCH_LOCATION, "" + location);
-				
-				startActivity(backToSearch);
-				
-			}
-			
-		}.execute(newVenue);
-		
-	}
 
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// // Inflate the menu; this adds items to the action bar if it is present.
-	// getMenuInflater().inflate(R.menu.add_new_venue, menu);
-	// return true;
-	// }
+				Toast.makeText(getApplicationContext(), "Venue saved",
+						Toast.LENGTH_SHORT).show();
+
+				Intent backToSearch = new Intent(ctx, SearchResultsList.class);
+
+				backToSearch.putExtra(MainMenu.SEARCH_VENUE_TYPE, ""
+						+ venueType);
+				backToSearch.putExtra(MainMenu.SEARCH_LOCATION, "" + location);
+
+				startActivity(backToSearch);
+
+			}
+
+		}.execute(newVenue);
+
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -103,19 +125,20 @@ public class AddNewVenue extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 
-		populateSpinners();
+		populateSpinners(); // Populate spinner from db
 	}
 
 	/*
-	 * Adds choices to Venue Type and Location spinners Prefers cached values
+	 * (non-Javadoc)
+	 * 
+	 * Adds choices to Venue Type and Location spinners. Prefers cached values
 	 * over fetching from DB
 	 */
 	private void populateSpinners() {
 		if (locations != null) {
-			setLocationSpinner(locations);
+			setLocationSpinner(locations); // Use cached values if available
 		} else {
-			LocationFetcher fillLocSpinner = new LocationFetcher(
-					this) {
+			LocationFetcher fillLocSpinner = new LocationFetcher(this) {
 
 				/*
 				 * (non-Javadoc)
@@ -133,10 +156,9 @@ public class AddNewVenue extends Activity {
 		}
 
 		if (venueTypes != null) {
-			setVenueTypeSpinner(venueTypes);
+			setVenueTypeSpinner(venueTypes); // Use cached values if available
 		} else {
-			VenueTypeFetcher fillVTSpinner = new VenueTypeFetcher(
-					this) {
+			VenueTypeFetcher fillVTSpinner = new VenueTypeFetcher(this) {
 
 				/*
 				 * (non-Javadoc)
@@ -156,6 +178,8 @@ public class AddNewVenue extends Activity {
 	}
 
 	/*
+	 * (non-Javadoc)
+	 * 
 	 * Fills the location spinner with a list of locations
 	 */
 	private void setLocationSpinner(List<Location> locations) {
@@ -177,6 +201,8 @@ public class AddNewVenue extends Activity {
 	}
 
 	/*
+	 * (non-Javadoc)
+	 * 
 	 * Fills the venue type spinner with a list of venue types
 	 */
 	private void setVenueTypeSpinner(final List<VenueType> venueTypes) {

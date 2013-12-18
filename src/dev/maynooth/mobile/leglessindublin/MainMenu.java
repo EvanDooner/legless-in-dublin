@@ -22,12 +22,19 @@ import dev.maynooth.mobile.leglessindublin.datastore.Location;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 import dev.maynooth.mobile.leglessindublin.datastore.VenueType;
 
+/**
+ * Displays the application's main menu and search function
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class MainMenu extends Activity {
 
 	/**
 	 * Determines if results exist in the database for the specified query
 	 * 
-	 * @param String - usually two strings, location id and venue type id
+	 * @param String
+	 *            - usually two strings, location id and venue type id
 	 * @return Boolean - true if results are found; false otherwise
 	 */
 	private class SearchCounter extends AsyncTask<String, Void, Boolean> {
@@ -39,7 +46,8 @@ public class MainMenu extends Activity {
 		}
 
 		/**
-		 * Queries the database with the supplied search parameters, and determines if results exist
+		 * Queries the database with the supplied search parameters, and
+		 * determines if results exist
 		 */
 		@Override
 		protected Boolean doInBackground(String... searchArgs) {
@@ -60,8 +68,8 @@ public class MainMenu extends Activity {
 		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 		 */
 		/**
-		 * If results were found in #doInBackground(), forwards the search query to SearchResultsPage
-		 * otherwise displays a failure Toast
+		 * If results were found in #doInBackground(), forwards the search query
+		 * to SearchResultsPage otherwise displays a failure Toast
 		 */
 		@Override
 		protected void onPostExecute(Boolean result) {
@@ -102,10 +110,14 @@ public class MainMenu extends Activity {
 	private int backPressed = 0;
 
 	private Toast backTwiceReminder; // Member to allow toast to be cancelled
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see android.app.Activity#onBackPressed()
+	 */
+	/**
+	 * Exits the application when the user presses back twice
 	 */
 	@Override
 	public void onBackPressed() {
@@ -223,6 +235,8 @@ public class MainMenu extends Activity {
 	}
 
 	/*
+	 * (non-Javadoc)
+	 * 
 	 * Fills the location spinner with a list of locations
 	 */
 	private void setLocationSpinner(List<Location> locations) {
@@ -234,6 +248,8 @@ public class MainMenu extends Activity {
 	}
 
 	/*
+	 * (non-Javadoc)
+	 * 
 	 * Fills the venue type spinner with a list of venue types
 	 */
 	private void setVenueTypeSpinner(final List<VenueType> venueTypes) {

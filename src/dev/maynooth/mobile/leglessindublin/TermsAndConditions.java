@@ -9,6 +9,12 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * Displays the terms and conditions information.
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class TermsAndConditions extends Activity {
 
 	@Override
@@ -33,6 +39,12 @@ public class TermsAndConditions extends Activity {
 		}
 	}
 
+	/**
+	 * Forwards the user to the main view
+	 * 
+	 * @param view
+	 *            - the button that was pressed to trigger this method
+	 */
 	public void returnToMain(View view) {
 
 		// Intent redirects to terms and conditions page
@@ -41,13 +53,6 @@ public class TermsAndConditions extends Activity {
 		startActivity(intent);
 
 	}
-
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// // Inflate the menu; this adds items to the action bar if it is present.
-	// getMenuInflater().inflate(R.menu.terms, menu);
-	// return true;
-	// }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

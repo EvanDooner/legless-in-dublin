@@ -9,13 +9,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * Displays the Thank You splash screen after a user rates a venue.
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class ThankYouSplash extends Activity {
 
-	private static final int SPLASH_TIME_OUT = 3000;
+	private static final int SPLASH_TIME_OUT = 3000; // Time in milliseconds to
+														// display screen
 	private Context ctx;
 
-	// test update
-	// variable for splash screen sound
 	MediaPlayer splashSound;
 
 	// onCreate method
@@ -35,6 +40,7 @@ public class ThankYouSplash extends Activity {
 				.create(ThankYouSplash.this, R.raw.splashsound);
 		splashSound.start();
 
+		// Forward user to Main menu after delay
 		new Handler().postDelayed(new Runnable() {
 
 			@Override
@@ -53,7 +59,6 @@ public class ThankYouSplash extends Activity {
 	// onPause method
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
 		super.onPause();
 		splashSound.release(); // kill sound
 		finish(); // kill splash screen

@@ -19,10 +19,24 @@ public class VenueFetcher extends AsyncTask<String, Void, Venue> {
 
 	protected Context ctx;
 
+	/**
+	 * Constructs a new venueFetcher in the specified context
+	 * 
+	 * @param context
+	 *            - the context in which to construct the venueFetcher
+	 */
 	public VenueFetcher(Context context) {
 		this.ctx = context;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Fetches a single venue from the database whose ID matches the input
+	 * string
+	 * 
+	 * @see android.os.AsyncTask#doInBackground(Params[])
+	 */
 	@Override
 	protected Venue doInBackground(String... params) {
 

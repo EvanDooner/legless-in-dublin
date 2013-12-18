@@ -1,6 +1,3 @@
-/**
- * 
- */
 package dev.maynooth.mobile.leglessindublin.asynctasks;
 
 import android.content.Context;
@@ -11,17 +8,33 @@ import dev.maynooth.mobile.leglessindublin.datastore.Rating;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
 /**
- * @author evan
+ * Inserts a new rating into the database
  * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
  */
 public class NewRatingInserter extends AsyncTask<Rating, Void, Void> {
 
 	protected Context ctx;
 
+	/**
+	 * Constructs a new newRatingInserter in the specified context
+	 * 
+	 * @param context
+	 *            - the context in which to place the newRatingInserter
+	 */
 	public NewRatingInserter(Context context) {
 		this.ctx = context;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Inserts a single rating into the database. Updates the average ratings of
+	 * the related venue to reflect the new rating
+	 * 
+	 * @see android.os.AsyncTask#doInBackground(Params[])
+	 */
 	@Override
 	protected Void doInBackground(Rating... params) {
 
@@ -31,7 +44,8 @@ public class NewRatingInserter extends AsyncTask<Rating, Void, Void> {
 		SQLiteDatabase dbConnect = dbAdapter.getDbConnect();
 		try {
 			newRating.save(dbConnect);
-			Venue ratedVenue = Venue.findById(newRating.getVenueId(), dbConnect);
+			Venue ratedVenue = Venue
+					.findById(newRating.getVenueId(), dbConnect);
 			ratedVenue.updateAverageRatings(dbConnect);
 			ratedVenue.update(dbConnect);
 		} finally {

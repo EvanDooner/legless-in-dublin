@@ -14,16 +14,15 @@ import android.widget.Toast;
 import dev.maynooth.mobile.leglessindublin.asynctasks.VenueFetcher;
 import dev.maynooth.mobile.leglessindublin.datastore.Venue;
 
+/**
+ * Displays the details of a single venue
+ * 
+ * @author Evan Dooner, 12262480
+ * @version 2013-12-18-00
+ */
 public class VenueItemView extends Activity {
 
 	private Venue selectedVenue;
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.venue_item_view, menu);
-//		return true;
-//	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -42,6 +41,12 @@ public class VenueItemView extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	/**
+	 * Forwards the user to the rating page for this venue
+	 * 
+	 * @param view
+	 *            a view - the button that was pressed to trigger this method
+	 */
 	public void rateVenue(View view) {
 
 		if (selectedVenue == null) {
@@ -58,6 +63,7 @@ public class VenueItemView extends Activity {
 
 	@Override
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+	// Sets the Holo theme if it is supported
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -71,6 +77,7 @@ public class VenueItemView extends Activity {
 		String venueId = receivedIntent
 				.getStringExtra(SearchResultsList.SELECTED_VENUE_ID);
 
+		// Fetched a venue and uses it to fill in the UI
 		new VenueFetcher(this) {
 
 			/*
@@ -80,13 +87,18 @@ public class VenueItemView extends Activity {
 			 */
 			@Override
 			protected void onPostExecute(Venue result) {
-				selectedVenue = result;
+				selectedVenue = result; // Cache venue for reuse
 				fillInfo();
 			}
 
 		}.execute(venueId);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Fills the UI elements using a supplied venue
+	 */
 	private void fillInfo() {
 
 		// Fill info header
