@@ -720,16 +720,6 @@ public class Venue implements Model {
 	}
 
 	/**
-	 * Sets the total rating for a venue.
-	 * 
-	 * @param totalRating
-	 *            - an int - the total rating for a venue.
-	 */
-	public void setTotalRating(int totalRating) {
-		this.totalRating = totalRating;
-	}
-
-	/**
 	 * Sets the venue type for a venue.
 	 * 
 	 * @param venueType
