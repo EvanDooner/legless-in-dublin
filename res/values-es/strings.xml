@@ -3,7 +3,6 @@
 
     <string name="app_name">Sin piernas en Dublín</string>
     <string name="placeHolder">texto del marcador</string>
-    <string name="action_settings">Ajustes</string>
     <string name="title_activity_search_results_list">Resultados de la búsqueda</string>
     <string name="title_activity_rate_venue">Cambio Lugar</string>
     <string name="title_activity_add_new_venue">Crear Nuevo Lugar</string>
@@ -14,7 +13,6 @@
     <string name="location">Dublín ubicaciones aquí</string>
     <string name="terms">Condiciones visible aquí</string>
     <string name="logoDescription">Sin piernas en Logo Dublín</string>
-    <string name="hello_world">¡Hola Mundo!</string>
     <string name="title_activity_splash_screen">Sin piernas en Dublín</string>
     <string name="resultsText">Resultados:</string>
     <string name="rateMe">Precio me</string>
@@ -27,12 +25,6 @@
     <string name="streetName">Nombre de la calle:</string>
     <string name="postalCode">Código postal</string>
     <string name="postalCodePrompt">Elige código postal&#8230;</string>
-    <string name="zero">0</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
     <string name="entrance">Entrada:</string>
     <string name="doors">Puertas:</string>
     <string name="flooring">Pisos:</string>
@@ -46,7 +38,6 @@
     <string name="thankyou2">Sin piernas en Dublín.</string>
     <string name="thankyou3">Tu calificación ayuda a los demás y</string>
     <string name="thankyou4">hace que nuestra aplicación más fuerte.</string>
-    <string name="detailedResultsText">Desglose de los resultados:</string>
     <string name="back">Espalda</string>
     <string name="terms1">Términos y Condiciones de Uso:</string>
     <string name="terms2">1. Las calificaciones expresadas en esta aplicación son una acumulación de los usuarios de aplicaciones individuals y no reflejan necesariamente los puntos de vista Sin piernas en Dublín.</string>

@@ -3,7 +3,6 @@
 
     <string name="app_name">Ohne Beine in Dublin</string>
     <string name="placeHolder">Platzhaltertext</string>
-    <string name="action_settings">Einstellungen</string>
     <string name="title_activity_search_results_list">Suchergebnisse</string>
     <string name="title_activity_rate_venue">Bewerten Veranstaltungsort</string>
     <string name="title_activity_add_new_venue">Neuer Veranstaltungsort hinzufügen</string>
@@ -14,7 +13,6 @@
     <string name="location">Dublin Standorte Hier</string>
     <string name="terms">AGB hier sichtbar</string>
     <string name="logoDescription">Ohne Beine in Dublin Logo</string>
-    <string name="hello_world">Hallo Welt!</string>
     <string name="title_activity_splash_screen">Ohne Beine in Dublin</string>
     <string name="resultsText">Ergebnisse:</string>
     <string name="rateMe">Ich bewerte</string>
@@ -27,12 +25,6 @@
     <string name="streetName">Straßenname:</string>
     <string name="postalCode">Postleitzahl</string>
     <string name="postalCodePrompt">Wählen Sie ein Postleitzahlen&#8230;</string>
-    <string name="zero">0</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
     <string name="entrance">Eintritt:</string>
     <string name="doors">Türen:</string>
     <string name="flooring">Bodenbelag:</string>
@@ -46,7 +38,6 @@
     <string name="thankyou2">Ohne Beine in Dublin.</string>
     <string name="thankyou3">Ihre Bewertung hilft anderen und</string>
     <string name="thankyou4">macht unsere App stärker.</string>
-    <string name="detailedResultsText">Aufschlüsselung der Ergebnisse:</string>
     <string name="back">Zurück</string>
     <string name="terms1">Allgemeine Bedingungen für die Verwendung:</string>
     <string name="terms2">1. Die Bewertungen in diesem App geäußert werden, eine Ansammlung von Ansichten der einzelnen App –Benutzer und spiegeln nicht unbedingt die Ansichten der Ohne Beine in Dublin.</string>
