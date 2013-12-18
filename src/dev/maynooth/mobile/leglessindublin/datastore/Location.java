@@ -14,6 +14,8 @@ import android.database.sqlite.SQLiteDatabase;
  * locations.
  * 
  * @author Evan Dooner, 12262480
+ * @author Dennis Muldoon, 12260550
+ * 
  * @version 2013-12-08-00
  */
 public class Location {
@@ -117,6 +119,11 @@ public class Location {
 		return results;
 	}
 
+	/**
+	 * Returns the name of the location table in the database.
+	 * 
+	 * @return a String - the name of the location table in the database.
+	 */
 	public static String getTableName() {
 		return LOCATION_TABLE;
 	}
@@ -159,14 +166,30 @@ public class Location {
 		this.location = location;
 	}
 
+	/**
+	 * Returns the name of a location.
+	 * 
+	 * @return a String - the name of a location.
+	 */
 	public String getLocation() {
 		return location;
 	}
 
+	/**
+	 * Returns the database rowId of a location.
+	 * 
+	 * @return an int - the database rowId of a location.
+	 */
 	public int getRowId() {
 		return rowId;
 	}
 
+	/**
+	 * Sets the name of a location.
+	 * 
+	 * @param location
+	 * 				 a String - the name of the location.
+	 */
 	public void setLocation(String location) {
 		this.location = location;
 	}
